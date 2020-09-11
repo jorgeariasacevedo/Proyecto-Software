@@ -1,15 +1,7 @@
-
 package UTIL;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-
-
+import java.sql.*;
 public class dbBean {
+  //Conexión: a través del ODBC
     String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=PRUEBASOFT";
     String dbDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private Connection dbCon;
@@ -36,9 +28,8 @@ public class dbBean {
         }
         return true;
      }
-    
 
-    
+
   public void close() throws SQLException{
         dbCon.close();
        }
@@ -58,4 +49,7 @@ public class dbBean {
 
 
     
+
+
+
 }

@@ -5,13 +5,13 @@ import BEAN.Cliente;
 import BEAN.Delivery;
 import BEAN.Producto;
 import BEAN.Repartidor;
-import BEAN.TipoPago;
+import BEAN.Tipo_pago;
 import BEAN.Vendedor;
 import DAO.ClienteDAO;
 import DAO.DeliveryDAO;
 import DAO.ProductoDAO;
 import DAO.RepartidorDAO;
-import DAO.TipoPagoDAO;
+import DAO.Tipo_pagoDAO;
 import DAO.VendedorDAO;
 import UTIL.util;
 import java.util.Vector;
@@ -25,7 +25,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     VendedorDAO venDao;
     RepartidorDAO repDao;
     DeliveryDAO delDao;
-    TipoPagoDAO tipDao;
+    Tipo_pagoDAO tipDao;
     
     DefaultTableModel dtmpro;
     
@@ -35,10 +35,10 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         venDao=new VendedorDAO();
         repDao=new RepartidorDAO();
         delDao=new DeliveryDAO();
-        tipDao=new TipoPagoDAO();
+        tipDao=new Tipo_pagoDAO();
         initComponents();
         
-        dtmpro = (DefaultTableModel)this.tblProducto.getModel(); 
+        dtmpro = (DefaultTableModel)this.tblproducto.getModel(); 
         llenaTblProducto(false, "");
     }
     
@@ -99,7 +99,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblproducto = new javax.swing.JTable();
         jTextField57 = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
         jTextField58 = new javax.swing.JTextField();
@@ -244,7 +244,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel17.add(jButton8);
         jButton8.setBounds(160, 20, 110, 40);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblproducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -252,7 +252,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
                 "idProducto", "Precio", "Cantidad", "Monto"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tblproducto);
 
         jPanel17.add(jScrollPane3);
         jScrollPane3.setBounds(20, 210, 240, 120);
@@ -370,7 +370,6 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
@@ -381,6 +380,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tblproducto;
     private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdireccionCli;
     private javax.swing.JTextField txtdniCli;

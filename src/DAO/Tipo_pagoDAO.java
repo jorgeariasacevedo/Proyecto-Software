@@ -16,7 +16,7 @@ public class Tipo_pagoDAO {
         String sql;
         sql = "select * from tipo_pago ";
         if(sw == true){
-            sql = sql + " where nombre_banco like '"+ cad +"%' or propietario like '"+ cad +"%'";
+            sql = sql + " where nombre like '"+ cad +"%' or propietario like '"+ cad +"%'";
         }
         try{
             ResultSet resuTipo = con.execSQL(sql);
@@ -46,7 +46,7 @@ public class Tipo_pagoDAO {
             sql = "insert into Tipo_pago values("+ Tipo.getId_pago() +", ";
             sql = sql + " '"+ Tipo.getNombre() +"', '"+ Tipo.getPropietario() +"', "+ Tipo.getNumero_cuenta() +" )";
         }else if(proc.equals("update")){
-            sql = "update Tipo_pago set nombre_banco = '"+ Tipo.getNombre() +"', ";
+            sql = "update Tipo_pago set nombre = '"+ Tipo.getNombre() +"', ";
             sql = sql + " propietario = '"+ Tipo.getPropietario() +"', numero_cuenta = "+ Tipo.getNumero_cuenta()+"";
             sql = sql + " where id_pago = "+ Tipo.getId_pago() +"";
         }

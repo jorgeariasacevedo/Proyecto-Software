@@ -1,10 +1,10 @@
-
 package UTIL;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class util {
+
     public util(){
 
     }
@@ -197,5 +197,6 @@ public class util {
             }catch(SQLException e){}
             return nR;
         }
+
 
 }
