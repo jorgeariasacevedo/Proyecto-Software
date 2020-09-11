@@ -242,17 +242,38 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
 
     
      private boolean valida(){
-        boolean sw = false;
-        if(this.txtdestino.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Debe registrar un destino");
-        }else{
-            if(this.txttipo.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "Debe registrar el tipo de delivery");
-            }else{
-                if(this.txtpreciocaja.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Debe registrar el precio de la caja");
-                }else{
-                   sw=true;
+        boolean sw=false;
+        if(this.txttipo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Debe registrar tipo de delivery");
+        } else{
+            if(this.txtdestino.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Debe registrar destino");
+            } else{
+                if(this.txtagencia.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe registrar agencia");
+                } else{
+                    if(this.txtprovincia.getText().isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Debe ingresar provincia");
+                    } else{
+                        if(this.txtdepartamento.getText().isEmpty()){
+                            JOptionPane.showMessageDialog(this, "Debe registrar departamento");
+                        } else{
+                            if(this.txtdistrito.getText().isEmpty() ){
+                                JOptionPane.showMessageDialog(this, "Debe registrar distrito");
+                            } else{
+                                try{
+                                    Integer.parseInt(this.txtpreciocaja.getText());
+                                        sw = true;
+                                    }
+                                
+                                catch(NumberFormatException e){
+                                    JOptionPane.showMessageDialog(this, "Debe registrar un dato numerico para el precio de la caja");
+                                            this.txtpreciocaja.setText("");
+                                            e.printStackTrace();
+                                                               }                         
+                                }
+                        }
+                    }
                 }
             }
         }
