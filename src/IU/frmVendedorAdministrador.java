@@ -40,11 +40,11 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(250, 180, 120, 32);
+        jButton1.setBounds(130, 150, 120, 32);
 
         jButton2.setText("Registrar Venta");
         getContentPane().add(jButton2);
-        jButton2.setBounds(250, 140, 120, 32);
+        jButton2.setBounds(130, 110, 120, 32);
 
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
