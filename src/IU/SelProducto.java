@@ -110,6 +110,7 @@ public class SelProducto extends javax.swing.JDialog {
         int i;
         i=this.tblProducto.getSelectedRow();
         this.pro.setIdProducto(dtm.getValueAt(i, 0).toString());
+        this.pro.setPreciounitario(Double.parseDouble(dtm.getValueAt(i, 6).toString()));
         this.dispose();
     }//GEN-LAST:event_tblProductoMouseClicked
 

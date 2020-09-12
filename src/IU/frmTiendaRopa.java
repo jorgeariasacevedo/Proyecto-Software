@@ -102,9 +102,9 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         tblMostrarProducto = new javax.swing.JTable();
         txtCodigoProducto = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        jTextField58 = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
-        jTextField59 = new javax.swing.JTextField();
+        txtCantidad = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
         jButton17 = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
@@ -278,15 +278,15 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel70.setText("Codigo");
         jPanel17.add(jLabel70);
         jLabel70.setBounds(10, 20, 60, 20);
-        jPanel17.add(jTextField58);
-        jTextField58.setBounds(80, 50, 50, 24);
+        jPanel17.add(txtPrecio);
+        txtPrecio.setBounds(80, 50, 50, 24);
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel71.setText("Precio");
         jPanel17.add(jLabel71);
         jLabel71.setBounds(10, 50, 60, 20);
-        jPanel17.add(jTextField59);
-        jTextField59.setBounds(80, 80, 50, 24);
+        jPanel17.add(txtCantidad);
+        txtCantidad.setBounds(80, 80, 50, 24);
 
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel72.setText("Cantidad");
@@ -378,6 +378,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
             this.txtCodigoProducto.setText("");
         }else{
             this.txtCodigoProducto.setText(String.valueOf(pro.getIdProducto()));
+            this.txtPrecio.setText(String.valueOf(pro.getPreciounitario()));
         }
     }//GEN-LAST:event_btnSeleccionarProductoActionPerformed
 
@@ -429,10 +430,10 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField58;
-    private javax.swing.JTextField jTextField59;
     private javax.swing.JTable tblMostrarProducto;
+    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigoProducto;
+    private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdireccionCli;
     private javax.swing.JTextField txtdniCli;
