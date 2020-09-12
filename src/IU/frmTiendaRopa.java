@@ -38,8 +38,8 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         tipDao=new Tipo_pagoDAO();
         initComponents();
         
-        dtmpro = (DefaultTableModel)this.tblproducto.getModel(); 
-        llenaTblProducto(false, "");
+        dtmpro = (DefaultTableModel)this.tblMostrarProducto.getModel(); 
+        //llenaTblProducto(false, "");
     }
     
     private void llenaTblProducto(boolean sw, String cad){
@@ -82,7 +82,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         txtid_vendedor = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        btnSeleccionarDelivery = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnpago = new javax.swing.JButton();
         txtid_pago = new javax.swing.JTextField();
@@ -97,10 +97,10 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnSeleccionarProducto = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblproducto = new javax.swing.JTable();
-        jTextField57 = new javax.swing.JTextField();
+        tblMostrarProducto = new javax.swing.JTable();
+        txtCodigoProducto = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
         jTextField58 = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
@@ -140,19 +140,19 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel3.add(jLabel5);
         jLabel5.setBounds(20, 110, 70, 20);
         jPanel3.add(txtdniCli);
-        txtdniCli.setBounds(90, 20, 90, 20);
+        txtdniCli.setBounds(90, 20, 90, 24);
         jPanel3.add(txtnombreCli);
-        txtnombreCli.setBounds(90, 50, 180, 20);
+        txtnombreCli.setBounds(90, 50, 180, 24);
         jPanel3.add(txtdireccionCli);
-        txtdireccionCli.setBounds(90, 80, 280, 20);
+        txtdireccionCli.setBounds(90, 80, 280, 24);
         jPanel3.add(txttelefonoCli);
-        txttelefonoCli.setBounds(90, 110, 90, 20);
+        txttelefonoCli.setBounds(90, 110, 90, 24);
         jPanel3.add(txtcorreoCli);
-        txtcorreoCli.setBounds(90, 140, 160, 20);
+        txtcorreoCli.setBounds(90, 140, 160, 24);
 
         jLabel8.setText("DATOS DEL CLIENTE");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 0, 130, 14);
+        jLabel8.setBounds(10, 0, 130, 16);
 
         jButton2.setText("Seleccionar");
         jPanel3.add(jButton2);
@@ -182,16 +182,16 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel4.add(jButton1);
         jButton1.setBounds(240, 140, 150, 40);
         jPanel4.add(txtid_vendedor);
-        txtid_vendedor.setBounds(150, 30, 80, 20);
+        txtid_vendedor.setBounds(150, 30, 80, 24);
 
-        jButton4.setText("Seleccionar delivery");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionarDelivery.setText("Seleccionar delivery");
+        btnSeleccionarDelivery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnSeleccionarDeliveryActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton4);
-        jButton4.setBounds(240, 100, 150, 40);
+        jPanel4.add(btnSeleccionarDelivery);
+        btnSeleccionarDelivery.setBounds(240, 100, 150, 40);
 
         jButton5.setText("Vendedor");
         jPanel4.add(jButton5);
@@ -206,11 +206,11 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel4.add(btnpago);
         btnpago.setBounds(240, 60, 150, 40);
         jPanel4.add(txtid_pago);
-        txtid_pago.setBounds(150, 70, 80, 20);
+        txtid_pago.setBounds(150, 70, 80, 24);
         jPanel4.add(txtid_delivery);
-        txtid_delivery.setBounds(150, 110, 80, 20);
+        txtid_delivery.setBounds(150, 110, 80, 24);
         jPanel4.add(jTextField10);
-        jTextField10.setBounds(150, 150, 80, 20);
+        jTextField10.setBounds(150, 150, 80, 24);
 
         jLabel11.setText("Codigo del vendedor");
         jPanel4.add(jLabel11);
@@ -226,11 +226,11 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
         jLabel69.setText("DATOS DEL PEDIDO");
         jPanel4.add(jLabel69);
-        jLabel69.setBounds(10, 0, 190, 14);
+        jLabel69.setBounds(10, 0, 190, 16);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(jComboBox1);
-        jComboBox1.setBounds(150, 30, 56, 20);
+        jComboBox1.setBounds(150, 30, 65, 26);
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(10, 200, 400, 190);
@@ -239,7 +239,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
         jLabel7.setText("PRODUCTOS PEDIDOS");
         jPanel17.add(jLabel7);
-        jLabel7.setBounds(10, 0, 190, 14);
+        jLabel7.setBounds(10, 0, 190, 16);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
@@ -250,11 +250,16 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel17.add(jButton3);
         jButton3.setBounds(160, 370, 110, 40);
 
-        jButton8.setText("Seleccionar");
-        jPanel17.add(jButton8);
-        jButton8.setBounds(160, 20, 110, 40);
+        btnSeleccionarProducto.setText("Seleccionar");
+        btnSeleccionarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarProductoActionPerformed(evt);
+            }
+        });
+        jPanel17.add(btnSeleccionarProducto);
+        btnSeleccionarProducto.setBounds(160, 20, 110, 40);
 
-        tblproducto.setModel(new javax.swing.table.DefaultTableModel(
+        tblMostrarProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -262,26 +267,26 @@ public class frmTiendaRopa extends javax.swing.JFrame {
                 "idProducto", "Precio", "Cantidad", "Monto"
             }
         ));
-        jScrollPane3.setViewportView(tblproducto);
+        jScrollPane3.setViewportView(tblMostrarProducto);
 
         jPanel17.add(jScrollPane3);
         jScrollPane3.setBounds(20, 210, 240, 120);
-        jPanel17.add(jTextField57);
-        jTextField57.setBounds(80, 20, 70, 20);
+        jPanel17.add(txtCodigoProducto);
+        txtCodigoProducto.setBounds(80, 20, 70, 24);
 
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel70.setText("Codigo");
         jPanel17.add(jLabel70);
         jLabel70.setBounds(10, 20, 60, 20);
         jPanel17.add(jTextField58);
-        jTextField58.setBounds(80, 50, 50, 20);
+        jTextField58.setBounds(80, 50, 50, 24);
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel71.setText("Precio");
         jPanel17.add(jLabel71);
         jLabel71.setBounds(10, 50, 60, 20);
         jPanel17.add(jTextField59);
-        jTextField59.setBounds(80, 80, 50, 20);
+        jTextField59.setBounds(80, 80, 50, 24);
 
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel72.setText("Cantidad");
@@ -297,11 +302,11 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel17.add(jLabel54);
         jLabel54.setBounds(-20, 410, 120, 20);
         jPanel17.add(jTextField53);
-        jTextField53.setBounds(100, 350, 50, 20);
+        jTextField53.setBounds(100, 350, 50, 24);
         jPanel17.add(jTextField54);
-        jTextField54.setBounds(100, 410, 50, 20);
+        jTextField54.setBounds(100, 410, 50, 24);
         jPanel17.add(jTextField55);
-        jTextField55.setBounds(100, 380, 50, 20);
+        jTextField55.setBounds(100, 380, 50, 24);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
@@ -351,7 +356,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnpagoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnSeleccionarDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarDeliveryActionPerformed
         Delivery Deli =new Delivery();
         SelDelivery dialog = new SelDelivery(new javax.swing.JFrame(),true);
         dialog.setVisible(true);
@@ -359,13 +364,22 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         
         if (Deli == null){
             this.txtid_delivery.setText("");
-           
         }else{
             this.txtid_delivery.setText(String.valueOf(Deli.getId_delivery()));
-           
-            
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnSeleccionarDeliveryActionPerformed
+
+    private void btnSeleccionarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProductoActionPerformed
+        Producto pro =new Producto();
+        SelProducto dialog = new SelProducto(new javax.swing.JFrame(),true);
+        dialog.setVisible(true);
+        pro= dialog.getDeli();
+        if (pro == null){
+            this.txtCodigoProducto.setText("");
+        }else{
+            this.txtCodigoProducto.setText(String.valueOf(pro.getIdProducto()));
+        }
+    }//GEN-LAST:event_btnSeleccionarProductoActionPerformed
 
     public static void main(String args[]) {
 
@@ -378,14 +392,14 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarCliente;
+    private javax.swing.JButton btnSeleccionarDelivery;
+    private javax.swing.JButton btnSeleccionarProducto;
     private javax.swing.JButton btnpago;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -415,10 +429,10 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField57;
     private javax.swing.JTextField jTextField58;
     private javax.swing.JTextField jTextField59;
-    private javax.swing.JTable tblproducto;
+    private javax.swing.JTable tblMostrarProducto;
+    private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdireccionCli;
     private javax.swing.JTextField txtdniCli;

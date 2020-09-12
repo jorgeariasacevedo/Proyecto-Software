@@ -47,12 +47,7 @@ public class SelDelivery extends javax.swing.JDialog {
      private void closeDialog(java.awt.event.WindowEvent evt) {                             
         setVisible(false);
         dispose();
- 
     }
-     
-     
-     
-     
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

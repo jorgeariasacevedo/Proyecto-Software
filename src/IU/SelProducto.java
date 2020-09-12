@@ -42,6 +42,10 @@ public class SelProducto extends javax.swing.JDialog {
             this.dtm.addRow(vec);
         }   
     }
+    private void closeDialog(java.awt.event.WindowEvent evt) {                             
+        setVisible(false);
+        dispose();
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -76,6 +80,11 @@ public class SelProducto extends javax.swing.JDialog {
                 "IdProducto", "Modelo", "Tipo", "Detalle", "Color", "Talla", "PrecioUnitario", "Stock"
             }
         ));
+        tblProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProductoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblProducto);
 
         getContentPane().add(jScrollPane1);
@@ -97,34 +106,15 @@ public class SelProducto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtBuscarProductoKeyReleased
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SelProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SelProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SelProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SelProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void tblProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductoMouseClicked
+        int i;
+        i=this.tblProducto.getSelectedRow();
+        this.pro.setIdProducto(dtm.getValueAt(i, 0).toString());
+        this.dispose();
+    }//GEN-LAST:event_tblProductoMouseClicked
 
-        /* Create and display the dialog */
+    public static void main(String args[]) {
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 SelProducto dialog = new SelProducto(new javax.swing.JFrame(), true);
