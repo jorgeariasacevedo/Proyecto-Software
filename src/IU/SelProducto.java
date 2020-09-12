@@ -62,7 +62,7 @@ public class SelProducto extends javax.swing.JDialog {
 
         jLabel2.setText("SELECCIONAR PRODUCTO");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(250, 20, 160, 20);
+        jLabel2.setBounds(260, 20, 160, 20);
 
         txtBuscarProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -86,6 +86,10 @@ public class SelProducto extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(tblProducto);
+        if (tblProducto.getColumnModel().getColumnCount() > 0) {
+            tblProducto.getColumnModel().getColumn(6).setHeaderValue("PrecioUnitario");
+            tblProducto.getColumnModel().getColumn(7).setHeaderValue("Stock");
+        }
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 90, 660, 180);

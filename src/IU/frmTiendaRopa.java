@@ -80,19 +80,18 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         btnRegistrarCliente = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSeleccionarRepartidor = new javax.swing.JButton();
         txtid_vendedor = new javax.swing.JTextField();
         btnSeleccionarDelivery = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnpago = new javax.swing.JButton();
         txtid_pago = new javax.swing.JTextField();
         txtid_delivery = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        txtCodigoRepartidor = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel17 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -178,9 +177,14 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel4.add(jLabel9);
         jLabel9.setBounds(20, 150, 120, 20);
 
-        jButton1.setText("Repartidor");
-        jPanel4.add(jButton1);
-        jButton1.setBounds(240, 140, 150, 40);
+        btnSeleccionarRepartidor.setText("Repartidor");
+        btnSeleccionarRepartidor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarRepartidorActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnSeleccionarRepartidor);
+        btnSeleccionarRepartidor.setBounds(240, 140, 150, 40);
         jPanel4.add(txtid_vendedor);
         txtid_vendedor.setBounds(150, 30, 80, 24);
 
@@ -209,8 +213,8 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         txtid_pago.setBounds(150, 70, 80, 24);
         jPanel4.add(txtid_delivery);
         txtid_delivery.setBounds(150, 110, 80, 24);
-        jPanel4.add(jTextField10);
-        jTextField10.setBounds(150, 150, 80, 24);
+        jPanel4.add(txtCodigoRepartidor);
+        txtCodigoRepartidor.setBounds(150, 150, 80, 24);
 
         jLabel11.setText("Codigo del vendedor");
         jPanel4.add(jLabel11);
@@ -227,10 +231,6 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel69.setText("DATOS DEL PEDIDO");
         jPanel4.add(jLabel69);
         jLabel69.setBounds(10, 0, 190, 16);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox1);
-        jComboBox1.setBounds(150, 30, 65, 26);
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(10, 200, 400, 190);
@@ -382,6 +382,19 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSeleccionarProductoActionPerformed
 
+    private void btnSeleccionarRepartidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarRepartidorActionPerformed
+        Repartidor rep =new Repartidor();
+        SelRepartidor dialog = new SelRepartidor(new javax.swing.JFrame(),true);
+        dialog.setVisible(true);
+        rep= dialog.getDeli();
+        
+        if (rep == null){
+            this.txtCodigoRepartidor.setText("");
+        }else{
+            this.txtCodigoRepartidor.setText(String.valueOf(rep.getDniRepartidor()));
+        }
+    }//GEN-LAST:event_btnSeleccionarRepartidorActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -395,13 +408,12 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JButton btnSeleccionarDelivery;
     private javax.swing.JButton btnSeleccionarProducto;
+    private javax.swing.JButton btnSeleccionarRepartidor;
     private javax.swing.JButton btnpago;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -426,13 +438,13 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
     private javax.swing.JTable tblMostrarProducto;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigoProducto;
+    private javax.swing.JTextField txtCodigoRepartidor;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdireccionCli;
