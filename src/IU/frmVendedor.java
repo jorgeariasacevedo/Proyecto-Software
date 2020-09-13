@@ -107,7 +107,7 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnRegistrarRepartidor);
-        btnRegistrarRepartidor.setBounds(280, 120, 170, 50);
+        btnRegistrarRepartidor.setBounds(280, 120, 120, 50);
 
         jLabel26.setText("Direccion");
         jPanel10.add(jLabel26);

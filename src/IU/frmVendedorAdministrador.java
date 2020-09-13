@@ -53,7 +53,7 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(250, 180, 120, 23);
+        jButton1.setBounds(120, 160, 140, 30);
 
         jButton2.setText("Registrar Venta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +62,7 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(250, 140, 120, 23);
+        jButton2.setBounds(120, 110, 140, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

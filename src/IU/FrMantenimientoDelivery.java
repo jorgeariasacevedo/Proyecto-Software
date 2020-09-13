@@ -113,7 +113,7 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDelivery);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 110, 620, 130);
+        jScrollPane1.setBounds(40, 110, 620, 140);
 
         jLabel3.setText("ID_DELIVEY");
         getContentPane().add(jLabel3);

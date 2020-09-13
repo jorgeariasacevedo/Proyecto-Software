@@ -111,6 +111,8 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jTextField54 = new javax.swing.JTextField();
         jTextField55 = new javax.swing.JTextField();
         jLabel65 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -242,7 +244,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel69.setBounds(10, 0, 190, 14);
 
         jPanel1.add(jPanel4);
-        jPanel4.setBounds(10, 200, 400, 190);
+        jPanel4.setBounds(10, 200, 400, 220);
 
         jPanel17.setLayout(null);
 
@@ -257,7 +259,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
         jButton3.setText("Guardar pedido");
         jPanel17.add(jButton3);
-        jButton3.setBounds(160, 370, 110, 40);
+        jButton3.setBounds(173, 370, 107, 40);
 
         btnSeleccionarProducto.setText("Seleccionar");
         btnSeleccionarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -320,10 +322,16 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
         jPanel17.add(jLabel65);
-        jLabel65.setBounds(60, 350, 40, 20);
+        jLabel65.setBounds(50, 350, 40, 20);
+
+        jLabel6.setText("Fecha");
+        jPanel17.add(jLabel6);
+        jLabel6.setBounds(30, 440, 60, 20);
+        jPanel17.add(jTextField1);
+        jTextField1.setBounds(100, 440, 50, 20);
 
         jPanel1.add(jPanel17);
-        jPanel17.setBounds(430, 0, 280, 450);
+        jPanel17.setBounds(430, 0, 280, 470);
 
         jTabbedPane1.addTab("Recepcion del pedido", jPanel1);
 
@@ -335,19 +343,8 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
-        Cliente cli = new Cliente();
-        util u = new util();
-        String proc= "";
-
-        proc = "insert";
-        cli.setDniCli(this.txtdniCli.getText());
-        cli.setNombreCli(this.txtnombreCli.getText());
-        cli.setDireccionCli(this.txtdireccionCli.getText());
-        cli.setTelefonoCli(Integer.parseInt(this.txttelefonoCli.getText()));
-        cli.setCorreoCli(this.txtcorreoCli.getText());
-        this.cliDao.procesaItem(cli, proc);
-        //limpiaG();
-        this.llenaTblProducto(false, "");
+  frmCliente x  = new frmCliente();
+                x.setVisible(true);
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
     private void btnpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagoActionPerformed
@@ -447,6 +444,7 @@ ven = dialog.getVend();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
@@ -461,6 +459,7 @@ ven = dialog.getVend();
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
