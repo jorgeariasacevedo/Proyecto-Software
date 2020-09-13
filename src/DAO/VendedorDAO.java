@@ -1,6 +1,6 @@
 
 package DAO;
-
+//venedor//
 import BEAN.Vendedor;
 import UTIL.dbBean;
 import java.sql.ResultSet;
