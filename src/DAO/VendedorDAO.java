@@ -13,7 +13,7 @@ public class VendedorDAO {
         dbBean con = new dbBean();
         String sql = "Select * from Vendedor";
         if(sw == true){
-            sql = sql + " WHERE (dni_vendedor LIKE '"+ str +"%') OR (nombre_vend LIKE '" + str + "%')";
+            sql = sql + " WHERE (dniVendedor LIKE '"+ str +"%') OR (nombVendedor LIKE '" + str + "%')";
         }
         System.out.println(sql);
         try{

@@ -81,7 +81,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnSeleccionarRepartidor = new javax.swing.JButton();
-        txtid_vendedor = new javax.swing.JTextField();
+        txtDNIVendedor = new javax.swing.JTextField();
         btnSeleccionarDelivery = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnpago = new javax.swing.JButton();
@@ -139,19 +139,19 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel3.add(jLabel5);
         jLabel5.setBounds(20, 110, 70, 20);
         jPanel3.add(txtdniCli);
-        txtdniCli.setBounds(90, 20, 90, 24);
+        txtdniCli.setBounds(90, 20, 90, 20);
         jPanel3.add(txtnombreCli);
-        txtnombreCli.setBounds(90, 50, 180, 24);
+        txtnombreCli.setBounds(90, 50, 180, 20);
         jPanel3.add(txtdireccionCli);
-        txtdireccionCli.setBounds(90, 80, 280, 24);
+        txtdireccionCli.setBounds(90, 80, 280, 20);
         jPanel3.add(txttelefonoCli);
-        txttelefonoCli.setBounds(90, 110, 90, 24);
+        txttelefonoCli.setBounds(90, 110, 90, 20);
         jPanel3.add(txtcorreoCli);
-        txtcorreoCli.setBounds(90, 140, 160, 24);
+        txtcorreoCli.setBounds(90, 140, 160, 20);
 
         jLabel8.setText("DATOS DEL CLIENTE");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 0, 130, 16);
+        jLabel8.setBounds(10, 0, 130, 14);
 
         jButton2.setText("Seleccionar");
         jPanel3.add(jButton2);
@@ -173,7 +173,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
         jPanel4.setLayout(null);
 
-        jLabel9.setText("Codigo del repartidor");
+        jLabel9.setText("DNI repartidor");
         jPanel4.add(jLabel9);
         jLabel9.setBounds(20, 150, 120, 20);
 
@@ -185,8 +185,10 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         });
         jPanel4.add(btnSeleccionarRepartidor);
         btnSeleccionarRepartidor.setBounds(240, 140, 150, 40);
-        jPanel4.add(txtid_vendedor);
-        txtid_vendedor.setBounds(150, 30, 80, 24);
+
+        txtDNIVendedor.setEditable(false);
+        jPanel4.add(txtDNIVendedor);
+        txtDNIVendedor.setBounds(150, 30, 80, 20);
 
         btnSeleccionarDelivery.setText("Seleccionar delivery");
         btnSeleccionarDelivery.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +200,11 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         btnSeleccionarDelivery.setBounds(240, 100, 150, 40);
 
         jButton5.setText("Vendedor");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton5);
         jButton5.setBounds(240, 10, 150, 40);
 
@@ -210,13 +217,15 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel4.add(btnpago);
         btnpago.setBounds(240, 60, 150, 40);
         jPanel4.add(txtid_pago);
-        txtid_pago.setBounds(150, 70, 80, 24);
+        txtid_pago.setBounds(150, 70, 80, 20);
         jPanel4.add(txtid_delivery);
-        txtid_delivery.setBounds(150, 110, 80, 24);
-        jPanel4.add(txtCodigoRepartidor);
-        txtCodigoRepartidor.setBounds(150, 150, 80, 24);
+        txtid_delivery.setBounds(150, 110, 80, 20);
 
-        jLabel11.setText("Codigo del vendedor");
+        txtCodigoRepartidor.setEditable(false);
+        jPanel4.add(txtCodigoRepartidor);
+        txtCodigoRepartidor.setBounds(150, 150, 80, 20);
+
+        jLabel11.setText("DNI vendedor");
         jPanel4.add(jLabel11);
         jLabel11.setBounds(20, 30, 120, 20);
 
@@ -230,7 +239,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
         jLabel69.setText("DATOS DEL PEDIDO");
         jPanel4.add(jLabel69);
-        jLabel69.setBounds(10, 0, 190, 16);
+        jLabel69.setBounds(10, 0, 190, 14);
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(10, 200, 400, 190);
@@ -239,7 +248,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
         jLabel7.setText("PRODUCTOS PEDIDOS");
         jPanel17.add(jLabel7);
-        jLabel7.setBounds(10, 0, 190, 16);
+        jLabel7.setBounds(10, 0, 190, 14);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
@@ -272,21 +281,21 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel17.add(jScrollPane3);
         jScrollPane3.setBounds(20, 210, 240, 120);
         jPanel17.add(txtCodigoProducto);
-        txtCodigoProducto.setBounds(80, 20, 70, 24);
+        txtCodigoProducto.setBounds(80, 20, 70, 20);
 
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel70.setText("Codigo");
         jPanel17.add(jLabel70);
         jLabel70.setBounds(10, 20, 60, 20);
         jPanel17.add(txtPrecio);
-        txtPrecio.setBounds(80, 50, 50, 24);
+        txtPrecio.setBounds(80, 50, 50, 20);
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel71.setText("Precio");
         jPanel17.add(jLabel71);
         jLabel71.setBounds(10, 50, 60, 20);
         jPanel17.add(txtCantidad);
-        txtCantidad.setBounds(80, 80, 50, 24);
+        txtCantidad.setBounds(80, 80, 50, 20);
 
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel72.setText("Cantidad");
@@ -302,11 +311,11 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel17.add(jLabel54);
         jLabel54.setBounds(-20, 410, 120, 20);
         jPanel17.add(jTextField53);
-        jTextField53.setBounds(100, 350, 50, 24);
+        jTextField53.setBounds(100, 350, 50, 20);
         jPanel17.add(jTextField54);
-        jTextField54.setBounds(100, 410, 50, 24);
+        jTextField54.setBounds(100, 410, 50, 20);
         jPanel17.add(jTextField55);
-        jTextField55.setBounds(100, 380, 50, 24);
+        jTextField55.setBounds(100, 380, 50, 20);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
@@ -395,6 +404,20 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSeleccionarRepartidorActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+ Vendedor ven = new Vendedor();
+dlgVendedor dialog = new dlgVendedor(new javax.swing.JFrame(), true);
+dialog.setVisible(true);
+ven = dialog.getVend();
+
+  if(ven == null){
+         this.txtDNIVendedor.setText("");
+  }else{
+      this.txtDNIVendedor.setText(String.valueOf(ven.getDniVendedor()));
+              }
+  
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -445,13 +468,13 @@ public class frmTiendaRopa extends javax.swing.JFrame {
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextField txtCodigoRepartidor;
+    private javax.swing.JTextField txtDNIVendedor;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdireccionCli;
     private javax.swing.JTextField txtdniCli;
     private javax.swing.JTextField txtid_delivery;
     private javax.swing.JTextField txtid_pago;
-    private javax.swing.JTextField txtid_vendedor;
     private javax.swing.JTextField txtnombreCli;
     private javax.swing.JTextField txttelefonoCli;
     // End of variables declaration//GEN-END:variables

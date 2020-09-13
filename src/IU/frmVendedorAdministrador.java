@@ -5,6 +5,9 @@
  */
 package IU;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author RAUL
@@ -16,6 +19,16 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
      */
     public frmVendedorAdministrador() {
         initComponents();
+        int wd, hd, slx, sly;
+        Toolkit toolkit =  Toolkit.getDefaultToolkit ();
+        Dimension dim = toolkit.getScreenSize();
+        wd = dim.width;
+        hd = dim.height;
+        this.setSize(400, 400);
+        slx = (wd/2) - (200);
+        sly = (hd/2) -(250);
+        this.setLocation(slx, sly);
+        this.setResizable(false);
     }
 
     /**
@@ -40,14 +53,18 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(130, 150, 120, 32);
+        jButton1.setBounds(250, 180, 120, 23);
 
         jButton2.setText("Registrar Venta");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
-        jButton2.setBounds(130, 110, 120, 32);
+        jButton2.setBounds(250, 140, 120, 23);
 
-        setSize(new java.awt.Dimension(416, 339));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -55,6 +72,12 @@ Principal x  = new Principal();
                 x.setVisible(true);
                  dispose();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  frmTiendaRopa x  = new frmTiendaRopa();
+                x.setVisible(true);
+                 dispose();       // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,6 +104,7 @@ Principal x  = new Principal();
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmVendedorAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

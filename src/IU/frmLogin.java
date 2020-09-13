@@ -83,6 +83,9 @@ public class frmLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 191, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caipi.png"))); // NOI18N
+        jLabel4.setToolTipText("");
+        jLabel4.setMaximumSize(new java.awt.Dimension(300, 300));
+        jLabel4.setMinimumSize(new java.awt.Dimension(200, 200));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -200, -1, -1));
 
         pack();
@@ -123,6 +126,7 @@ frmVendedorAdministrador x  = new frmVendedorAdministrador();
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
