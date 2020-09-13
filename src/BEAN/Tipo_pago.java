@@ -6,7 +6,7 @@ public class Tipo_pago {
     private String nombre;
     private String propietario;
     private int numero_cuenta;
-
+//sadasd//
     public Tipo_pago() {
     }
 
