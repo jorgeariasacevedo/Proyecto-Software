@@ -6,7 +6,7 @@ import UTIL.dbBean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
-
+//Ss//
 public class RepartidorDAO {
     public Vector<Repartidor> ListaItem(boolean sw, String str){
         Vector<Repartidor> item = new Vector<Repartidor>();
