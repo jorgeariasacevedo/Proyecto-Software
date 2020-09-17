@@ -16,7 +16,7 @@ public class Tipo_pago {
         this.propietario = propietario;
         this.numero_cuenta = numero_cuenta;
     }
-
+//a//
     public int getId_pago() {
         return id_pago;
     }

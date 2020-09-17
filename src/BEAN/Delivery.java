@@ -1,7 +1,7 @@
 package BEAN;
 
 public class Delivery {
-    
+    //kk
     private int id_delivery;
     private String tipo_del;
     private String destino;
@@ -10,7 +10,7 @@ public class Delivery {
     private String provincia;
     private String departamento;
     private String distrito;
-
+//dd//
     public Delivery() {
     }
 
