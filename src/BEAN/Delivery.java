@@ -1,7 +1,7 @@
 package BEAN;
 
 public class Delivery {
-    //kk
+    //clases de estructura
     private int id_delivery;
     private String tipo_del;
     private String destino;
