@@ -3,9 +3,12 @@ package IU;
 
 import BEAN.Producto;
 import DAO.ProductoDAO;
+import UTIL.dbBean;
 import UTIL.util;
+import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
 
 public class frmProductoRopa extends javax.swing.JFrame {
 
@@ -74,6 +77,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnReporteProd = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -99,13 +103,13 @@ public class frmProductoRopa extends javax.swing.JFrame {
         jPanel8.add(jLabel16);
         jLabel16.setBounds(20, 80, 70, 20);
         jPanel8.add(txtIdProducto);
-        txtIdProducto.setBounds(90, 20, 90, 24);
+        txtIdProducto.setBounds(90, 20, 90, 20);
         jPanel8.add(txtModelo);
-        txtModelo.setBounds(90, 50, 130, 24);
+        txtModelo.setBounds(90, 50, 130, 20);
         jPanel8.add(txtTipoRopa);
-        txtTipoRopa.setBounds(90, 80, 130, 24);
+        txtTipoRopa.setBounds(90, 80, 130, 20);
         jPanel8.add(txtDetalleRopa);
-        txtDetalleRopa.setBounds(90, 110, 180, 24);
+        txtDetalleRopa.setBounds(90, 110, 180, 20);
 
         btnRegistrarProducto.setText("Registrar producto");
         btnRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -114,13 +118,13 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnRegistrarProducto);
-        btnRegistrarProducto.setBounds(190, 160, 160, 40);
+        btnRegistrarProducto.setBounds(110, 150, 130, 40);
 
         jLabel19.setText("Detalle");
         jPanel8.add(jLabel19);
         jLabel19.setBounds(20, 110, 70, 20);
         jPanel8.add(txtColorRopa);
-        txtColorRopa.setBounds(410, 20, 90, 24);
+        txtColorRopa.setBounds(410, 20, 90, 20);
 
         jLabel20.setText("Talla");
         jPanel8.add(jLabel20);
@@ -130,15 +134,15 @@ public class frmProductoRopa extends javax.swing.JFrame {
         jPanel8.add(jLabel21);
         jLabel21.setBounds(340, 110, 70, 20);
         jPanel8.add(txtTallaRopa);
-        txtTallaRopa.setBounds(410, 50, 90, 24);
+        txtTallaRopa.setBounds(410, 50, 90, 20);
 
         jLabel17.setText("IdProducto");
         jPanel8.add(jLabel17);
         jLabel17.setBounds(20, 20, 70, 20);
         jPanel8.add(txtStock);
-        txtStock.setBounds(410, 110, 90, 24);
+        txtStock.setBounds(410, 110, 90, 20);
         jPanel8.add(txtPrecioProducto);
-        txtPrecioProducto.setBounds(410, 80, 90, 24);
+        txtPrecioProducto.setBounds(410, 80, 90, 20);
 
         jLabel23.setText("Precio");
         jPanel8.add(jLabel23);
@@ -146,7 +150,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
 
         jLabel24.setText("DATOS DEL PRODUCTO");
         jPanel8.add(jLabel24);
-        jLabel24.setBounds(10, 0, 150, 16);
+        jLabel24.setBounds(10, 0, 150, 14);
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +159,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnLimpiar);
-        btnLimpiar.setBounds(450, 140, 80, 40);
+        btnLimpiar.setBounds(270, 150, 80, 40);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +168,16 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnEliminar);
-        btnEliminar.setBounds(450, 190, 80, 40);
+        btnEliminar.setBounds(370, 150, 80, 40);
+
+        btnReporteProd.setText("Reporte");
+        btnReporteProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteProdActionPerformed(evt);
+            }
+        });
+        jPanel8.add(btnReporteProd);
+        btnReporteProd.setBounds(190, 200, 90, 30);
 
         getContentPane().add(jPanel8);
         jPanel8.setBounds(70, 240, 540, 240);
@@ -173,7 +186,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
 
         jLabel18.setText("BUSQUEDA DEL PRODUCTO");
         jPanel9.add(jLabel18);
-        jLabel18.setBounds(0, 0, 180, 16);
+        jLabel18.setBounds(0, 0, 180, 14);
 
         jLabel14.setText("Buscar producto");
         jPanel9.add(jLabel14);
@@ -185,7 +198,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel9.add(txtBuscarProducto);
-        txtBuscarProducto.setBounds(220, 20, 160, 24);
+        txtBuscarProducto.setBounds(220, 20, 160, 20);
 
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -294,6 +307,19 @@ public class frmProductoRopa extends javax.swing.JFrame {
         this.btnRegistrarProducto.setText("Registrar producto");
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnReporteProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteProdActionPerformed
+        try{
+            String r = "src/REPORTES/repProducto.jasper";
+            dbBean db = new dbBean();
+            db.connectRep(r,null,false);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+                ex.printStackTrace();
+         }
+        
+    }//GEN-LAST:event_btnReporteProdActionPerformed
+
     
     public static void main(String args[]) {
 
@@ -308,6 +334,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrarProducto;
+    private javax.swing.JButton btnReporteProd;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
