@@ -1,12 +1,12 @@
 
 package DAO;
-
+//aasadasdsa//
 import BEAN.Cliente;
 import UTIL.dbBean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
-
+//dd//
 public class ClienteDAO {
      public Vector<Cliente> ListaItem(boolean sw, String str){
         Vector<Cliente> item = new Vector<Cliente>();

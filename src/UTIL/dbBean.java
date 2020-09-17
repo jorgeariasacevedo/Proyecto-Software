@@ -15,7 +15,7 @@ public class dbBean {
     private String Login="sa";
     private String password="123456789";
 
-
+//aa//
   public dbBean(){
        connect();
        }
