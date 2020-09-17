@@ -6,7 +6,7 @@ import DAO.ClienteDAO;
 import UTIL.util;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
-
+//aa//
 public class frmCliente extends javax.swing.JFrame {
 
     ClienteDAO clieDao;
