@@ -109,8 +109,6 @@ private Connection dbCon;
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txtcodf = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -133,6 +131,10 @@ private Connection dbCon;
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        txtcodf = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -189,7 +191,7 @@ private Connection dbCon;
         btnRegistrarCliente.setBounds(310, 140, 80, 30);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(10, 10, 400, 180);
+        jPanel3.setBounds(20, 40, 400, 180);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
@@ -263,20 +265,8 @@ private Connection dbCon;
         txtcodigo.add(jLabel69);
         jLabel69.setBounds(10, 0, 190, 14);
 
-        jLabel14.setText("Codigo de factura");
-        txtcodigo.add(jLabel14);
-        jLabel14.setBounds(10, 190, 100, 14);
-
-        txtcodf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcodfActionPerformed(evt);
-            }
-        });
-        txtcodigo.add(txtcodf);
-        txtcodf.setBounds(150, 190, 70, 20);
-
         jPanel1.add(txtcodigo);
-        txtcodigo.setBounds(10, 200, 400, 230);
+        txtcodigo.setBounds(20, 240, 400, 230);
 
         jPanel17.setLayout(null);
 
@@ -287,7 +277,7 @@ private Connection dbCon;
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
         jPanel17.add(jLabel10);
-        jLabel10.setBounds(-20, 380, 120, 20);
+        jLabel10.setBounds(-20, 400, 120, 20);
 
         jButton3.setText("Guardar pedido");
         jPanel17.add(jButton3);
@@ -343,24 +333,24 @@ private Connection dbCon;
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel54.setText("MONTO TOTAL");
         jPanel17.add(jLabel54);
-        jLabel54.setBounds(-20, 410, 120, 20);
+        jLabel54.setBounds(-20, 430, 120, 20);
         jPanel17.add(jTextField53);
-        jTextField53.setBounds(100, 350, 50, 20);
+        jTextField53.setBounds(100, 340, 50, 20);
         jPanel17.add(jTextField54);
-        jTextField54.setBounds(100, 410, 50, 20);
+        jTextField54.setBounds(100, 430, 50, 20);
         jPanel17.add(jTextField55);
-        jTextField55.setBounds(100, 380, 50, 20);
+        jTextField55.setBounds(100, 400, 50, 20);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
         jPanel17.add(jLabel65);
-        jLabel65.setBounds(50, 350, 40, 20);
+        jLabel65.setBounds(60, 340, 40, 20);
 
         jLabel6.setText("Fecha");
         jPanel17.add(jLabel6);
-        jLabel6.setBounds(30, 440, 60, 20);
+        jLabel6.setBounds(40, 460, 60, 20);
         jPanel17.add(jTextField1);
-        jTextField1.setBounds(100, 440, 50, 20);
+        jTextField1.setBounds(100, 460, 50, 20);
 
         jButton1.setText("Generar Reporte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -369,15 +359,38 @@ private Connection dbCon;
             }
         });
         jPanel17.add(jButton1);
-        jButton1.setBounds(160, 420, 120, 40);
+        jButton1.setBounds(170, 420, 110, 40);
+
+        jLabel14.setText("IGV");
+        jPanel17.add(jLabel14);
+        jLabel14.setBounds(70, 370, 30, 20);
+        jPanel17.add(jTextField2);
+        jTextField2.setBounds(100, 370, 50, 20);
 
         jPanel1.add(jPanel17);
-        jPanel17.setBounds(430, 0, 280, 470);
+        jPanel17.setBounds(430, 0, 300, 500);
+
+        txtcodf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodfActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtcodf);
+        txtcodf.setBounds(230, 10, 170, 20);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(20, 10, 190, 20);
 
         jTabbedPane1.addTab("Recepcion del pedido", jPanel1);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(40, 20, 750, 500);
+        jTabbedPane1.setBounds(20, 10, 750, 540);
 
         setSize(new java.awt.Dimension(790, 633));
         setLocationRelativeTo(null);
@@ -459,15 +472,16 @@ ven = dialog.getVend();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             String r = "src/REPORTES/repFactura.jasper";
-           JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(r);
+          
             dbBean db = new dbBean();
-           HashMap parametros= new HashMap();
-            parametros.put("nombre",txtnombreCli.getText() );
-             parametros.put("dni",txtdniCli.getText() );
-             parametros.put("NFactura",txtcodf.getText() ); 
-             
-            db.conectar2(r);
-            JasperFillManager.fillReport(reporte, parametros, dbCon);
+           HashMap map= new HashMap();
+           
+            map.put("parameter1",this.txtcodf.getText() );
+          map.put("nombre",this.txtnombreCli.getText() );
+             map.put("direccion",this.txtdireccionCli.getText() );
+             map.put("telefono",this.txttelefonoCli.getText() );
+             map.put("correo",this.txtcorreoCli.getText() );
+            db.connectRep(r,map,true);
         }catch(SQLException ex){
             ex.printStackTrace();
         }catch(JRException ex){
@@ -479,6 +493,10 @@ ven = dialog.getVend();
     private void txtcodfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcodfActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -500,6 +518,7 @@ ven = dialog.getVend();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -526,6 +545,7 @@ ven = dialog.getVend();
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField53;
     private javax.swing.JTextField jTextField54;
     private javax.swing.JTextField jTextField55;
