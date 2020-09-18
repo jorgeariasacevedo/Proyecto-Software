@@ -13,13 +13,30 @@ import DAO.ProductoDAO;
 import DAO.RepartidorDAO;
 import DAO.Tipo_pagoDAO;
 import DAO.VendedorDAO;
+import UTIL.dbBean;
 import UTIL.util;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 public class frmTiendaRopa extends javax.swing.JFrame {
-
+private Connection dbCon;
     ClienteDAO cliDao;
     ProductoDAO proDao;
     VendedorDAO venDao;
@@ -78,7 +95,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         btnRegistrarCliente = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        txtcodigo = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnSeleccionarRepartidor = new javax.swing.JButton();
         txtDNIVendedor = new javax.swing.JTextField();
@@ -92,6 +109,8 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtcodf = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -113,6 +132,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -173,10 +193,10 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
-        jPanel4.setLayout(null);
+        txtcodigo.setLayout(null);
 
         jLabel9.setText("DNI repartidor");
-        jPanel4.add(jLabel9);
+        txtcodigo.add(jLabel9);
         jLabel9.setBounds(20, 150, 120, 20);
 
         btnSeleccionarRepartidor.setText("Repartidor");
@@ -185,11 +205,11 @@ public class frmTiendaRopa extends javax.swing.JFrame {
                 btnSeleccionarRepartidorActionPerformed(evt);
             }
         });
-        jPanel4.add(btnSeleccionarRepartidor);
+        txtcodigo.add(btnSeleccionarRepartidor);
         btnSeleccionarRepartidor.setBounds(240, 140, 150, 40);
 
         txtDNIVendedor.setEditable(false);
-        jPanel4.add(txtDNIVendedor);
+        txtcodigo.add(txtDNIVendedor);
         txtDNIVendedor.setBounds(150, 30, 80, 20);
 
         btnSeleccionarDelivery.setText("Seleccionar delivery");
@@ -198,7 +218,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
                 btnSeleccionarDeliveryActionPerformed(evt);
             }
         });
-        jPanel4.add(btnSeleccionarDelivery);
+        txtcodigo.add(btnSeleccionarDelivery);
         btnSeleccionarDelivery.setBounds(240, 100, 150, 40);
 
         jButton5.setText("Vendedor");
@@ -207,7 +227,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton5);
+        txtcodigo.add(jButton5);
         jButton5.setBounds(240, 10, 150, 40);
 
         btnpago.setText("Seleccionar pago");
@@ -216,35 +236,47 @@ public class frmTiendaRopa extends javax.swing.JFrame {
                 btnpagoActionPerformed(evt);
             }
         });
-        jPanel4.add(btnpago);
+        txtcodigo.add(btnpago);
         btnpago.setBounds(240, 60, 150, 40);
-        jPanel4.add(txtid_pago);
+        txtcodigo.add(txtid_pago);
         txtid_pago.setBounds(150, 70, 80, 20);
-        jPanel4.add(txtid_delivery);
+        txtcodigo.add(txtid_delivery);
         txtid_delivery.setBounds(150, 110, 80, 20);
 
         txtCodigoRepartidor.setEditable(false);
-        jPanel4.add(txtCodigoRepartidor);
+        txtcodigo.add(txtCodigoRepartidor);
         txtCodigoRepartidor.setBounds(150, 150, 80, 20);
 
         jLabel11.setText("DNI vendedor");
-        jPanel4.add(jLabel11);
+        txtcodigo.add(jLabel11);
         jLabel11.setBounds(20, 30, 120, 20);
 
         jLabel12.setText("Codigo del pago");
-        jPanel4.add(jLabel12);
+        txtcodigo.add(jLabel12);
         jLabel12.setBounds(20, 70, 120, 20);
 
         jLabel13.setText("Codigo del delivery");
-        jPanel4.add(jLabel13);
+        txtcodigo.add(jLabel13);
         jLabel13.setBounds(20, 110, 120, 20);
 
         jLabel69.setText("DATOS DEL PEDIDO");
-        jPanel4.add(jLabel69);
+        txtcodigo.add(jLabel69);
         jLabel69.setBounds(10, 0, 190, 14);
 
-        jPanel1.add(jPanel4);
-        jPanel4.setBounds(10, 200, 400, 220);
+        jLabel14.setText("Codigo de factura");
+        txtcodigo.add(jLabel14);
+        jLabel14.setBounds(10, 190, 100, 14);
+
+        txtcodf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodfActionPerformed(evt);
+            }
+        });
+        txtcodigo.add(txtcodf);
+        txtcodf.setBounds(150, 190, 70, 20);
+
+        jPanel1.add(txtcodigo);
+        txtcodigo.setBounds(10, 200, 400, 230);
 
         jPanel17.setLayout(null);
 
@@ -259,7 +291,7 @@ public class frmTiendaRopa extends javax.swing.JFrame {
 
         jButton3.setText("Guardar pedido");
         jPanel17.add(jButton3);
-        jButton3.setBounds(173, 370, 107, 40);
+        jButton3.setBounds(170, 370, 107, 40);
 
         btnSeleccionarProducto.setText("Seleccionar");
         btnSeleccionarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -329,6 +361,15 @@ public class frmTiendaRopa extends javax.swing.JFrame {
         jLabel6.setBounds(30, 440, 60, 20);
         jPanel17.add(jTextField1);
         jTextField1.setBounds(100, 440, 50, 20);
+
+        jButton1.setText("Generar Reporte");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel17.add(jButton1);
+        jButton1.setBounds(160, 420, 120, 40);
 
         jPanel1.add(jPanel17);
         jPanel17.setBounds(430, 0, 280, 470);
@@ -415,6 +456,30 @@ ven = dialog.getVend();
   
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            String r = "src/REPORTES/repFactura.jasper";
+           JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(r);
+            dbBean db = new dbBean();
+           HashMap parametros= new HashMap();
+            parametros.put("nombre",txtnombreCli.getText() );
+             parametros.put("dni",txtdniCli.getText() );
+             parametros.put("NFactura",txtcodf.getText() ); 
+             
+            db.conectar2(r);
+            JasperFillManager.fillReport(reporte, parametros, dbCon);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+                ex.printStackTrace();
+         }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtcodfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodfActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -430,6 +495,7 @@ ven = dialog.getVend();
     private javax.swing.JButton btnSeleccionarProducto;
     private javax.swing.JButton btnSeleccionarRepartidor;
     private javax.swing.JButton btnpago;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -439,6 +505,7 @@ ven = dialog.getVend();
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -456,7 +523,6 @@ ven = dialog.getVend();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
@@ -469,6 +535,8 @@ ven = dialog.getVend();
     private javax.swing.JTextField txtCodigoRepartidor;
     private javax.swing.JTextField txtDNIVendedor;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtcodf;
+    private javax.swing.JPanel txtcodigo;
     private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdireccionCli;
     private javax.swing.JTextField txtdniCli;

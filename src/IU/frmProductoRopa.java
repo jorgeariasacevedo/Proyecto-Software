@@ -5,18 +5,27 @@ import BEAN.Producto;
 import DAO.ProductoDAO;
 import UTIL.dbBean;
 import UTIL.util;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class frmProductoRopa extends javax.swing.JFrame {
 
     ProductoDAO proDao;
     DefaultTableModel dtmpro;
     String idPro;
-    
+    private Connection dbCon;
     public frmProductoRopa() {
+        
         proDao=new ProductoDAO();
         initComponents();
         
@@ -308,16 +317,15 @@ public class frmProductoRopa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnReporteProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteProdActionPerformed
-        try{
-            String r = "src/REPORTES/repProducto.jasper";
+      try{
+             String r = "src/REPORTES/repProducto.jasper";
             dbBean db = new dbBean();
             db.connectRep(r,null,false);
         }catch(SQLException ex){
             ex.printStackTrace();
         }catch(JRException ex){
                 ex.printStackTrace();
-         }
-        
+        }
     }//GEN-LAST:event_btnReporteProdActionPerformed
 
     

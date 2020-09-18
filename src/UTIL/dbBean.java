@@ -51,6 +51,14 @@ public class dbBean {
         ver.setVisible(true);                
     }
     
+    public void conectar2(String ruta)throws SQLException, JRException{
+        connect();
+        JasperReport reporte = null;
+        reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+       
+               
+    }
+    
     
   public void close() throws SQLException{
         dbCon.close();
