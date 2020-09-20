@@ -116,6 +116,7 @@ public class SelDelivery extends javax.swing.JDialog {
         int i;
         i=this.tblDeli.getSelectedRow();
         this.Deli.setId_delivery(Integer.parseInt(dtm.getValueAt(i, 0).toString()));
+        this.Deli.setPreciocaja(Integer.parseInt(dtm.getValueAt(i, 3).toString()));
         this.dispose();
     }//GEN-LAST:event_tblDeliMouseClicked
 

@@ -157,15 +157,15 @@ private Connection dbCon;
         jLabel72 = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
-        jTextField53 = new javax.swing.JTextField();
-        jTextField54 = new javax.swing.JTextField();
-        jTextField55 = new javax.swing.JTextField();
+        txtmonto = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
+        txtdelivery = new javax.swing.JTextField();
         jLabel65 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtIGV = new javax.swing.JTextField();
         txtDescripProducto = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
@@ -200,19 +200,19 @@ private Connection dbCon;
         jPanel3.add(jLabel5);
         jLabel5.setBounds(20, 110, 70, 20);
         jPanel3.add(txtdniCli);
-        txtdniCli.setBounds(90, 20, 90, 24);
+        txtdniCli.setBounds(90, 20, 90, 20);
         jPanel3.add(txtnombreCli);
-        txtnombreCli.setBounds(90, 50, 180, 24);
+        txtnombreCli.setBounds(90, 50, 180, 20);
         jPanel3.add(txtdireccionCli);
-        txtdireccionCli.setBounds(90, 80, 220, 24);
+        txtdireccionCli.setBounds(90, 80, 220, 20);
         jPanel3.add(txttelefonoCli);
-        txttelefonoCli.setBounds(90, 110, 90, 24);
+        txttelefonoCli.setBounds(90, 110, 90, 20);
         jPanel3.add(txtcorreoCli);
-        txtcorreoCli.setBounds(90, 140, 130, 24);
+        txtcorreoCli.setBounds(90, 140, 130, 20);
 
         jLabel8.setText("DATOS DEL CLIENTE");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 0, 130, 16);
+        jLabel8.setBounds(10, 0, 130, 14);
 
         btnSeleccionarCliente.setText("Seleccionar");
         btnSeleccionarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +254,7 @@ private Connection dbCon;
 
         txtDNIVendedor.setEditable(false);
         txtcodigo.add(txtDNIVendedor);
-        txtDNIVendedor.setBounds(120, 30, 80, 24);
+        txtDNIVendedor.setBounds(120, 30, 80, 20);
 
         btnSeleccionarDelivery.setText("Seleccionar delivery");
         btnSeleccionarDelivery.addActionListener(new java.awt.event.ActionListener() {
@@ -283,13 +283,13 @@ private Connection dbCon;
         txtcodigo.add(btnPago);
         btnPago.setBounds(210, 60, 150, 40);
         txtcodigo.add(txtid_pago);
-        txtid_pago.setBounds(120, 70, 80, 24);
+        txtid_pago.setBounds(120, 70, 80, 20);
         txtcodigo.add(txtid_delivery);
-        txtid_delivery.setBounds(120, 110, 80, 24);
+        txtid_delivery.setBounds(120, 110, 80, 20);
 
         txtCodigoRepartidor.setEditable(false);
         txtcodigo.add(txtCodigoRepartidor);
-        txtCodigoRepartidor.setBounds(120, 150, 80, 24);
+        txtCodigoRepartidor.setBounds(120, 150, 80, 20);
 
         jLabel11.setText("DNI vendedor");
         txtcodigo.add(jLabel11);
@@ -305,7 +305,7 @@ private Connection dbCon;
 
         jLabel69.setText("DATOS DEL PEDIDO");
         txtcodigo.add(jLabel69);
-        jLabel69.setBounds(10, 0, 190, 16);
+        jLabel69.setBounds(10, 0, 190, 14);
 
         jPanel1.add(txtcodigo);
         txtcodigo.setBounds(20, 240, 370, 230);
@@ -314,7 +314,7 @@ private Connection dbCon;
 
         jLabel7.setText("PRODUCTOS PEDIDOS");
         jPanel17.add(jLabel7);
-        jLabel7.setBounds(10, 0, 190, 16);
+        jLabel7.setBounds(10, 0, 190, 14);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
@@ -328,7 +328,7 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnGuardarPedido);
-        btnGuardarPedido.setBounds(200, 370, 117, 40);
+        btnGuardarPedido.setBounds(200, 370, 107, 40);
 
         btnSeleccionarProducto.setText("Seleccionar");
         btnSeleccionarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -352,21 +352,21 @@ private Connection dbCon;
         jPanel17.add(jScrollPane3);
         jScrollPane3.setBounds(10, 180, 310, 150);
         jPanel17.add(txtCodigoProducto);
-        txtCodigoProducto.setBounds(90, 20, 70, 24);
+        txtCodigoProducto.setBounds(90, 20, 70, 20);
 
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel70.setText("Codigo");
         jPanel17.add(jLabel70);
         jLabel70.setBounds(20, 20, 60, 20);
         jPanel17.add(txtPrecio);
-        txtPrecio.setBounds(90, 110, 50, 24);
+        txtPrecio.setBounds(90, 110, 50, 20);
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel71.setText("Color");
         jPanel17.add(jLabel71);
         jLabel71.setBounds(20, 80, 60, 20);
         jPanel17.add(txtCantidad);
-        txtCantidad.setBounds(90, 140, 50, 24);
+        txtCantidad.setBounds(90, 140, 50, 20);
 
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel72.setText("Descripcion");
@@ -386,12 +386,12 @@ private Connection dbCon;
         jLabel54.setText("MONTO TOTAL");
         jPanel17.add(jLabel54);
         jLabel54.setBounds(10, 430, 100, 20);
-        jPanel17.add(jTextField53);
-        jTextField53.setBounds(120, 340, 50, 24);
-        jPanel17.add(jTextField54);
-        jTextField54.setBounds(120, 430, 50, 24);
-        jPanel17.add(jTextField55);
-        jTextField55.setBounds(120, 400, 50, 24);
+        jPanel17.add(txtmonto);
+        txtmonto.setBounds(120, 340, 50, 20);
+        jPanel17.add(txtTotal);
+        txtTotal.setBounds(120, 430, 50, 20);
+        jPanel17.add(txtdelivery);
+        txtdelivery.setBounds(120, 400, 50, 20);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
@@ -403,7 +403,7 @@ private Connection dbCon;
         jPanel17.add(jLabel6);
         jLabel6.setBounds(50, 460, 60, 20);
         jPanel17.add(jTextField1);
-        jTextField1.setBounds(120, 460, 50, 24);
+        jTextField1.setBounds(120, 460, 50, 20);
 
         jButton1.setText("Generar Reporte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -418,17 +418,17 @@ private Connection dbCon;
         jLabel14.setText("IGV");
         jPanel17.add(jLabel14);
         jLabel14.setBounds(80, 370, 30, 20);
-        jPanel17.add(jTextField2);
-        jTextField2.setBounds(120, 370, 50, 24);
+        jPanel17.add(txtIGV);
+        txtIGV.setBounds(120, 370, 50, 20);
         jPanel17.add(txtDescripProducto);
-        txtDescripProducto.setBounds(90, 50, 170, 24);
+        txtDescripProducto.setBounds(90, 50, 170, 20);
 
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel73.setText("Cantidad");
         jPanel17.add(jLabel73);
         jLabel73.setBounds(20, 140, 60, 20);
         jPanel17.add(txtColor);
-        txtColor.setBounds(90, 80, 170, 24);
+        txtColor.setBounds(90, 80, 170, 20);
 
         jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel74.setText("Precio");
@@ -444,7 +444,7 @@ private Connection dbCon;
             }
         });
         jPanel1.add(txtcodf);
-        txtcodf.setBounds(230, 10, 110, 24);
+        txtcodf.setBounds(230, 10, 110, 20);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -494,6 +494,7 @@ private Connection dbCon;
             this.txtid_delivery.setText("");
         }else{
             this.txtid_delivery.setText(String.valueOf(Deli.getId_delivery()));
+            this.txtdelivery.setText(String.valueOf(Deli.getPreciocaja()));
         }
     }//GEN-LAST:event_btnSeleccionarDeliveryActionPerformed
 
@@ -573,6 +574,10 @@ private Connection dbCon;
     }//GEN-LAST:event_btnSeleccionarClienteActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        double a;
+        double b;
+        
+       
         Vector vec= new Vector();
         if(validaAgregar() == true){
         vec.addElement(this.txtCodigoProducto.getText());
@@ -580,9 +585,18 @@ private Connection dbCon;
         vec.addElement(this.txtColor.getText());
         vec.addElement(this.txtPrecio.getText());
         vec.addElement(this.txtCantidad.getText());
+        a = Double.parseDouble(this.txtPrecio.getText())*Integer.parseInt(this.txtCantidad.getText());
+        if(txtmonto.getText().isEmpty() == true){
+        this.txtmonto.setText(Double.toString(a));
+        }else{
+        b = Double.parseDouble(this.txtmonto.getText());
+        this.txtmonto.setText(Double.toString(Double.parseDouble(this.txtmonto.getText()) + a));
+        }
+        this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText())*0.18));
         
         dtmpro.addRow(vec);
         }
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnGuardarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPedidoActionPerformed
@@ -684,10 +698,6 @@ private Connection dbCon;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
-    private javax.swing.JTextField jTextField55;
     private javax.swing.JTable tblMostrarProducto;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigoProducto;
@@ -695,14 +705,18 @@ private Connection dbCon;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtDNIVendedor;
     private javax.swing.JTextField txtDescripProducto;
+    private javax.swing.JTextField txtIGV;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtTotal;
     private javax.swing.JTextField txtcodf;
     private javax.swing.JPanel txtcodigo;
     private javax.swing.JTextField txtcorreoCli;
+    private javax.swing.JTextField txtdelivery;
     private javax.swing.JTextField txtdireccionCli;
     private javax.swing.JTextField txtdniCli;
     private javax.swing.JTextField txtid_delivery;
     private javax.swing.JTextField txtid_pago;
+    private javax.swing.JTextField txtmonto;
     private javax.swing.JTextField txtnombreCli;
     private javax.swing.JTextField txttelefonoCli;
     // End of variables declaration//GEN-END:variables
