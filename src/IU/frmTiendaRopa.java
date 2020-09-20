@@ -1,14 +1,18 @@
 
 package IU;
 
+import BEAN.Cab_venta;
 import BEAN.Cliente;
 import BEAN.Delivery;
+import BEAN.Detalle_Venta;
 import BEAN.Producto;
 import BEAN.Repartidor;
 import BEAN.Tipo_pago;
 import BEAN.Vendedor;
+import DAO.Cab_ventaDAO;
 import DAO.ClienteDAO;
 import DAO.DeliveryDAO;
+import DAO.Detalle_VentaDAO;
 import DAO.ProductoDAO;
 import DAO.RepartidorDAO;
 import DAO.Tipo_pagoDAO;
@@ -43,6 +47,12 @@ private Connection dbCon;
     RepartidorDAO repDao;
     DeliveryDAO delDao;
     Tipo_pagoDAO tipDao;
+    Cab_ventaDAO cabDao;
+    Detalle_VentaDAO detDao;
+    
+    int idCliente;
+    int idVenta;
+    Cliente clie;
     
     DefaultTableModel dtmpro;
     
@@ -53,8 +63,10 @@ private Connection dbCon;
         repDao=new RepartidorDAO();
         delDao=new DeliveryDAO();
         tipDao=new Tipo_pagoDAO();
+        cabDao=new Cab_ventaDAO();
+        detDao=new Detalle_VentaDAO();
         initComponents();
-        
+        clie=new Cliente();
         dtmpro = (DefaultTableModel)this.tblMostrarProducto.getModel(); 
         //llenaTblProducto(false, "");
     }
@@ -93,15 +105,15 @@ private Connection dbCon;
         txttelefonoCli = new javax.swing.JTextField();
         txtcorreoCli = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnSeleccionarCliente = new javax.swing.JButton();
         btnRegistrarCliente = new javax.swing.JButton();
         txtcodigo = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnSeleccionarRepartidor = new javax.swing.JButton();
         txtDNIVendedor = new javax.swing.JTextField();
         btnSeleccionarDelivery = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        btnpago = new javax.swing.JButton();
+        btnVendedor = new javax.swing.JButton();
+        btnPago = new javax.swing.JButton();
         txtid_pago = new javax.swing.JTextField();
         txtid_delivery = new javax.swing.JTextField();
         txtCodigoRepartidor = new javax.swing.JTextField();
@@ -112,7 +124,7 @@ private Connection dbCon;
         jPanel17 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnGuardarPedido = new javax.swing.JButton();
         btnSeleccionarProducto = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblMostrarProducto = new javax.swing.JTable();
@@ -122,7 +134,7 @@ private Connection dbCon;
         jLabel71 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
-        jButton17 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
         jTextField53 = new javax.swing.JTextField();
         jTextField54 = new javax.swing.JTextField();
@@ -133,6 +145,10 @@ private Connection dbCon;
         jButton1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        txtDescripProducto = new javax.swing.JTextField();
+        jLabel73 = new javax.swing.JLabel();
+        txtColor = new javax.swing.JTextField();
+        jLabel74 = new javax.swing.JLabel();
         txtcodf = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
 
@@ -163,23 +179,28 @@ private Connection dbCon;
         jPanel3.add(jLabel5);
         jLabel5.setBounds(20, 110, 70, 20);
         jPanel3.add(txtdniCli);
-        txtdniCli.setBounds(90, 20, 90, 20);
+        txtdniCli.setBounds(90, 20, 90, 24);
         jPanel3.add(txtnombreCli);
-        txtnombreCli.setBounds(90, 50, 180, 20);
+        txtnombreCli.setBounds(90, 50, 180, 24);
         jPanel3.add(txtdireccionCli);
-        txtdireccionCli.setBounds(90, 80, 280, 20);
+        txtdireccionCli.setBounds(90, 80, 220, 24);
         jPanel3.add(txttelefonoCli);
-        txttelefonoCli.setBounds(90, 110, 90, 20);
+        txttelefonoCli.setBounds(90, 110, 90, 24);
         jPanel3.add(txtcorreoCli);
-        txtcorreoCli.setBounds(90, 140, 160, 20);
+        txtcorreoCli.setBounds(90, 140, 130, 24);
 
         jLabel8.setText("DATOS DEL CLIENTE");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 0, 130, 14);
+        jLabel8.setBounds(10, 0, 130, 16);
 
-        jButton2.setText("Seleccionar");
-        jPanel3.add(jButton2);
-        jButton2.setBounds(300, 10, 90, 30);
+        btnSeleccionarCliente.setText("Seleccionar");
+        btnSeleccionarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarClienteActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnSeleccionarCliente);
+        btnSeleccionarCliente.setBounds(240, 10, 110, 40);
 
         btnRegistrarCliente.setText("Nuevo");
         btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -188,10 +209,10 @@ private Connection dbCon;
             }
         });
         jPanel3.add(btnRegistrarCliente);
-        btnRegistrarCliente.setBounds(310, 140, 80, 30);
+        btnRegistrarCliente.setBounds(240, 130, 110, 40);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 40, 400, 180);
+        jPanel3.setBounds(20, 40, 360, 180);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
@@ -199,7 +220,7 @@ private Connection dbCon;
 
         jLabel9.setText("DNI repartidor");
         txtcodigo.add(jLabel9);
-        jLabel9.setBounds(20, 150, 120, 20);
+        jLabel9.setBounds(10, 150, 120, 20);
 
         btnSeleccionarRepartidor.setText("Repartidor");
         btnSeleccionarRepartidor.addActionListener(new java.awt.event.ActionListener() {
@@ -208,11 +229,11 @@ private Connection dbCon;
             }
         });
         txtcodigo.add(btnSeleccionarRepartidor);
-        btnSeleccionarRepartidor.setBounds(240, 140, 150, 40);
+        btnSeleccionarRepartidor.setBounds(210, 140, 150, 40);
 
         txtDNIVendedor.setEditable(false);
         txtcodigo.add(txtDNIVendedor);
-        txtDNIVendedor.setBounds(150, 30, 80, 20);
+        txtDNIVendedor.setBounds(120, 30, 80, 24);
 
         btnSeleccionarDelivery.setText("Seleccionar delivery");
         btnSeleccionarDelivery.addActionListener(new java.awt.event.ActionListener() {
@@ -221,67 +242,72 @@ private Connection dbCon;
             }
         });
         txtcodigo.add(btnSeleccionarDelivery);
-        btnSeleccionarDelivery.setBounds(240, 100, 150, 40);
+        btnSeleccionarDelivery.setBounds(210, 100, 150, 40);
 
-        jButton5.setText("Vendedor");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnVendedor.setText("Vendedor");
+        btnVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnVendedorActionPerformed(evt);
             }
         });
-        txtcodigo.add(jButton5);
-        jButton5.setBounds(240, 10, 150, 40);
+        txtcodigo.add(btnVendedor);
+        btnVendedor.setBounds(210, 20, 150, 40);
 
-        btnpago.setText("Seleccionar pago");
-        btnpago.addActionListener(new java.awt.event.ActionListener() {
+        btnPago.setText("Seleccionar pago");
+        btnPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpagoActionPerformed(evt);
+                btnPagoActionPerformed(evt);
             }
         });
-        txtcodigo.add(btnpago);
-        btnpago.setBounds(240, 60, 150, 40);
+        txtcodigo.add(btnPago);
+        btnPago.setBounds(210, 60, 150, 40);
         txtcodigo.add(txtid_pago);
-        txtid_pago.setBounds(150, 70, 80, 20);
+        txtid_pago.setBounds(120, 70, 80, 24);
         txtcodigo.add(txtid_delivery);
-        txtid_delivery.setBounds(150, 110, 80, 20);
+        txtid_delivery.setBounds(120, 110, 80, 24);
 
         txtCodigoRepartidor.setEditable(false);
         txtcodigo.add(txtCodigoRepartidor);
-        txtCodigoRepartidor.setBounds(150, 150, 80, 20);
+        txtCodigoRepartidor.setBounds(120, 150, 80, 24);
 
         jLabel11.setText("DNI vendedor");
         txtcodigo.add(jLabel11);
-        jLabel11.setBounds(20, 30, 120, 20);
+        jLabel11.setBounds(10, 30, 120, 20);
 
         jLabel12.setText("Codigo del pago");
         txtcodigo.add(jLabel12);
-        jLabel12.setBounds(20, 70, 120, 20);
+        jLabel12.setBounds(10, 70, 120, 20);
 
         jLabel13.setText("Codigo del delivery");
         txtcodigo.add(jLabel13);
-        jLabel13.setBounds(20, 110, 120, 20);
+        jLabel13.setBounds(10, 110, 120, 20);
 
         jLabel69.setText("DATOS DEL PEDIDO");
         txtcodigo.add(jLabel69);
-        jLabel69.setBounds(10, 0, 190, 14);
+        jLabel69.setBounds(10, 0, 190, 16);
 
         jPanel1.add(txtcodigo);
-        txtcodigo.setBounds(20, 240, 400, 230);
+        txtcodigo.setBounds(20, 240, 360, 230);
 
         jPanel17.setLayout(null);
 
         jLabel7.setText("PRODUCTOS PEDIDOS");
         jPanel17.add(jLabel7);
-        jLabel7.setBounds(10, 0, 190, 14);
+        jLabel7.setBounds(10, 0, 190, 16);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
         jPanel17.add(jLabel10);
         jLabel10.setBounds(-20, 400, 120, 20);
 
-        jButton3.setText("Guardar pedido");
-        jPanel17.add(jButton3);
-        jButton3.setBounds(170, 370, 107, 40);
+        btnGuardarPedido.setText("Guardar pedido");
+        btnGuardarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarPedidoActionPerformed(evt);
+            }
+        });
+        jPanel17.add(btnGuardarPedido);
+        btnGuardarPedido.setBounds(170, 370, 117, 40);
 
         btnSeleccionarProducto.setText("Seleccionar");
         btnSeleccionarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -290,56 +316,61 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnSeleccionarProducto);
-        btnSeleccionarProducto.setBounds(160, 20, 110, 40);
+        btnSeleccionarProducto.setBounds(180, 10, 110, 40);
 
         tblMostrarProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "idProducto", "Precio", "Cantidad", "Monto"
+                "idProducto", "Descripcion", "Color", "Precio", "Cantidad"
             }
         ));
         jScrollPane3.setViewportView(tblMostrarProducto);
 
         jPanel17.add(jScrollPane3);
-        jScrollPane3.setBounds(20, 210, 240, 120);
+        jScrollPane3.setBounds(10, 180, 310, 150);
         jPanel17.add(txtCodigoProducto);
-        txtCodigoProducto.setBounds(80, 20, 70, 20);
+        txtCodigoProducto.setBounds(90, 20, 70, 24);
 
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel70.setText("Codigo");
         jPanel17.add(jLabel70);
-        jLabel70.setBounds(10, 20, 60, 20);
+        jLabel70.setBounds(20, 20, 60, 20);
         jPanel17.add(txtPrecio);
-        txtPrecio.setBounds(80, 50, 50, 20);
+        txtPrecio.setBounds(90, 110, 50, 24);
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel71.setText("Precio");
+        jLabel71.setText("Color");
         jPanel17.add(jLabel71);
-        jLabel71.setBounds(10, 50, 60, 20);
+        jLabel71.setBounds(20, 80, 60, 20);
         jPanel17.add(txtCantidad);
-        txtCantidad.setBounds(80, 80, 50, 20);
+        txtCantidad.setBounds(90, 140, 50, 24);
 
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel72.setText("Cantidad");
+        jLabel72.setText("Descripcion");
         jPanel17.add(jLabel72);
-        jLabel72.setBounds(10, 80, 60, 20);
+        jLabel72.setBounds(10, 50, 70, 20);
 
-        jButton17.setText("Agregar");
-        jPanel17.add(jButton17);
-        jButton17.setBounds(100, 150, 110, 40);
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel17.add(btnAgregar);
+        btnAgregar.setBounds(170, 130, 110, 40);
 
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel54.setText("MONTO TOTAL");
         jPanel17.add(jLabel54);
         jLabel54.setBounds(-20, 430, 120, 20);
         jPanel17.add(jTextField53);
-        jTextField53.setBounds(100, 340, 50, 20);
+        jTextField53.setBounds(100, 340, 50, 24);
         jPanel17.add(jTextField54);
-        jTextField54.setBounds(100, 430, 50, 20);
+        jTextField54.setBounds(100, 430, 50, 24);
         jPanel17.add(jTextField55);
-        jTextField55.setBounds(100, 400, 50, 20);
+        jTextField55.setBounds(100, 400, 50, 24);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
@@ -350,7 +381,7 @@ private Connection dbCon;
         jPanel17.add(jLabel6);
         jLabel6.setBounds(40, 460, 60, 20);
         jPanel17.add(jTextField1);
-        jTextField1.setBounds(100, 460, 50, 20);
+        jTextField1.setBounds(100, 460, 50, 24);
 
         jButton1.setText("Generar Reporte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -365,10 +396,24 @@ private Connection dbCon;
         jPanel17.add(jLabel14);
         jLabel14.setBounds(70, 370, 30, 20);
         jPanel17.add(jTextField2);
-        jTextField2.setBounds(100, 370, 50, 20);
+        jTextField2.setBounds(100, 370, 50, 24);
+        jPanel17.add(txtDescripProducto);
+        txtDescripProducto.setBounds(90, 50, 170, 24);
+
+        jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel73.setText("Cantidad");
+        jPanel17.add(jLabel73);
+        jLabel73.setBounds(20, 140, 60, 20);
+        jPanel17.add(txtColor);
+        txtColor.setBounds(90, 80, 170, 24);
+
+        jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel74.setText("Precio");
+        jPanel17.add(jLabel74);
+        jLabel74.setBounds(20, 110, 60, 20);
 
         jPanel1.add(jPanel17);
-        jPanel17.setBounds(430, 0, 300, 500);
+        jPanel17.setBounds(400, 10, 330, 490);
 
         txtcodf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -376,7 +421,7 @@ private Connection dbCon;
             }
         });
         jPanel1.add(txtcodf);
-        txtcodf.setBounds(230, 10, 170, 20);
+        txtcodf.setBounds(230, 10, 110, 24);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -390,18 +435,18 @@ private Connection dbCon;
         jTabbedPane1.addTab("Recepcion del pedido", jPanel1);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(20, 10, 750, 540);
+        jTabbedPane1.setBounds(10, 30, 750, 540);
 
-        setSize(new java.awt.Dimension(790, 633));
+        setSize(new java.awt.Dimension(790, 660));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
-  frmCliente x  = new frmCliente();
-                x.setVisible(true);
+            frmCliente x  = new frmCliente();
+            x.setVisible(true);
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
-    private void btnpagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagoActionPerformed
+    private void btnPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoActionPerformed
         Tipo_pago Tipo =new Tipo_pago();
         SelTipo_pago dialog = new SelTipo_pago(new javax.swing.JFrame(),true);
         dialog.setVisible(true);
@@ -414,7 +459,7 @@ private Connection dbCon;
             this.txtid_pago.setText(String.valueOf(Tipo.getId_pago()));
             
         }
-    }//GEN-LAST:event_btnpagoActionPerformed
+    }//GEN-LAST:event_btnPagoActionPerformed
 
     private void btnSeleccionarDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarDeliveryActionPerformed
         Delivery Deli =new Delivery();
@@ -438,6 +483,8 @@ private Connection dbCon;
             this.txtCodigoProducto.setText("");
         }else{
             this.txtCodigoProducto.setText(String.valueOf(pro.getIdProducto()));
+            this.txtDescripProducto.setText(String.valueOf(pro.getDetalle()));
+            this.txtColor.setText(String.valueOf(pro.getColor()));
             this.txtPrecio.setText(String.valueOf(pro.getPreciounitario()));
         }
     }//GEN-LAST:event_btnSeleccionarProductoActionPerformed
@@ -455,19 +502,19 @@ private Connection dbCon;
         }
     }//GEN-LAST:event_btnSeleccionarRepartidorActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
- Vendedor ven = new Vendedor();
-dlgVendedor dialog = new dlgVendedor(new javax.swing.JFrame(), true);
-dialog.setVisible(true);
-ven = dialog.getVend();
+    private void btnVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendedorActionPerformed
+        Vendedor ven = new Vendedor();
+        dlgVendedor dialog = new dlgVendedor(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+        ven = dialog.getVend();
 
-  if(ven == null){
-         this.txtDNIVendedor.setText("");
-  }else{
-      this.txtDNIVendedor.setText(String.valueOf(ven.getDniVendedor()));
-              }
+        if(ven == null){
+            this.txtDNIVendedor.setText("");
+        }else{
+            this.txtDNIVendedor.setText(String.valueOf(ven.getDniVendedor()));
+        }
   
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnVendedorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
@@ -477,10 +524,10 @@ ven = dialog.getVend();
            HashMap map= new HashMap();
            
             map.put("parameter1",this.txtcodf.getText() );
-          map.put("nombre",this.txtnombreCli.getText() );
-             map.put("direccion",this.txtdireccionCli.getText() );
-             map.put("telefono",this.txttelefonoCli.getText() );
-             map.put("correo",this.txtcorreoCli.getText() );
+            map.put("nombre",this.txtnombreCli.getText() );
+            map.put("direccion",this.txtdireccionCli.getText() );
+            map.put("telefono",this.txttelefonoCli.getText() );
+            map.put("correo",this.txtcorreoCli.getText() );
             db.connectRep(r,map,true);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -498,6 +545,71 @@ ven = dialog.getVend();
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void btnSeleccionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSeleccionarClienteActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        Vector vec= new Vector();
+        //if(validaAgregar() == true){
+        vec.addElement(this.txtCodigoProducto.getText());
+        vec.addElement(this.txtDescripProducto.getText());
+        vec.addElement(this.txtColor.getText());
+        vec.addElement(this.txtPrecio.getText());
+        vec.addElement(this.txtCantidad.getText());
+        
+        dtmpro.addRow(vec);
+        //}
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnGuardarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPedidoActionPerformed
+        Cab_venta cv=new Cab_venta();
+        //det_venta dv=new det_venta();
+        util u=new util();
+        int est,cant=0, idDel, idPag;
+        String fech, idCli, idProd, idVen, idRep;
+        double prec;
+        
+        //if(this.btnGrabar.getText().equals("Grabar")){
+
+        //if(validaGrabar() == true){
+        idVenta=u.idNext("Cab_venta","idVenta");
+        idCli=this.txtdniCli.getText();
+        idDel=Integer.parseInt(this.txtid_delivery.getText());
+        idVen=this.txtDNIVendedor.getText();
+        idRep=this.txtCodigoRepartidor.getText();
+        idPag=Integer.parseInt(this.txtid_pago.getText());
+        fech=u.obtenerFecha();
+        
+        cv.setIdVenta(idVenta);
+        cv.setDniClif(idCli);
+        cv.setFechaVenta(fech);
+        cv.setEstado("No entregado");
+        cv.setIdDeliveryf(idDel);
+        cv.setDniVendedor(idVen);
+        cv.setDniRepartidorf(idRep);
+        cv.setIdPagof(idPag);
+        
+        this.cabDao.procesaItem(cv, "insert");
+        
+        for(int i=0;i<this.tblMostrarProducto.getRowCount();i++){
+            Detalle_Venta dv=new Detalle_Venta();
+            idProd=dtmpro.getValueAt(i, 0).toString();
+            prec=Double.parseDouble(dtmpro.getValueAt(i, 3).toString());
+            cant=Integer.parseInt(dtmpro.getValueAt(i, 4).toString());
+            
+            dv.setIdVentaf(idVenta);
+            dv.setCodProducto(idProd);
+            dv.setPrecio(prec);
+            dv.setCantidad(cant);
+            
+            this.detDao.procesaItem(dv, "insert");
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnGuardarPedidoActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -508,16 +620,16 @@ ven = dialog.getVend();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnGuardarPedido;
+    private javax.swing.JButton btnPago;
     private javax.swing.JButton btnRegistrarCliente;
+    private javax.swing.JButton btnSeleccionarCliente;
     private javax.swing.JButton btnSeleccionarDelivery;
     private javax.swing.JButton btnSeleccionarProducto;
     private javax.swing.JButton btnSeleccionarRepartidor;
-    private javax.swing.JButton btnpago;
+    private javax.swing.JButton btnVendedor;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -537,6 +649,8 @@ ven = dialog.getVend();
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -553,7 +667,9 @@ ven = dialog.getVend();
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextField txtCodigoRepartidor;
+    private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtDNIVendedor;
+    private javax.swing.JTextField txtDescripProducto;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtcodf;
     private javax.swing.JPanel txtcodigo;
