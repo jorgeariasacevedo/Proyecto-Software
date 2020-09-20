@@ -593,7 +593,11 @@ private Connection dbCon;
         this.txtmonto.setText(Double.toString(Double.parseDouble(this.txtmonto.getText()) + a));
         }
         this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText())*0.18));
-        
+         if(txtdelivery.getText().isEmpty() == true){
+        this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
+        }else{
+         this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtdelivery.getText()) + Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
+         }
         dtmpro.addRow(vec);
         }
         
