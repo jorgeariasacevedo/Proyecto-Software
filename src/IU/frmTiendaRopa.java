@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -85,6 +86,26 @@ private Connection dbCon;
             vProd.add(6, listProd.get(i).getPreciounitario());
             dtmpro.addRow(vProd);
         }
+    }
+    private boolean validaAgregar(){
+        boolean sw = false;
+        if(this.txtCodigoProducto.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Debe registrar su producto");
+        }else{
+            if(this.txtCantidad.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar la cantidad de productos");
+            }else{
+            try{
+            Integer.parseInt(this.txtCantidad.getText());
+            sw = true;
+            }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para la cantidad de productos");
+            this.txtCantidad.setText("");
+            e.printStackTrace();
+            }
+            }
+        }
+        return sw;
     }
     
     @SuppressWarnings("unchecked")
@@ -212,7 +233,7 @@ private Connection dbCon;
         btnRegistrarCliente.setBounds(240, 130, 110, 40);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 40, 360, 180);
+        jPanel3.setBounds(20, 40, 370, 180);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
@@ -287,7 +308,7 @@ private Connection dbCon;
         jLabel69.setBounds(10, 0, 190, 16);
 
         jPanel1.add(txtcodigo);
-        txtcodigo.setBounds(20, 240, 360, 230);
+        txtcodigo.setBounds(20, 240, 370, 230);
 
         jPanel17.setLayout(null);
 
@@ -298,7 +319,7 @@ private Connection dbCon;
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
         jPanel17.add(jLabel10);
-        jLabel10.setBounds(-20, 400, 120, 20);
+        jLabel10.setBounds(-10, 400, 120, 20);
 
         btnGuardarPedido.setText("Guardar pedido");
         btnGuardarPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +328,7 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnGuardarPedido);
-        btnGuardarPedido.setBounds(170, 370, 117, 40);
+        btnGuardarPedido.setBounds(200, 370, 117, 40);
 
         btnSeleccionarProducto.setText("Seleccionar");
         btnSeleccionarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -364,24 +385,25 @@ private Connection dbCon;
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel54.setText("MONTO TOTAL");
         jPanel17.add(jLabel54);
-        jLabel54.setBounds(-20, 430, 120, 20);
+        jLabel54.setBounds(10, 430, 100, 20);
         jPanel17.add(jTextField53);
-        jTextField53.setBounds(100, 340, 50, 24);
+        jTextField53.setBounds(120, 340, 50, 24);
         jPanel17.add(jTextField54);
-        jTextField54.setBounds(100, 430, 50, 24);
+        jTextField54.setBounds(120, 430, 50, 24);
         jPanel17.add(jTextField55);
-        jTextField55.setBounds(100, 400, 50, 24);
+        jTextField55.setBounds(120, 400, 50, 24);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
         jPanel17.add(jLabel65);
-        jLabel65.setBounds(60, 340, 40, 20);
+        jLabel65.setBounds(70, 340, 40, 20);
 
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Fecha");
         jPanel17.add(jLabel6);
-        jLabel6.setBounds(40, 460, 60, 20);
+        jLabel6.setBounds(50, 460, 60, 20);
         jPanel17.add(jTextField1);
-        jTextField1.setBounds(100, 460, 50, 24);
+        jTextField1.setBounds(120, 460, 50, 24);
 
         jButton1.setText("Generar Reporte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -390,13 +412,14 @@ private Connection dbCon;
             }
         });
         jPanel17.add(jButton1);
-        jButton1.setBounds(170, 420, 110, 40);
+        jButton1.setBounds(200, 420, 110, 40);
 
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("IGV");
         jPanel17.add(jLabel14);
-        jLabel14.setBounds(70, 370, 30, 20);
+        jLabel14.setBounds(80, 370, 30, 20);
         jPanel17.add(jTextField2);
-        jTextField2.setBounds(100, 370, 50, 24);
+        jTextField2.setBounds(120, 370, 50, 24);
         jPanel17.add(txtDescripProducto);
         txtDescripProducto.setBounds(90, 50, 170, 24);
 
@@ -413,7 +436,7 @@ private Connection dbCon;
         jLabel74.setBounds(20, 110, 60, 20);
 
         jPanel1.add(jPanel17);
-        jPanel17.setBounds(400, 10, 330, 490);
+        jPanel17.setBounds(410, 10, 330, 490);
 
         txtcodf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -551,7 +574,7 @@ private Connection dbCon;
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         Vector vec= new Vector();
-        //if(validaAgregar() == true){
+        if(validaAgregar() == true){
         vec.addElement(this.txtCodigoProducto.getText());
         vec.addElement(this.txtDescripProducto.getText());
         vec.addElement(this.txtColor.getText());
@@ -559,14 +582,14 @@ private Connection dbCon;
         vec.addElement(this.txtCantidad.getText());
         
         dtmpro.addRow(vec);
-        //}
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnGuardarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPedidoActionPerformed
         Cab_venta cv=new Cab_venta();
         //det_venta dv=new det_venta();
         util u=new util();
-        int est,cant=0, idDel, idPag;
+        int cant, idDel, idPag;
         String fech, idCli, idProd, idVen, idRep;
         double prec;
         
@@ -594,6 +617,8 @@ private Connection dbCon;
         
         for(int i=0;i<this.tblMostrarProducto.getRowCount();i++){
             Detalle_Venta dv=new Detalle_Venta();
+            
+            //idProd=dtmpro.getValueAt(i, 0).toString();
             idProd=dtmpro.getValueAt(i, 0).toString();
             prec=Double.parseDouble(dtmpro.getValueAt(i, 3).toString());
             cant=Integer.parseInt(dtmpro.getValueAt(i, 4).toString());

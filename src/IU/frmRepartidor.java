@@ -67,6 +67,7 @@ public class frmRepartidor extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -136,7 +137,7 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnLimpiar);
-        btnLimpiar.setBounds(610, 100, 80, 40);
+        btnLimpiar.setBounds(40, 120, 80, 40);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -145,10 +146,19 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnEliminar);
-        btnEliminar.setBounds(610, 150, 80, 40);
+        btnEliminar.setBounds(40, 160, 80, 40);
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnSalir);
+        btnSalir.setBounds(610, 160, 80, 40);
 
         getContentPane().add(jPanel10);
-        jPanel10.setBounds(20, 280, 710, 200);
+        jPanel10.setBounds(20, 280, 710, 220);
 
         jPanel1.setLayout(null);
 
@@ -194,7 +204,7 @@ public class frmRepartidor extends javax.swing.JFrame {
         getContentPane().add(jLabel22);
         jLabel22.setBounds(300, 10, 160, 30);
 
-        setSize(new java.awt.Dimension(771, 570));
+        setSize(new java.awt.Dimension(771, 575));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -269,6 +279,10 @@ public class frmRepartidor extends javax.swing.JFrame {
         this.btnRegistrarRepartidor.setText("Actualizar repartidor");
     }//GEN-LAST:event_tblRepartidorMouseClicked
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -285,6 +299,7 @@ public class frmRepartidor extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrarRepartidor;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
