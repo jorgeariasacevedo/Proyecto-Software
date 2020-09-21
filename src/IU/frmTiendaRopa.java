@@ -684,7 +684,7 @@ private Connection dbCon;
             this.detDao.procesaItem(dv, "insert");
         }
         
-        
+        this.txtcodf.setText(Integer.toString(idVenta));
         
     }//GEN-LAST:event_btnGuardarPedidoActionPerformed
 
