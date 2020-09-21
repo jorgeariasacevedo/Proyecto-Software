@@ -2,6 +2,7 @@
 package DAO;
 //aasadasdsa//
 import BEAN.Cliente;
+import BEAN.Delivery;
 import UTIL.dbBean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,15 +40,35 @@ public class ClienteDAO {
 
         return listClie;
     }
-    public int procesaCliente(Cliente c, String proc){
+    public void procesaCliente(Cliente c, String proc){
+        dbBean con = new dbBean();
+        String sql = "";
+        if(proc.equals("insert")){
+             sql="insert into Cliente values('"+ c.getDniCli()+"', '"+ c.getApellidoCli()+"', '"+ c.getNombreCli()+"', '"+ c.getDireccionCli()+"', '"+ c.getTelefonoCli()+"', '"+ c.getCorreoCli()+"', '"+ c.getFecha_nac_clie()+"')";
+        }else if(proc.equals("update")){
+            sql="update Cliente set apellidoCli = '"+ c.getApellidoCli()+"', ";
+            sql = sql + " nombreCli = '"+ c.getNombreCli() +"', direccionCli = '"+ c.getDireccionCli() +"', telefonoCli = '"+ c.getTelefonoCli() +"', correoCli = '"+ c.getCorreoCli() +"', fecha_nac_clie = '"+ c.getFecha_nac_clie() +"' where dniCli = '"+ c.getDniCli() +"'";
+        }
+        try{
+            con.updateSQL(sql);
+        }catch(java.sql.SQLException e){
+            e.printStackTrace();
+        }
+        try{
+            con.close();
+        }catch(java.sql.SQLException e){
+            e.printStackTrace();
+        }
+    }
+     public int procesaCliente1(Cliente c, String proc){
        int resultado=0;
        String sql= "";
        dbBean con=new dbBean();
        if(proc.equals("insert")){
-            sql="insert into cliente values('"+ c.getDniCli()+"', '"+ c.getApellidoCli()+"', '"+ c.getNombreCli()+"', '"+ c.getDireccionCli()+"', '"+ c.getTelefonoCli()+"', '"+ c.getCorreoCli()+"', '"+ c.getFecha_nac_clie()+"')";
+            sql="insert into Cliente values('"+ c.getDniCli()+"', '"+ c.getApellidoCli()+"', '"+ c.getNombreCli()+"', '"+ c.getDireccionCli()+"', '"+ c.getTelefonoCli()+"', '"+ c.getCorreoCli()+"', '"+ c.getFecha_nac_clie()+"')";
             
        } else if(proc.equals("update")){
-            sql="update cliente set apellidoCli = '"+ c.getApellidoCli()+"', ";
+            sql="update Cliente set apellidoCli = '"+ c.getApellidoCli()+"', ";
             sql = sql + " nombreCli = '"+ c.getNombreCli() +"', direccionCli = '"+ c.getDireccionCli() +"', telefonoCli = '"+ c.getTelefonoCli() +"', correoCli = '"+ c.getCorreoCli() +"', fecha_nac_clie = '"+ c.getFecha_nac_clie() +"' where dniCli = '"+ c.getDniCli() +"'";
        }
        System.out.println("Observando el estado de la sentencia sql: "+sql);

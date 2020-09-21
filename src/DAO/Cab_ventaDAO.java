@@ -49,9 +49,9 @@ public class Cab_ventaDAO {
             sql="INSERT INTO cab_venta VALUES ('"+ cv.getIdVenta()+"', '"+ cv.getDniClif()+"', '"+ cv.getFechaVenta()+"', '"+ cv.getEstado() +"', '"+ cv.getIdDeliveryf()+"', '"+ cv.getDniVendedor()+"', '"+ cv.getDniRepartidorf()+"', '"+ cv.getIdPagof()+"')";
             System.out.println("uuuuuuu" + sql);
        }
-       //if(proc.equals("update")){
-       //     sql="UPDATE cab_venta set fecha  = '"+ cv.getFecha() +"', id_cliente = '"+ cv.getId_cliente() +"', estado = '"+ cv.getEstado() +"' where id_venta = '"+ cv.getId_venta() +"'";
-       //}
+       if(proc.equals("update")){
+            sql="UPDATE cab_venta set dniClif  = '"+ cv.getDniClif() +"', fechaVenta = '"+ cv.getFechaVenta() +"', estado = '"+ cv.getEstado() +"', idDeliveryf = '"+ cv.getIdDeliveryf() +"', dniVendedorf = '"+ cv.getDniVendedor() +"', DniRepartidorf = '"+ cv.getDniRepartidorf() +"', idPagof = '"+ cv.getIdPagof() +"' where idVenta = '"+ cv.getIdVenta() +"'";
+       }
        System.out.println("Observando el estado de la sentencia sql: "+sql);
 
        try{

@@ -245,14 +245,15 @@ public class frmCliente extends javax.swing.JFrame {
 
     private void btnRegistrarClieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClieActionPerformed
         Cliente clie = new Cliente();
-        //util u = new util();
+      
         String proc = "";
-        if(valida()== true){
+     
             if(this.btnRegistrarClie.getText().equals("Registrar")){
                 proc = "insert";
             }else if(this.btnRegistrarClie.getText().equals("Actualizar")){
                 proc = "update";
             }
+          if(valida()== true){
             clie.setDniCli(this.txtDni.getText());
             clie.setApellidoCli(this.txtApellidos.getText());
             clie.setNombreCli(this.txtNombres.getText());
@@ -261,9 +262,10 @@ public class frmCliente extends javax.swing.JFrame {
             clie.setCorreoCli(this.txtCorreo.getText());
             clie.setFecha_nac_clie(this.txtFechaClie.getText());
             this.clieDao.procesaCliente(clie, proc);
-            this.llenaTblCliente(false, "");
+           
             limpia();
         }
+       llenaTblCliente(false, "");
 
      
 
@@ -331,7 +333,7 @@ public class frmCliente extends javax.swing.JFrame {
         this.txtCorreo.setText(dtm.getValueAt(fil, 5).toString());
         this.txtFechaClie.setText(dtm.getValueAt(fil, 6).toString());
         
-        this.btnRegistrarClie.setText("Actualizar ");
+        this.btnRegistrarClie.setText("Actualizar");
     }//GEN-LAST:event_tblClieBuscaMouseClicked
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

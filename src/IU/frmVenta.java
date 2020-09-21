@@ -251,10 +251,10 @@ public class frmVenta extends javax.swing.JFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         Cab_venta cab_venta = new Cab_venta();
-        String proc = "";
-        if(this.btnActualizar.getText().equals("Actualizar")){
+     
+        String proc;
             proc = "update";
-        }
+     
         cab_venta.setIdVenta(Integer.parseInt(this.txtIdVenta.getText()));
         cab_venta.setDniClif(this.txtDniCliente.getText());
         cab_venta.setFechaVenta(this.txtFecha.getText());
@@ -265,7 +265,7 @@ public class frmVenta extends javax.swing.JFrame {
         cab_venta.setIdPagof(Integer.parseInt(this.txtIdPago.getText()));
         this.cab_ventaDao.procesaItem(cab_venta, proc);
         limpiaG();
-        this.llenaTblVentas(false, "");
+        llenaTblVentas(false, "");
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**

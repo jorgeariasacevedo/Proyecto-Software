@@ -71,7 +71,7 @@ public class frmVentafinal extends javax.swing.JFrame {
 
         clie = new Cliente();
         dtmpro = (DefaultTableModel) this.tblMostrarProducto.getModel();
-        
+
     }
 
     private void llenaTblProducto(boolean sw, String cad) {
@@ -656,7 +656,13 @@ public class frmVentafinal extends javax.swing.JFrame {
                 b = Double.parseDouble(this.txtmonto.getText());
                 this.txtmonto.setText(Double.toString(Double.parseDouble(this.txtmonto.getText()) + a));
             }
-         this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText()) * 0.18));
+           if (this.txtboletafactura.getSelectedIndex() == 0) {
+                    this.txtIGV.setText("0");
+                } else {
+                   this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText()) * 0.18));
+                }
+            
+            
             if (txtdelivery.getText().isEmpty() == true) {
                 this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
             } else {
@@ -664,7 +670,12 @@ public class frmVentafinal extends javax.swing.JFrame {
             }
             dtmpro.addRow(vec);
         }
-
+        this.txtCodigoProducto.setText("");
+        this.txtDescripProducto.setText("");
+        this.txtColor.setText("");
+        this.txtPrecio.setText("");
+        this.txtPrecio.setText("");
+        this.txtCantidad.setText("");
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnGuardarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPedidoActionPerformed
@@ -709,43 +720,43 @@ public class frmVentafinal extends javax.swing.JFrame {
             dv.setCodProducto(idProd);
             dv.setPrecio(prec);
             dv.setCantidad(cant);
-      this.txtcodf.setText(Integer.toString(idVenta));
+            this.txtcodf.setText(Integer.toString(idVenta));
             this.detDao.procesaItem(dv, "insert");
-      int response = JOptionPane.showConfirmDialog(this, "¿Quieres generar un comprobante de pago?", "Comprobante", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (response == JOptionPane.YES_OPTION) {
-                try {
-                    String r = "src/REPORTES/repFactura.jasper";
 
-                    dbBean db = new dbBean();
-                    HashMap map = new HashMap();
+        }
+        int response = JOptionPane.showConfirmDialog(this, "¿Quieres generar un comprobante de pago?", "Comprobante", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            try {
+                String r = "src/REPORTES/repFactura.jasper";
 
-                    map.put("parameter1", this.txtcodf.getText());
+                dbBean db = new dbBean();
+                HashMap map = new HashMap();
 
-                    map.put("nombre", this.txtNombreCli.getText());
-                    map.put("direccion", this.txtDireccionCli.getText());
-                    map.put("telefono", this.txtTelefonoCli.getText());
-                    map.put("correo", this.txtCorreoCli.getText());
-                    map.put("monto", this.txtmonto.getText());
-                    map.put("IGV", this.txtIGV.getText());
-                    map.put("dni", this.txtDniCli.getText());
-                    map.put("montototal", this.txtTotal.getText());
-                   if(this.txtboletafactura.getSelectedIndex()== 0){
-                        map.put("facturaboleta","BOLETA");
-                   }else{
-                   map.put("facturaboleta","FACTURA");
-                   }
-                   
+                map.put("parameter1", this.txtcodf.getText());
 
-                    db.connectRep(r, map, true);
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } catch (JRException ex) {
-                    ex.printStackTrace();
+                map.put("nombre", this.txtNombreCli.getText());
+                map.put("direccion", this.txtDireccionCli.getText());
+                map.put("telefono", this.txtTelefonoCli.getText());
+                map.put("correo", this.txtCorreoCli.getText());
+                map.put("monto", this.txtmonto.getText());
+                map.put("IGV", this.txtIGV.getText());
+                map.put("dni", this.txtDniCli.getText());
+                map.put("montototal", this.txtTotal.getText());
+                if (this.txtboletafactura.getSelectedIndex() == 0) {
+                    map.put("factura o boleta", "BOLETA");
+                } else {
+                    map.put("factura o boleta", "FACTURA");
                 }
 
-            } else {
-                dispose();
+                db.connectRep(r, map, true);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } catch (JRException ex) {
+                ex.printStackTrace();
             }
+
+        } else {
+            dispose();
         }
     }//GEN-LAST:event_btnGuardarPedidoActionPerformed
 
