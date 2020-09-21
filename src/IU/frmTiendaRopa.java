@@ -169,6 +169,7 @@ private Connection dbCon;
         jLabel73 = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JButton();
         txtcodf = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
 
@@ -333,7 +334,7 @@ private Connection dbCon;
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
         jPanel17.add(jLabel10);
-        jLabel10.setBounds(-30, 400, 120, 20);
+        jLabel10.setBounds(-20, 420, 120, 20);
 
         btnGuardarPedido.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuardarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
@@ -368,7 +369,7 @@ private Connection dbCon;
         jScrollPane3.setViewportView(tblMostrarProducto);
 
         jPanel17.add(jScrollPane3);
-        jScrollPane3.setBounds(10, 180, 310, 150);
+        jScrollPane3.setBounds(10, 200, 310, 150);
         jPanel17.add(txtCodigoProducto);
         txtCodigoProducto.setBounds(90, 20, 70, 24);
 
@@ -400,23 +401,23 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnAgregar);
-        btnAgregar.setBounds(200, 130, 110, 40);
+        btnAgregar.setBounds(210, 110, 110, 40);
 
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel54.setText("MONTO TOTAL");
         jPanel17.add(jLabel54);
-        jLabel54.setBounds(-10, 430, 100, 20);
+        jLabel54.setBounds(0, 450, 100, 20);
         jPanel17.add(txtmonto);
-        txtmonto.setBounds(100, 340, 50, 24);
+        txtmonto.setBounds(110, 360, 50, 24);
         jPanel17.add(txtTotal);
-        txtTotal.setBounds(100, 430, 50, 24);
+        txtTotal.setBounds(110, 450, 50, 24);
         jPanel17.add(txtdelivery);
-        txtdelivery.setBounds(100, 400, 50, 24);
+        txtdelivery.setBounds(110, 420, 50, 24);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
         jPanel17.add(jLabel65);
-        jLabel65.setBounds(50, 340, 40, 20);
+        jLabel65.setBounds(60, 360, 40, 20);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952 (1).png"))); // NOI18N
@@ -432,9 +433,9 @@ private Connection dbCon;
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("IGV");
         jPanel17.add(jLabel14);
-        jLabel14.setBounds(60, 370, 30, 20);
+        jLabel14.setBounds(70, 390, 30, 20);
         jPanel17.add(txtIGV);
-        txtIGV.setBounds(100, 370, 50, 24);
+        txtIGV.setBounds(110, 390, 50, 24);
         jPanel17.add(txtDescripProducto);
         txtDescripProducto.setBounds(90, 50, 170, 24);
 
@@ -449,6 +450,15 @@ private Connection dbCon;
         jLabel74.setText("Precio");
         jPanel17.add(jLabel74);
         jLabel74.setBounds(20, 110, 60, 20);
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel17.add(btnEliminar);
+        btnEliminar.setBounds(210, 152, 110, 40);
 
         jPanel1.add(jPanel17);
         jPanel17.setBounds(410, 10, 330, 490);
@@ -668,6 +678,14 @@ private Connection dbCon;
         
     }//GEN-LAST:event_btnGuardarPedidoActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int i;
+        if(this.tblMostrarProducto.getSelectedRow()>=0){
+            i=this.tblMostrarProducto.getSelectedRow();
+            dtmpro.removeRow(i);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -679,6 +697,7 @@ private Connection dbCon;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardarPedido;
     private javax.swing.JButton btnPago;
     private javax.swing.JButton btnRegistrarCliente;
