@@ -70,7 +70,7 @@ private Connection dbCon;
         
         clie=new Cliente();
         dtmpro = (DefaultTableModel)this.tblMostrarProducto.getModel(); 
-        llenaTblProducto(false, "");
+      
     }
     
     private void llenaTblProducto(boolean sw, String cad){
@@ -565,6 +565,7 @@ private Connection dbCon;
         }
   
     }//GEN-LAST:event_btnVendedorActionPerformed
+
 // HEAD
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -587,7 +588,7 @@ private Connection dbCon;
          }
         
     }//GEN-LAST:event_jButton1ActionPerformed
-// origin/master
+
 
     private void txtcodfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodfActionPerformed
         // TODO add your handling code here:
@@ -702,10 +703,14 @@ private Connection dbCon;
            HashMap map= new HashMap();
            
             map.put("parameter1",this.txtcodf.getText() );
+
             map.put("nombre",this.txtNombreCli.getText() );
             map.put("direccion",this.txtDireccionCli.getText() );
             map.put("telefono",this.txtTelefonoCli.getText() );
             map.put("correo",this.txtCorreoCli.getText() );
+
+    
+
             map.put("monto",this.txtmonto.getText() );
             map.put("IGV",this.txtIGV.getText() );
             map.put("montototal",this.txtTotal.getText() );
@@ -713,8 +718,9 @@ private Connection dbCon;
               map.put("facturaboleta","BOLETA" );
             
             }else{
+                 map.put("facturaboleta","FACTURA" );
             }
-            map.put("facturaboleta","FACTURA" );
+           
             db.connectRep(r,map,true);
         }catch(SQLException ex){
             ex.printStackTrace();
