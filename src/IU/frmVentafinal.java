@@ -71,7 +71,7 @@ public class frmVentafinal extends javax.swing.JFrame {
 
         clie = new Cliente();
         dtmpro = (DefaultTableModel) this.tblMostrarProducto.getModel();
-
+        
     }
 
     private void llenaTblProducto(boolean sw, String cad) {
@@ -487,6 +487,11 @@ public class frmVentafinal extends javax.swing.JFrame {
         txtcodf.setBounds(230, 10, 110, 20);
 
         txtboletafactura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
+        txtboletafactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtboletafacturaActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtboletafactura);
         txtboletafactura.setBounds(20, 10, 190, 20);
 
@@ -651,7 +656,10 @@ public class frmVentafinal extends javax.swing.JFrame {
                 b = Double.parseDouble(this.txtmonto.getText());
                 this.txtmonto.setText(Double.toString(Double.parseDouble(this.txtmonto.getText()) + a));
             }
+            if(this.txtboletafactura.getSelectedIndex()== 1){
             this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText()) * 0.18));
+            }else{this.txtIGV.setText("0");};
+            
             if (txtdelivery.getText().isEmpty() == true) {
                 this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
             } else {
@@ -706,7 +714,9 @@ public class frmVentafinal extends javax.swing.JFrame {
             dv.setCantidad(cant);
       this.txtcodf.setText(Integer.toString(idVenta));
             this.detDao.procesaItem(dv, "insert");
-            int response = JOptionPane.showConfirmDialog(this, "¿Quieres generar un comprobante de pago?", "Comprobante", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+      
+        }
+      int response = JOptionPane.showConfirmDialog(this, "¿Quieres generar un comprobante de pago?", "Comprobante", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
                 try {
                     String r = "src/REPORTES/repFactura.jasper";
@@ -724,14 +734,12 @@ public class frmVentafinal extends javax.swing.JFrame {
                     map.put("IGV", this.txtIGV.getText());
                     map.put("dni", this.txtDniCli.getText());
                     map.put("montototal", this.txtTotal.getText());
-                    if (txtboletafactura.getSelectedIndex() == 0) {
-                        map.put("facturaboleta", "BOLETA");
-
-                    } else {
-
-                        map.put("facturaboleta", "FACTURA");
-
-                    }
+                   if(this.txtboletafactura.getSelectedIndex()== 0){
+                        map.put("facturaboleta","BOLETA");
+                   }else{
+                   map.put("facturaboleta","FACTURA");
+                   }
+                   
 
                     db.connectRep(r, map, true);
                 } catch (SQLException ex) {
@@ -743,8 +751,6 @@ public class frmVentafinal extends javax.swing.JFrame {
             } else {
                 dispose();
             }
-        }
-
 
     }//GEN-LAST:event_btnGuardarPedidoActionPerformed
 
@@ -759,6 +765,10 @@ public class frmVentafinal extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtboletafacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtboletafacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtboletafacturaActionPerformed
 
     public static void main(String args[]) {
 
