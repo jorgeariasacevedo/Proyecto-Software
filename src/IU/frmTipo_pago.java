@@ -2,10 +2,13 @@ package IU;
 
 import BEAN.Tipo_pago;
 import DAO.Tipo_pagoDAO;
+import UTIL.dbBean;
 import UTIL.util;
+import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
 
 public class frmTipo_pago extends javax.swing.JFrame {
     Tipo_pagoDAO tipoDAO;
@@ -62,6 +65,7 @@ public class frmTipo_pago extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        btnReporteProd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -95,7 +99,7 @@ public class frmTipo_pago extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbltipo);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 100, 620, 130);
+        jScrollPane1.setBounds(40, 40, 620, 130);
 
         jLabel2.setText("Búsqueda");
         getContentPane().add(jLabel2);
@@ -141,7 +145,7 @@ public class frmTipo_pago extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btngrabar);
-        btngrabar.setBounds(90, 410, 150, 40);
+        btngrabar.setBounds(20, 410, 150, 40);
 
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         btnsalir.setText("SALIR");
@@ -151,7 +155,7 @@ public class frmTipo_pago extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnsalir);
-        btnsalir.setBounds(430, 410, 120, 40);
+        btnsalir.setBounds(480, 410, 120, 40);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
         getContentPane().add(jLabel11);
@@ -160,6 +164,16 @@ public class frmTipo_pago extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-04_icon-icons.com_73886.png"))); // NOI18N
         getContentPane().add(jLabel7);
         jLabel7.setBounds(510, 10, 80, 80);
+
+        btnReporteProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952.png"))); // NOI18N
+        btnReporteProd.setText("Reporte");
+        btnReporteProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteProdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReporteProd);
+        btnReporteProd.setBounds(240, 400, 140, 60);
 
         setSize(new java.awt.Dimension(652, 525));
         setLocationRelativeTo(null);
@@ -214,6 +228,18 @@ public class frmTipo_pago extends javax.swing.JFrame {
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
     this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void btnReporteProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteProdActionPerformed
+        try{
+            String r = "src/REPORTES/repTipodePago.jasper";
+            dbBean db = new dbBean();
+            db.connectRep(r,null,false);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnReporteProdActionPerformed
 
     private boolean valida(){
         boolean sw = false;
@@ -289,6 +315,7 @@ public class frmTipo_pago extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnReporteProd;
     private javax.swing.JButton btngrabar;
     private javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel1;

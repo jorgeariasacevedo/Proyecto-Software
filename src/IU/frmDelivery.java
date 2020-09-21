@@ -2,10 +2,13 @@ package IU;
 
 import BEAN.Delivery;
 import DAO.DeliveryDAO;
+import UTIL.dbBean;
 import UTIL.util;
+import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
 
 public class frmDelivery extends javax.swing.JFrame {
     DeliveryDAO DeliDAO;
@@ -75,6 +78,7 @@ public class frmDelivery extends javax.swing.JFrame {
         txtsalir = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        btnReporteProd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -116,7 +120,7 @@ public class frmDelivery extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDelivery);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 110, 620, 140);
+        jScrollPane1.setBounds(40, 120, 620, 140);
 
         jLabel3.setText("ID_DELIVEY");
         getContentPane().add(jLabel3);
@@ -186,7 +190,7 @@ public class frmDelivery extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtsalir);
-        txtsalir.setBounds(430, 470, 130, 41);
+        txtsalir.setBounds(500, 470, 130, 41);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
         getContentPane().add(jLabel11);
@@ -195,6 +199,16 @@ public class frmDelivery extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/613deliverytruck_100957.png"))); // NOI18N
         getContentPane().add(jLabel12);
         jLabel12.setBounds(540, 30, 70, 60);
+
+        btnReporteProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952.png"))); // NOI18N
+        btnReporteProd.setText("Reporte");
+        btnReporteProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteProdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReporteProd);
+        btnReporteProd.setBounds(300, 450, 160, 60);
 
         setSize(new java.awt.Dimension(696, 588));
         setLocationRelativeTo(null);
@@ -252,6 +266,18 @@ public class frmDelivery extends javax.swing.JFrame {
     private void txtsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsalirActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_txtsalirActionPerformed
+
+    private void btnReporteProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteProdActionPerformed
+        try{
+            String r = "src/REPORTES/repRepartidor.jasper";
+            dbBean db = new dbBean();
+            db.connectRep(r,null,false);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnReporteProdActionPerformed
 
     
      private boolean valida(){
@@ -362,6 +388,7 @@ public class frmDelivery extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGrabar;
+    private javax.swing.JButton btnReporteProd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
