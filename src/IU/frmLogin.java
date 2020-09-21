@@ -50,6 +50,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caipi.png"))); // NOI18N
         jLabel4.setToolTipText("");
@@ -116,12 +117,15 @@ public class frmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, 80));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 480, 300));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 480, 300));
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 610, 190));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 610, 190));
 
-        setSize(new java.awt.Dimension(894, 601));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondos-rosados-9949154.jpg"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        setSize(new java.awt.Dimension(814, 591));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -166,6 +170,7 @@ this.dispose();        // TODO add your handling code here:
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

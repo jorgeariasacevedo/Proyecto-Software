@@ -60,7 +60,7 @@ public class SelCliente extends javax.swing.JDialog {
 
         jLabel2.setText("Buscar");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(130, 70, 32, 14);
+        jLabel2.setBounds(110, 70, 32, 14);
 
         txtBuscClie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +73,7 @@ public class SelCliente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(txtBuscClie);
-        txtBuscClie.setBounds(200, 70, 210, 20);
+        txtBuscClie.setBounds(220, 70, 210, 20);
 
         tblClieBusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
