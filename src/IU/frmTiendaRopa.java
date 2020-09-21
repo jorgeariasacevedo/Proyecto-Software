@@ -56,8 +56,9 @@ private Connection dbCon;
     Cliente clie;
     
     DefaultTableModel dtmpro;
-    
+    //jujuujujujju
     public frmTiendaRopa() {
+        initComponents();
         cliDao = new ClienteDAO();
         proDao=new ProductoDAO();
         venDao=new VendedorDAO();
@@ -66,7 +67,7 @@ private Connection dbCon;
         tipDao=new Tipo_pagoDAO();
         cabDao=new Cab_ventaDAO();
         detDao=new Detalle_VentaDAO();
-        initComponents();
+        
         clie=new Cliente();
         dtmpro = (DefaultTableModel)this.tblMostrarProducto.getModel(); 
         //llenaTblProducto(false, "");
