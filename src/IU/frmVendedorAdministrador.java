@@ -5,6 +5,7 @@
  */
 package IU;
 
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -129,4 +130,6 @@ Principal x  = new Principal();
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+  
 }

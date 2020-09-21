@@ -1,17 +1,23 @@
 
 package IU;
 
+import BEAN.Usuario;
+
+import DAO.UsuarioDAO;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
 public class frmLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmLogin
-     */
+
+     
     public frmLogin() {
+     
         initComponents();
      int wd, hd, slx, sly;
         Toolkit toolkit =  Toolkit.getDefaultToolkit ();
@@ -23,6 +29,8 @@ public class frmLogin extends javax.swing.JFrame {
         sly = (hd/2) -(300);
         this.setLocation(slx, sly);
         this.setResizable(false);
+         this.txtPw.setText("123");
+        this.txtUser.setText("admin");
     }
 
 
@@ -37,8 +45,8 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtUser = new javax.swing.JTextField();
+        txtPw = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -71,25 +79,24 @@ public class frmLogin extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (4).png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setOpaque(false);
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 80, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setToolTipText("");
-        jTextField1.setName(""); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtUser.setToolTipText("");
+        txtUser.setName(""); // NOI18N
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 270, 30));
-        jTextField1.getAccessibleContext().setAccessibleName("");
+        jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 270, 30));
+        txtUser.getAccessibleContext().setAccessibleName("");
 
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 270, 30));
+        jPanel1.add(txtPw, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 270, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nombre.png"))); // NOI18N
         jLabel3.setToolTipText("");
@@ -113,15 +120,25 @@ public class frmLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+       
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            frmVendedorAdministrador x  = new frmVendedorAdministrador();
-            x.setVisible(true);
-            dispose();// TODO add your handling code here:
+         UsuarioDAO dao=new UsuarioDAO();
+        Vector<Usuario> v=dao.listUsu(this.txtUser.getText(), this.txtPw.getText());
+        int n=v.size();
+        if(n>0){
+           frmVendedorAdministrador mdi=new frmVendedorAdministrador();
+            mdi.setVisible(true);
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "EL USUARIO NO ES CORRECTO, INGRESE NUEVAMENTE");
+            this.txtUser.setText("");
+            this.txtPw.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    }
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtUserActionPerformed
 
     public static void main(String args[]) {
 
@@ -143,7 +160,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txtPw;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -659,13 +659,16 @@ private Connection dbCon;
             map.put("correo",this.txtcorreoCli.getText() );
             map.put("monto",this.txtmonto.getText() );
             map.put("IGV",this.txtIGV.getText() );
+            map.put("dni",this.txtdniCli.getText());
             map.put("montototal",this.txtTotal.getText() );
-            if(txtboletafactura.getSelectedIndex() == 1){
+            if(txtboletafactura.getSelectedIndex() == 0){
               map.put("facturaboleta","BOLETA" );
+             
             
             }else{
+              map.put("facturaboleta","FACTURA" );
             }
-            map.put("facturaboleta","FACTURA" );
+       
             db.connectRep(r,map,true);
         }catch(SQLException ex){
             ex.printStackTrace();

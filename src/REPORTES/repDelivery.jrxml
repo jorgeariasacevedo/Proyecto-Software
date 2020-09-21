@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="42c62465-eecf-4866-b243-5c17edde1725">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     Delivery."id_delivery" AS Delivery_id_delivery,
+     Delivery."tipo_del" AS Delivery_tipo_del,
+     Delivery."destino" AS Delivery_destino,
+     Delivery."preciocaja" AS Delivery_preciocaja,
+     Delivery."agencia" AS Delivery_agencia,
+     Delivery."provincia" AS Delivery_provincia,
+     Delivery."departamento" AS Delivery_departamento,
+     Delivery."distrito" AS Delivery_distrito
+FROM
+     "dbo"."Delivery" Delivery]]>
+	</queryString>
+	<field name="Delivery_id_delivery" class="java.lang.Integer"/>
+	<field name="Delivery_tipo_del" class="java.lang.String"/>
+	<field name="Delivery_destino" class="java.lang.String"/>
+	<field name="Delivery_preciocaja" class="java.lang.Integer"/>
+	<field name="Delivery_agencia" class="java.lang.String"/>
+	<field name="Delivery_provincia" class="java.lang.String"/>
+	<field name="Delivery_departamento" class="java.lang.String"/>
+	<field name="Delivery_distrito" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#FF66FF" uuid="55109dbe-7bfa-4569-8078-e99482381bcb"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" forecolor="#000000" uuid="b1c8969f-c592-4a7e-8524-88a866fa3a52"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Delivery]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="dcee113c-fe71-4141-a36f-96325f2a7517"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#FFCCFF" uuid="8b653c38-d4f9-4f06-8368-96f63c9c9acf"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="226" y="12" width="144" height="20" forecolor="#000000" uuid="590c1eb4-425e-4e1a-ac2c-dd03a90deb9a"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image>
+				<reportElement x="449" y="0" width="104" height="132" uuid="0c3f93c3-71c9-41e8-80a6-dd2f224db6c0"/>
+				<imageExpression><![CDATA["C:\\Users\\Usuario\\Desktop\\TrabajoFinal\\TrabajoFinal\\src\\REPORTES\\buzo blanco.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="82" y="0" width="50" height="20" uuid="ca13cf50-ceb9-4110-bb70-8c4de27b15f9"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="0" width="100" height="20" uuid="ca35c6f8-78e2-443c-a0f9-85cce1b8212a"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Destino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="0" width="50" height="20" uuid="763c40f8-c95c-4bb1-813c-865709baac9f"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="0" width="50" height="20" uuid="e54877de-388d-433d-bbcb-6e23e7374702"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="0" width="50" height="20" uuid="1a7de337-bce0-4f72-9da5-7a6ae324698a"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Agencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="0" width="52" height="20" uuid="8085dd64-b835-44d3-a2e2-11b1c7531f7e"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="0" width="67" height="20" uuid="84c5d53a-3f1e-4857-bcf1-fb9756288260"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="0" width="83" height="20" uuid="87a49e76-0756-4365-8824-eacb49733d8f"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="82" y="0" width="50" height="20" uuid="e7891682-1d48-497d-aef3-2231648732cf"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_tipo_del}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="0" width="100" height="20" uuid="60108ecf-11d9-4d41-b75e-3993ecdccb91"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_destino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="0" width="50" height="20" uuid="4ae0d5a8-f113-4876-abd7-e30b759b7d35"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_preciocaja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="50" height="20" uuid="9fd80bff-f374-481d-abb6-84de7814551b"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_agencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="0" width="50" height="20" uuid="a9e7a174-b4ea-4a08-9606-e1d2f45c86fa"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_id_delivery}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="52" height="20" uuid="5c9284cb-0a29-40f7-b852-d85f2f956179"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_provincia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="67" height="20" uuid="1fc055ce-e180-46e3-b847-f53134fda49d"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_departamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="0" width="83" height="20" uuid="e6f79897-82ba-4eb1-ad89-e36c4616d9a3"/>
+				<box>
+					<pen lineWidth="1.5" lineColor="#FF9900"/>
+					<topPen lineWidth="1.5" lineColor="#FF9900"/>
+					<leftPen lineWidth="1.5" lineColor="#FF9900"/>
+					<bottomPen lineWidth="1.5" lineColor="#FF9900"/>
+					<rightPen lineWidth="1.5" lineColor="#FF9900"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Delivery_distrito}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="64e62f6f-48c5-40fc-aad5-d778fbf0d79d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="b51f09b2-8a72-4033-9de7-fac0e0d350f1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="f0d78456-c093-4307-9956-c5770867e769"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="f0a10769-338e-43a0-8f2c-50ba10669848"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="62322b72-22d4-4d52-9564-86e59a77b220"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -256,6 +256,7 @@ public class frmCliente extends javax.swing.JFrame {
         clie.setDireccionCli(this.txtDireccion.getText());
         clie.setTelefonoCli(Integer.parseInt(this.txtTelefono.getText()));
         clie.setCorreoCli(this.txtCorreo.getText());
+      
         //clie.setFecha_nac_clie(this.txtFechaClie.getText());
         this.clieDao.procesaItem(clie, proc);
         limpia();
