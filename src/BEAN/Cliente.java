@@ -4,19 +4,19 @@ import java.sql.Date;
 //dsa//
 public class Cliente {
     private String dniCli;
-    private String apellidosCli;
+    private String apellidoCli;
     private String nombreCli;
     private String direccionCli;
     private int telefonoCli;
     private String correoCli;
-    private Date fecha_nac_clie;
+    private String fecha_nac_clie;
 //gfdgdf//
     public Cliente() {
     }
 
-    public Cliente(String dniCli, String apellidosCli, String nombreCli, String direccionCli, int telefonoCli, String correoCli, Date fecha_nac_clie) {
+    public Cliente(String dniCli, String apellidoCli, String nombreCli, String direccionCli, int telefonoCli, String correoCli, String fecha_nac_clie) {
         this.dniCli = dniCli;
-        this.apellidosCli = apellidosCli;
+        this.apellidoCli = apellidoCli;
         this.nombreCli = nombreCli;
         this.direccionCli = direccionCli;
         this.telefonoCli = telefonoCli;
@@ -32,12 +32,12 @@ public class Cliente {
         this.dniCli = dniCli;
     }
 
-    public String getApellidosCli() {
-        return apellidosCli;
+    public String getApellidoCli() {
+        return apellidoCli;
     }
 
-    public void setApellidosCli(String apellidosCli) {
-        this.apellidosCli = apellidosCli;
+    public void setApellidoCli(String apellidosCli) {
+        this.apellidoCli = apellidosCli;
     }
 
     public String getNombreCli() {
@@ -72,11 +72,11 @@ public class Cliente {
         this.correoCli = correoCli;
     }
 
-    public Date getFecha_nac_clie() {
+    public String getFecha_nac_clie() {
         return fecha_nac_clie;
     }
 
-    public void setFecha_nac_clie(Date fecha_nac_clie) {
+    public void setFecha_nac_clie(String fecha_nac_clie) {
         this.fecha_nac_clie = fecha_nac_clie;
     }
 

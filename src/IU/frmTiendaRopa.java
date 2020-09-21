@@ -70,7 +70,7 @@ private Connection dbCon;
         
         clie=new Cliente();
         dtmpro = (DefaultTableModel)this.tblMostrarProducto.getModel(); 
-        //llenaTblProducto(false, "");
+        llenaTblProducto(false, "");
     }
     
     private void llenaTblProducto(boolean sw, String cad){
@@ -121,14 +121,16 @@ private Connection dbCon;
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtdniCli = new javax.swing.JTextField();
-        txtnombreCli = new javax.swing.JTextField();
-        txtdireccionCli = new javax.swing.JTextField();
-        txttelefonoCli = new javax.swing.JTextField();
-        txtcorreoCli = new javax.swing.JTextField();
+        txtDniCli = new javax.swing.JTextField();
+        txtNombreCli = new javax.swing.JTextField();
+        txtDireccionCli = new javax.swing.JTextField();
+        txtTelefonoCli = new javax.swing.JTextField();
+        txtCorreoCli = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnSeleccionarCliente = new javax.swing.JButton();
         btnRegistrarCliente = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtApellidoClie = new javax.swing.JTextField();
         txtcodigo = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnSeleccionarRepartidor = new javax.swing.JButton();
@@ -183,7 +185,7 @@ private Connection dbCon;
 
         jLabel1.setText("Correo");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(20, 140, 70, 20);
+        jLabel1.setBounds(20, 170, 70, 20);
 
         jLabel2.setText("DNI Cliente");
         jPanel3.add(jLabel2);
@@ -191,25 +193,25 @@ private Connection dbCon;
 
         jLabel3.setText("Nombres");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(20, 50, 70, 20);
+        jLabel3.setBounds(20, 80, 70, 20);
 
         jLabel4.setText("Direccion");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(20, 80, 70, 20);
+        jLabel4.setBounds(20, 110, 70, 20);
 
         jLabel5.setText("Telefono");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(20, 110, 70, 20);
-        jPanel3.add(txtdniCli);
-        txtdniCli.setBounds(90, 20, 90, 20);
-        jPanel3.add(txtnombreCli);
-        txtnombreCli.setBounds(90, 50, 180, 20);
-        jPanel3.add(txtdireccionCli);
-        txtdireccionCli.setBounds(90, 80, 220, 20);
-        jPanel3.add(txttelefonoCli);
-        txttelefonoCli.setBounds(90, 110, 90, 20);
-        jPanel3.add(txtcorreoCli);
-        txtcorreoCli.setBounds(90, 140, 130, 20);
+        jLabel5.setBounds(20, 140, 70, 20);
+        jPanel3.add(txtDniCli);
+        txtDniCli.setBounds(90, 20, 90, 20);
+        jPanel3.add(txtNombreCli);
+        txtNombreCli.setBounds(90, 80, 180, 20);
+        jPanel3.add(txtDireccionCli);
+        txtDireccionCli.setBounds(90, 110, 220, 20);
+        jPanel3.add(txtTelefonoCli);
+        txtTelefonoCli.setBounds(90, 140, 90, 20);
+        jPanel3.add(txtCorreoCli);
+        txtCorreoCli.setBounds(90, 170, 130, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("DATOS DEL CLIENTE");
@@ -236,10 +238,16 @@ private Connection dbCon;
             }
         });
         jPanel3.add(btnRegistrarCliente);
-        btnRegistrarCliente.setBounds(240, 130, 110, 40);
+        btnRegistrarCliente.setBounds(250, 140, 110, 40);
+
+        jLabel6.setText("Apellidos");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(20, 50, 50, 14);
+        jPanel3.add(txtApellidoClie);
+        txtApellidoClie.setBounds(90, 50, 180, 20);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 40, 390, 190);
+        jPanel3.setBounds(20, 40, 390, 200);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
@@ -583,10 +591,10 @@ private Connection dbCon;
            HashMap map= new HashMap();
            
             map.put("parameter1",this.txtcodf.getText() );
-            map.put("nombre",this.txtnombreCli.getText() );
-            map.put("direccion",this.txtdireccionCli.getText() );
-            map.put("telefono",this.txttelefonoCli.getText() );
-            map.put("correo",this.txtcorreoCli.getText() );
+            map.put("nombre",this.txtNombreCli.getText() );
+            map.put("direccion",this.txtDireccionCli.getText() );
+            map.put("telefono",this.txtTelefonoCli.getText() );
+            map.put("correo",this.txtCorreoCli.getText() );
             db.connectRep(r,map,true);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -605,7 +613,24 @@ private Connection dbCon;
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnSeleccionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarClienteActionPerformed
-        // TODO add your handling code here:
+        Cliente cli = new Cliente();
+        SelCliente dialog = new SelCliente(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+        cli = dialog.getClie();
+        if(cli == null){
+            this.txtDniCli.setText("");
+            this.txtApellidoClie.setText("");
+            this.txtNombreCli.setText("");
+            this.txtDireccionCli.setText("");
+            this.txtTelefonoCli.setText("");
+            this.txtCorreoCli.setText("");
+        }else{
+            this.txtDniCli.setText(cli.getDniCli());
+            this.txtApellidoClie.setText(cli.getApellidoCli());
+            this.txtNombreCli.setText(cli.getNombreCli());
+            this.txtDireccionCli.setText(cli.getDireccionCli());
+            this.txtTelefonoCli.setText(String.valueOf(cli.getTelefonoCli()));
+        }
     }//GEN-LAST:event_btnSeleccionarClienteActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -650,7 +675,7 @@ private Connection dbCon;
 
         //if(validaGrabar() == true){
         idVenta=u.idNext("Cab_venta","idVenta");
-        idCli=this.txtdniCli.getText();
+        idCli=this.txtDniCli.getText();
         idDel=Integer.parseInt(this.txtid_delivery.getText());
         idVen=this.txtDNIVendedor.getText();
         idRep=this.txtCodigoRepartidor.getText();
@@ -734,6 +759,7 @@ private Connection dbCon;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
@@ -750,26 +776,27 @@ private Connection dbCon;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblMostrarProducto;
+    private javax.swing.JTextField txtApellidoClie;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextField txtCodigoRepartidor;
     private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtCorreoCli;
     private javax.swing.JTextField txtDNIVendedor;
     private javax.swing.JTextField txtDescripProducto;
+    private javax.swing.JTextField txtDireccionCli;
+    private javax.swing.JTextField txtDniCli;
     private javax.swing.JTextField txtIGV;
+    private javax.swing.JTextField txtNombreCli;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtTelefonoCli;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JTextField txtcodf;
     private javax.swing.JPanel txtcodigo;
-    private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdelivery;
-    private javax.swing.JTextField txtdireccionCli;
-    private javax.swing.JTextField txtdniCli;
     private javax.swing.JTextField txtid_delivery;
     private javax.swing.JTextField txtid_pago;
     private javax.swing.JTextField txtmonto;
-    private javax.swing.JTextField txtnombreCli;
-    private javax.swing.JTextField txttelefonoCli;
     // End of variables declaration//GEN-END:variables
 
 }
