@@ -143,6 +143,7 @@ private Connection dbCon;
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -238,7 +239,7 @@ private Connection dbCon;
         btnRegistrarCliente.setBounds(240, 130, 110, 40);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 40, 370, 190);
+        jPanel3.setBounds(20, 40, 390, 190);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
@@ -321,8 +322,17 @@ private Connection dbCon;
         txtcodigo.add(jLabel69);
         jLabel69.setBounds(10, 0, 190, 14);
 
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        txtcodigo.add(btnSalir);
+        btnSalir.setBounds(40, 190, 90, 50);
+
         jPanel1.add(txtcodigo);
-        txtcodigo.setBounds(10, 240, 410, 230);
+        txtcodigo.setBounds(10, 240, 400, 260);
 
         jPanel17.setLayout(null);
 
@@ -461,7 +471,7 @@ private Connection dbCon;
         btnEliminar.setBounds(210, 152, 110, 40);
 
         jPanel1.add(jPanel17);
-        jPanel17.setBounds(410, 10, 330, 490);
+        jPanel17.setBounds(430, -10, 330, 510);
 
         txtcodf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -483,9 +493,9 @@ private Connection dbCon;
         jTabbedPane1.addTab("Recepcion del pedido", jPanel1);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(10, 0, 770, 520);
+        jTabbedPane1.setBounds(10, 0, 770, 540);
 
-        setSize(new java.awt.Dimension(804, 568));
+        setSize(new java.awt.Dimension(804, 592));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -686,6 +696,10 @@ private Connection dbCon;
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -701,6 +715,7 @@ private Connection dbCon;
     private javax.swing.JButton btnGuardarPedido;
     private javax.swing.JButton btnPago;
     private javax.swing.JButton btnRegistrarCliente;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionarCliente;
     private javax.swing.JButton btnSeleccionarDelivery;
     private javax.swing.JButton btnSeleccionarProducto;
