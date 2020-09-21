@@ -210,10 +210,13 @@ private Connection dbCon;
         jPanel3.add(txtcorreoCli);
         txtcorreoCli.setBounds(90, 140, 130, 20);
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("DATOS DEL CLIENTE");
         jPanel3.add(jLabel8);
         jLabel8.setBounds(10, 0, 130, 14);
 
+        btnSeleccionarCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSeleccionarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/select_ok_accept_15254 (1).png"))); // NOI18N
         btnSeleccionarCliente.setText("Seleccionar");
         btnSeleccionarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,8 +224,10 @@ private Connection dbCon;
             }
         });
         jPanel3.add(btnSeleccionarCliente);
-        btnSeleccionarCliente.setBounds(240, 10, 110, 40);
+        btnSeleccionarCliente.setBounds(230, 0, 140, 40);
 
+        btnRegistrarCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnRegistrarCliente.setText("Nuevo");
         btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,7 +238,7 @@ private Connection dbCon;
         btnRegistrarCliente.setBounds(240, 130, 110, 40);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 40, 370, 180);
+        jPanel3.setBounds(20, 40, 370, 190);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
@@ -243,6 +248,8 @@ private Connection dbCon;
         txtcodigo.add(jLabel9);
         jLabel9.setBounds(10, 150, 120, 20);
 
+        btnSeleccionarRepartidor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSeleccionarRepartidor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/food_delivery_meal_order_icon_142268 (1).png"))); // NOI18N
         btnSeleccionarRepartidor.setText("Repartidor");
         btnSeleccionarRepartidor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,12 +257,14 @@ private Connection dbCon;
             }
         });
         txtcodigo.add(btnSeleccionarRepartidor);
-        btnSeleccionarRepartidor.setBounds(210, 140, 150, 40);
+        btnSeleccionarRepartidor.setBounds(210, 140, 190, 40);
 
         txtDNIVendedor.setEditable(false);
         txtcodigo.add(txtDNIVendedor);
         txtDNIVendedor.setBounds(120, 30, 80, 20);
 
+        btnSeleccionarDelivery.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSeleccionarDelivery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/613deliverytruck_100957 (1).png"))); // NOI18N
         btnSeleccionarDelivery.setText("Seleccionar delivery");
         btnSeleccionarDelivery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,8 +272,10 @@ private Connection dbCon;
             }
         });
         txtcodigo.add(btnSeleccionarDelivery);
-        btnSeleccionarDelivery.setBounds(210, 100, 150, 40);
+        btnSeleccionarDelivery.setBounds(210, 100, 190, 40);
 
+        btnVendedor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/10303manofficeworkerlightskintone_110631 (1).png"))); // NOI18N
         btnVendedor.setText("Vendedor");
         btnVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,8 +283,10 @@ private Connection dbCon;
             }
         });
         txtcodigo.add(btnVendedor);
-        btnVendedor.setBounds(210, 20, 150, 40);
+        btnVendedor.setBounds(210, 20, 190, 40);
 
+        btnPago.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-23_icon-icons.com_73884.png"))); // NOI18N
         btnPago.setText("Seleccionar pago");
         btnPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,7 +294,7 @@ private Connection dbCon;
             }
         });
         txtcodigo.add(btnPago);
-        btnPago.setBounds(210, 60, 150, 40);
+        btnPago.setBounds(210, 60, 190, 40);
         txtcodigo.add(txtid_pago);
         txtid_pago.setBounds(120, 70, 80, 20);
         txtcodigo.add(txtid_delivery);
@@ -303,15 +316,17 @@ private Connection dbCon;
         txtcodigo.add(jLabel13);
         jLabel13.setBounds(10, 110, 120, 20);
 
+        jLabel69.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel69.setText("DATOS DEL PEDIDO");
         txtcodigo.add(jLabel69);
         jLabel69.setBounds(10, 0, 190, 14);
 
         jPanel1.add(txtcodigo);
-        txtcodigo.setBounds(20, 240, 370, 230);
+        txtcodigo.setBounds(10, 240, 410, 230);
 
         jPanel17.setLayout(null);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("PRODUCTOS PEDIDOS");
         jPanel17.add(jLabel7);
         jLabel7.setBounds(10, 0, 190, 14);
@@ -319,8 +334,10 @@ private Connection dbCon;
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("MONTO DELIVERY");
         jPanel17.add(jLabel10);
-        jLabel10.setBounds(-10, 400, 120, 20);
+        jLabel10.setBounds(-30, 400, 120, 20);
 
+        btnGuardarPedido.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuardarPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnGuardarPedido.setText("Guardar pedido");
         btnGuardarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,8 +345,10 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnGuardarPedido);
-        btnGuardarPedido.setBounds(200, 370, 107, 40);
+        btnGuardarPedido.setBounds(170, 370, 150, 40);
 
+        btnSeleccionarProducto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSeleccionarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/select_ok_accept_15254 (1).png"))); // NOI18N
         btnSeleccionarProducto.setText("Seleccionar");
         btnSeleccionarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,7 +356,7 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnSeleccionarProducto);
-        btnSeleccionarProducto.setBounds(180, 10, 110, 40);
+        btnSeleccionarProducto.setBounds(180, 0, 140, 40);
 
         tblMostrarProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -373,6 +392,8 @@ private Connection dbCon;
         jPanel17.add(jLabel72);
         jLabel72.setBounds(10, 50, 70, 20);
 
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,31 +401,33 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnAgregar);
-        btnAgregar.setBounds(170, 130, 110, 40);
+        btnAgregar.setBounds(200, 130, 110, 40);
 
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel54.setText("MONTO TOTAL");
         jPanel17.add(jLabel54);
-        jLabel54.setBounds(10, 430, 100, 20);
+        jLabel54.setBounds(-10, 430, 100, 20);
         jPanel17.add(txtmonto);
-        txtmonto.setBounds(120, 340, 50, 20);
+        txtmonto.setBounds(100, 340, 50, 20);
         jPanel17.add(txtTotal);
-        txtTotal.setBounds(120, 430, 50, 20);
+        txtTotal.setBounds(100, 430, 50, 20);
         jPanel17.add(txtdelivery);
-        txtdelivery.setBounds(120, 400, 50, 20);
+        txtdelivery.setBounds(100, 400, 50, 20);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
         jPanel17.add(jLabel65);
-        jLabel65.setBounds(70, 340, 40, 20);
+        jLabel65.setBounds(50, 340, 40, 20);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Fecha");
         jPanel17.add(jLabel6);
-        jLabel6.setBounds(50, 460, 60, 20);
+        jLabel6.setBounds(30, 460, 60, 20);
         jPanel17.add(jTextField1);
-        jTextField1.setBounds(120, 460, 50, 20);
+        jTextField1.setBounds(100, 460, 50, 20);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952 (1).png"))); // NOI18N
         jButton1.setText("Generar Reporte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -412,14 +435,14 @@ private Connection dbCon;
             }
         });
         jPanel17.add(jButton1);
-        jButton1.setBounds(200, 420, 110, 40);
+        jButton1.setBounds(160, 420, 170, 60);
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("IGV");
         jPanel17.add(jLabel14);
-        jLabel14.setBounds(80, 370, 30, 20);
+        jLabel14.setBounds(60, 370, 30, 20);
         jPanel17.add(txtIGV);
-        txtIGV.setBounds(120, 370, 50, 20);
+        txtIGV.setBounds(100, 370, 50, 20);
         jPanel17.add(txtDescripProducto);
         txtDescripProducto.setBounds(90, 50, 170, 20);
 
@@ -458,9 +481,9 @@ private Connection dbCon;
         jTabbedPane1.addTab("Recepcion del pedido", jPanel1);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(10, 30, 750, 540);
+        jTabbedPane1.setBounds(10, 0, 770, 520);
 
-        setSize(new java.awt.Dimension(790, 660));
+        setSize(new java.awt.Dimension(804, 568));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -73,7 +73,9 @@ public class frmVendedor extends javax.swing.JFrame {
         txtBuscarRepartidor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRepartidor = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -100,6 +102,7 @@ public class frmVendedor extends javax.swing.JFrame {
         jPanel10.add(txtDireccionRepartidor);
         txtDireccionRepartidor.setBounds(450, 20, 250, 20);
 
+        btnRegistrarRepartidor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnRegistrarRepartidor.setText("Registrar");
         btnRegistrarRepartidor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +110,7 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnRegistrarRepartidor);
-        btnRegistrarRepartidor.setBounds(280, 120, 120, 50);
+        btnRegistrarRepartidor.setBounds(280, 120, 130, 50);
 
         jLabel26.setText("Direccion");
         jPanel10.add(jLabel26);
@@ -135,6 +138,7 @@ public class frmVendedor extends javax.swing.JFrame {
         jPanel10.add(jLabel34);
         jLabel34.setBounds(380, 80, 70, 20);
 
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/escoba.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,8 +146,9 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnLimpiar);
-        btnLimpiar.setBounds(610, 100, 80, 40);
+        btnLimpiar.setBounds(580, 100, 110, 40);
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tugurio.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +156,7 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnEliminar);
-        btnEliminar.setBounds(610, 150, 80, 40);
+        btnEliminar.setBounds(580, 150, 110, 40);
 
         getContentPane().add(jPanel10);
         jPanel10.setBounds(20, 280, 710, 200);
@@ -172,7 +177,7 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtBuscarRepartidor);
-        txtBuscarRepartidor.setBounds(240, 20, 220, 20);
+        txtBuscarRepartidor.setBounds(210, 20, 220, 20);
 
         tblRepartidor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,15 +195,23 @@ public class frmVendedor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblRepartidor);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 60, 530, 120);
+        jScrollPane1.setBounds(0, 60, 570, 120);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(130, 10, 40, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(70, 50, 610, 200);
+        jPanel1.setBounds(60, 50, 580, 200);
 
         jLabel22.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel22.setText("Vendedores");
         getContentPane().add(jLabel22);
         jLabel22.setBounds(300, 10, 160, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/10303manofficeworkerlightskintone_110631.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(650, 10, 70, 80);
 
         setSize(new java.awt.Dimension(771, 570));
         setLocationRelativeTo(null);
@@ -336,6 +349,7 @@ public class frmVendedor extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrarRepartidor;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -343,6 +357,7 @@ public class frmVendedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JPanel jPanel1;

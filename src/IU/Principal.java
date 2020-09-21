@@ -31,10 +31,14 @@ public class Principal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/10303manofficeworkerlightskintone_110631.png"))); // NOI18N
         jButton1.setText("Vendedores");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -42,8 +46,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(150, 70, 99, 32);
+        jButton1.setBounds(220, 20, 180, 70);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/food_delivery_meal_order_icon_142268.png"))); // NOI18N
         jButton2.setText("Repartidor");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,8 +57,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(150, 110, 99, 32);
+        jButton2.setBounds(220, 100, 180, 60);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/613deliverytruck_100957.png"))); // NOI18N
         jButton3.setText("Delivery");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,8 +68,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(150, 160, 99, 32);
+        jButton3.setBounds(220, 170, 180, 70);
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-04_icon-icons.com_73886.png"))); // NOI18N
         jButton4.setText("Tipo de pago");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,9 +79,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(150, 210, 102, 32);
+        jButton4.setBounds(220, 250, 180, 70);
 
-        setSize(new java.awt.Dimension(423, 376));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga (1).png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 70, 220, 190);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/rosa.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -20, 610, 580);
+
+        setSize(new java.awt.Dimension(437, 388));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -140,5 +158,7 @@ FrMantenimientoDelivery x  = new FrMantenimientoDelivery();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

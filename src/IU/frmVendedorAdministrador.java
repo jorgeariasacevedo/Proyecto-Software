@@ -42,10 +42,13 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/maintenance256_24835 (2).png"))); // NOI18N
         jButton1.setText("Mantenimiento");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,8 +56,10 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(120, 160, 140, 30);
+        jButton1.setBounds(60, 210, 170, 50);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         jButton2.setText("Registrar Venta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +67,11 @@ public class frmVendedorAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(120, 110, 140, 30);
+        jButton2.setBounds(60, 30, 170, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/caipi_2.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -40, 300, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,5 +127,6 @@ Principal x  = new Principal();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

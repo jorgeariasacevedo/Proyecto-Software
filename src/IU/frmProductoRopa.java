@@ -116,7 +116,9 @@ public class frmProductoRopa extends javax.swing.JFrame {
         txtBuscarProducto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -135,14 +137,15 @@ public class frmProductoRopa extends javax.swing.JFrame {
         jPanel8.add(jLabel16);
         jLabel16.setBounds(20, 80, 70, 20);
         jPanel8.add(txtIdProducto);
-        txtIdProducto.setBounds(90, 20, 90, 24);
+        txtIdProducto.setBounds(90, 20, 90, 20);
         jPanel8.add(txtModelo);
-        txtModelo.setBounds(90, 50, 130, 24);
+        txtModelo.setBounds(90, 50, 130, 20);
         jPanel8.add(txtTipoRopa);
-        txtTipoRopa.setBounds(90, 80, 130, 24);
+        txtTipoRopa.setBounds(90, 80, 130, 20);
         jPanel8.add(txtDetalleRopa);
-        txtDetalleRopa.setBounds(90, 110, 180, 24);
+        txtDetalleRopa.setBounds(90, 110, 180, 20);
 
+        btnRegistrarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnRegistrarProducto.setText("Registrar producto");
         btnRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,13 +153,13 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnRegistrarProducto);
-        btnRegistrarProducto.setBounds(210, 140, 160, 40);
+        btnRegistrarProducto.setBounds(200, 140, 160, 40);
 
         jLabel19.setText("Detalle");
         jPanel8.add(jLabel19);
         jLabel19.setBounds(20, 110, 70, 20);
         jPanel8.add(txtColorRopa);
-        txtColorRopa.setBounds(410, 20, 90, 24);
+        txtColorRopa.setBounds(410, 20, 90, 20);
 
         jLabel20.setText("Talla");
         jPanel8.add(jLabel20);
@@ -166,15 +169,15 @@ public class frmProductoRopa extends javax.swing.JFrame {
         jPanel8.add(jLabel21);
         jLabel21.setBounds(340, 110, 70, 20);
         jPanel8.add(txtTallaRopa);
-        txtTallaRopa.setBounds(410, 50, 90, 24);
+        txtTallaRopa.setBounds(410, 50, 90, 20);
 
         jLabel17.setText("IdProducto");
         jPanel8.add(jLabel17);
         jLabel17.setBounds(20, 20, 70, 20);
         jPanel8.add(txtStock);
-        txtStock.setBounds(410, 110, 90, 24);
+        txtStock.setBounds(410, 110, 90, 20);
         jPanel8.add(txtPrecioProducto);
-        txtPrecioProducto.setBounds(410, 80, 90, 24);
+        txtPrecioProducto.setBounds(410, 80, 90, 20);
 
         jLabel23.setText("Precio");
         jPanel8.add(jLabel23);
@@ -182,8 +185,9 @@ public class frmProductoRopa extends javax.swing.JFrame {
 
         jLabel24.setText("DATOS DEL PRODUCTO");
         jPanel8.add(jLabel24);
-        jLabel24.setBounds(10, 0, 150, 16);
+        jLabel24.setBounds(10, 0, 150, 14);
 
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/escoba.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,8 +195,9 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnLimpiar);
-        btnLimpiar.setBounds(10, 140, 80, 40);
+        btnLimpiar.setBounds(10, 140, 100, 40);
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tugurio.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,8 +205,9 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnEliminar);
-        btnEliminar.setBounds(10, 190, 80, 40);
+        btnEliminar.setBounds(10, 210, 100, 40);
 
+        btnReporteProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952.png"))); // NOI18N
         btnReporteProd.setText("Reporte");
         btnReporteProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,8 +215,9 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnReporteProd);
-        btnReporteProd.setBounds(240, 190, 90, 30);
+        btnReporteProd.setBounds(210, 190, 140, 70);
 
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,20 +225,21 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel8.add(btnSalir);
-        btnSalir.setBounds(440, 190, 80, 40);
+        btnSalir.setBounds(390, 210, 110, 40);
 
         getContentPane().add(jPanel8);
-        jPanel8.setBounds(70, 240, 540, 240);
+        jPanel8.setBounds(70, 240, 550, 270);
 
         jPanel9.setLayout(null);
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setText("BUSQUEDA DEL PRODUCTO");
         jPanel9.add(jLabel18);
-        jLabel18.setBounds(0, 0, 180, 16);
+        jLabel18.setBounds(0, 0, 180, 14);
 
         jLabel14.setText("Buscar producto");
         jPanel9.add(jLabel14);
-        jLabel14.setBounds(110, 20, 110, 20);
+        jLabel14.setBounds(90, 20, 110, 20);
 
         txtBuscarProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -239,7 +247,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
             }
         });
         jPanel9.add(txtBuscarProducto);
-        txtBuscarProducto.setBounds(220, 20, 160, 24);
+        txtBuscarProducto.setBounds(220, 20, 170, 20);
 
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,15 +265,23 @@ public class frmProductoRopa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblProducto);
 
         jPanel9.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 50, 500, 110);
+        jScrollPane1.setBounds(20, 50, 510, 110);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        jPanel9.add(jLabel11);
+        jLabel11.setBounds(190, 10, 40, 30);
 
         getContentPane().add(jPanel9);
-        jPanel9.setBounds(70, 50, 540, 170);
+        jPanel9.setBounds(60, 50, 540, 170);
 
         jLabel22.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel22.setText("MANTENIMIENTO DE PRODUCTOS");
         getContentPane().add(jLabel22);
         jLabel22.setBounds(180, 10, 360, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Processing_icon-icons.com_54803.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(610, 0, 70, 80);
 
         setSize(new java.awt.Dimension(703, 554));
         setLocationRelativeTo(null);
@@ -384,6 +400,8 @@ public class frmProductoRopa extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarProducto;
     private javax.swing.JButton btnReporteProd;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

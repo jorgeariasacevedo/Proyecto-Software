@@ -52,6 +52,7 @@ public class frmCliente extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -61,13 +62,14 @@ public class frmCliente extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(170, 10, 320, 30);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("BUSQUEDA DEL CLIENTE");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 50, 140, 14);
 
-        jLabel3.setText("Buscar cliente:");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(80, 70, 80, 14);
+        jLabel3.setBounds(160, 60, 30, 30);
 
         txtBuscarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,7 +82,7 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtBuscarCliente);
-        txtBuscarCliente.setBounds(170, 70, 270, 20);
+        txtBuscarCliente.setBounds(200, 60, 270, 30);
 
         tblClieBusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,6 +102,7 @@ public class frmCliente extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(30, 110, 580, 130);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("DATOS DEL CLIENTE");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(30, 270, 120, 14);
@@ -152,6 +155,7 @@ public class frmCliente extends javax.swing.JFrame {
         getContentPane().add(txtFechaClie);
         txtFechaClie.setBounds(430, 370, 110, 20);
 
+        btnRegistrarClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnRegistrarClie.setText("Registrar");
         btnRegistrarClie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,8 +163,9 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRegistrarClie);
-        btnRegistrarClie.setBounds(330, 420, 90, 30);
+        btnRegistrarClie.setBounds(310, 420, 120, 40);
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tugurio.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,8 +173,9 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(440, 420, 80, 30);
+        btnEliminar.setBounds(440, 420, 100, 40);
 
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/escoba.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,8 +183,9 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(330, 470, 90, 30);
+        btnLimpiar.setBounds(310, 460, 120, 40);
 
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +193,12 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(440, 470, 80, 30);
+        btnSalir.setBounds(440, 460, 100, 40);
+
+        jLabel12.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/objetivo.png"))); // NOI18N
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(530, 10, 70, 70);
 
         setSize(new java.awt.Dimension(648, 578));
         setLocationRelativeTo(null);
@@ -330,6 +342,7 @@ public class frmCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

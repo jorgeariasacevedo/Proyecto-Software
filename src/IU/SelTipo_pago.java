@@ -60,13 +60,16 @@ public class SelTipo_pago extends javax.swing.JDialog {
         txtBuscTipo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTipo = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("SELECCIONAR TIPO DE PAGO");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(130, 10, 160, 20);
+        jLabel1.setBounds(170, 10, 160, 20);
 
         jLabel2.setText("BUSCAR");
         getContentPane().add(jLabel2);
@@ -78,7 +81,7 @@ public class SelTipo_pago extends javax.swing.JDialog {
             }
         });
         getContentPane().add(txtBuscTipo);
-        txtBuscTipo.setBounds(100, 40, 210, 20);
+        txtBuscTipo.setBounds(150, 40, 210, 20);
 
         tblTipo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,9 +99,17 @@ public class SelTipo_pago extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tblTipo);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 80, 360, 190);
+        jScrollPane1.setBounds(50, 90, 390, 190);
 
-        setSize(new java.awt.Dimension(416, 339));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(110, 30, 40, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-04_icon-icons.com_73886.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(390, 10, 70, 70);
+
+        setSize(new java.awt.Dimension(496, 348));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,7 +137,9 @@ public class SelTipo_pago extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblTipo;
     private javax.swing.JTextField txtBuscTipo;

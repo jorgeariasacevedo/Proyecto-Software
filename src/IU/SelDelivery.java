@@ -58,10 +58,13 @@ public class SelDelivery extends javax.swing.JDialog {
         txtBuscDelivery = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDeli = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("SELECCIONAR DELIVERY");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(190, 10, 140, 20);
@@ -70,13 +73,18 @@ public class SelDelivery extends javax.swing.JDialog {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(70, 40, 60, 20);
 
+        txtBuscDelivery.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscDeliveryActionPerformed(evt);
+            }
+        });
         txtBuscDelivery.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscDeliveryKeyReleased(evt);
             }
         });
         getContentPane().add(txtBuscDelivery);
-        txtBuscDelivery.setBounds(130, 40, 280, 20);
+        txtBuscDelivery.setBounds(150, 40, 240, 20);
 
         tblDeli.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,6 +103,14 @@ public class SelDelivery extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(30, 70, 440, 210);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(120, 30, 40, 30);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/613deliverytruck_100957.png"))); // NOI18N
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(420, 10, 70, 50);
 
         setSize(new java.awt.Dimension(528, 352));
         setLocationRelativeTo(null);
@@ -120,6 +136,10 @@ public class SelDelivery extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_tblDeliMouseClicked
 
+    private void txtBuscDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscDeliveryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscDeliveryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -127,6 +147,8 @@ public class SelDelivery extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDeli;

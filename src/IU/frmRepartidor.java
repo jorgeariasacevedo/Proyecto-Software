@@ -74,7 +74,9 @@ public class frmRepartidor extends javax.swing.JFrame {
         txtBuscarRepartidor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRepartidor = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -93,14 +95,15 @@ public class frmRepartidor extends javax.swing.JFrame {
         jPanel10.add(jLabel25);
         jLabel25.setBounds(20, 80, 70, 20);
         jPanel10.add(txtDNIrepartidor);
-        txtDNIrepartidor.setBounds(110, 20, 90, 24);
+        txtDNIrepartidor.setBounds(110, 20, 90, 20);
         jPanel10.add(txtNomRepartidor);
-        txtNomRepartidor.setBounds(110, 50, 250, 24);
+        txtNomRepartidor.setBounds(110, 50, 250, 20);
         jPanel10.add(txtTelefonoRepartidor);
-        txtTelefonoRepartidor.setBounds(110, 80, 90, 24);
+        txtTelefonoRepartidor.setBounds(110, 80, 90, 20);
         jPanel10.add(txtDireccionRepartidor);
-        txtDireccionRepartidor.setBounds(450, 20, 250, 24);
+        txtDireccionRepartidor.setBounds(450, 20, 250, 20);
 
+        btnRegistrarRepartidor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnRegistrarRepartidor.setText("Registrar repartidor");
         btnRegistrarRepartidor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,19 +111,19 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnRegistrarRepartidor);
-        btnRegistrarRepartidor.setBounds(280, 120, 143, 40);
+        btnRegistrarRepartidor.setBounds(280, 140, 170, 40);
 
         jLabel26.setText("Direccion");
         jPanel10.add(jLabel26);
         jLabel26.setBounds(380, 20, 70, 20);
         jPanel10.add(txtDistritoRepartidor);
-        txtDistritoRepartidor.setBounds(450, 50, 160, 24);
+        txtDistritoRepartidor.setBounds(450, 50, 160, 20);
         jPanel10.add(txtSueldoRepartidor);
-        txtSueldoRepartidor.setBounds(450, 80, 90, 24);
+        txtSueldoRepartidor.setBounds(450, 80, 90, 20);
 
         jLabel29.setText("DATOS DEL REPARTIDOR");
         jPanel10.add(jLabel29);
-        jLabel29.setBounds(10, 0, 150, 16);
+        jLabel29.setBounds(10, 0, 150, 14);
 
         jLabel30.setText("DNI repartidor");
         jPanel10.add(jLabel30);
@@ -130,6 +133,7 @@ public class frmRepartidor extends javax.swing.JFrame {
         jPanel10.add(jLabel34);
         jLabel34.setBounds(380, 80, 70, 20);
 
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/escoba.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +141,9 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnLimpiar);
-        btnLimpiar.setBounds(40, 120, 80, 40);
+        btnLimpiar.setBounds(40, 120, 120, 40);
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tugurio.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,8 +151,9 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnEliminar);
-        btnEliminar.setBounds(40, 160, 80, 40);
+        btnEliminar.setBounds(40, 160, 120, 40);
 
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,20 +161,21 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnSalir);
-        btnSalir.setBounds(610, 160, 80, 40);
+        btnSalir.setBounds(570, 160, 120, 40);
 
         getContentPane().add(jPanel10);
         jPanel10.setBounds(20, 280, 710, 220);
 
         jPanel1.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("BUSCAR REPARTIDOR");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 0, 140, 16);
+        jLabel1.setBounds(10, 0, 140, 14);
 
         jLabel2.setText("Buscar");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(168, 20, 70, 20);
+        jLabel2.setBounds(130, 20, 70, 20);
 
         txtBuscarRepartidor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -176,7 +183,7 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtBuscarRepartidor);
-        txtBuscarRepartidor.setBounds(240, 20, 220, 24);
+        txtBuscarRepartidor.setBounds(240, 20, 220, 20);
 
         tblRepartidor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -194,15 +201,23 @@ public class frmRepartidor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblRepartidor);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(40, 60, 530, 120);
+        jScrollPane1.setBounds(40, 50, 530, 120);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(200, 10, 40, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(70, 50, 610, 200);
+        jPanel1.setBounds(70, 50, 580, 200);
 
         jLabel22.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel22.setText("REPARTIDORES");
         getContentPane().add(jLabel22);
         jLabel22.setBounds(300, 10, 160, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/food_delivery_meal_order_icon_142268.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(660, 20, 70, 80);
 
         setSize(new java.awt.Dimension(771, 575));
         setLocationRelativeTo(null);
@@ -301,6 +316,7 @@ public class frmRepartidor extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarRepartidor;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -308,6 +324,7 @@ public class frmRepartidor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JPanel jPanel1;

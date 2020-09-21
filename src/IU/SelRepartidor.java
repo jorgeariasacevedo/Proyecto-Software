@@ -53,13 +53,15 @@ public class SelRepartidor extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRepartidor = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jLabel2.setText("BUSCAR");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(150, 50, 70, 20);
+        jLabel2.setBounds(100, 50, 70, 20);
 
         txtBuscarRepartidor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -67,9 +69,10 @@ public class SelRepartidor extends javax.swing.JDialog {
             }
         });
         getContentPane().add(txtBuscarRepartidor);
-        txtBuscarRepartidor.setBounds(210, 50, 240, 24);
+        txtBuscarRepartidor.setBounds(190, 50, 240, 20);
 
-        jLabel3.setText("SELECCIONAR PRODUCTO");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("SELECCIONAR REPARTIDOR");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(220, 20, 160, 20);
 
@@ -90,6 +93,14 @@ public class SelRepartidor extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(40, 90, 510, 170);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(150, 40, 40, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/food_delivery_meal_order_icon_142268.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(460, 0, 80, 80);
 
         setSize(new java.awt.Dimension(603, 339));
         setLocationRelativeTo(null);
@@ -130,6 +141,8 @@ public class SelRepartidor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

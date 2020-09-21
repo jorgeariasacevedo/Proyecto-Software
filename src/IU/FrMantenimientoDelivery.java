@@ -73,6 +73,8 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
         txtdepartamento = new javax.swing.JTextField();
         txtdistrito = new javax.swing.JTextField();
         txtsalir = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -81,13 +83,14 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(50, 45, 0, 414);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("MANTENIMIENTO Y ACTUALIZACIÓN DELIVERY");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(190, 10, 270, 40);
+        jLabel1.setBounds(220, 10, 270, 40);
 
         jLabel2.setText("Búsqueda");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 60, 60, 30);
+        jLabel2.setBounds(90, 60, 60, 30);
 
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -95,7 +98,7 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtBuscar);
-        txtBuscar.setBounds(180, 60, 280, 30);
+        txtBuscar.setBounds(210, 60, 280, 30);
 
         tblDelivery.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -147,6 +150,7 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
         getContentPane().add(txtagencia);
         txtagencia.setBounds(470, 270, 120, 20);
 
+        btnGrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnGrabar.setText("GRABAR NUEVO");
         btnGrabar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +158,7 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGrabar);
-        btnGrabar.setBounds(120, 480, 130, 30);
+        btnGrabar.setBounds(120, 470, 150, 40);
 
         jLabel8.setText("PROVINCIA");
         getContentPane().add(jLabel8);
@@ -174,6 +178,7 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
         getContentPane().add(txtdistrito);
         txtdistrito.setBounds(470, 380, 120, 20);
 
+        txtsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         txtsalir.setText("SALIR");
         txtsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +186,15 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtsalir);
-        txtsalir.setBounds(460, 480, 80, 30);
+        txtsalir.setBounds(430, 470, 130, 41);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(170, 60, 40, 30);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/613deliverytruck_100957.png"))); // NOI18N
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(540, 30, 70, 60);
 
         setSize(new java.awt.Dimension(696, 588));
         setLocationRelativeTo(null);
@@ -339,6 +352,8 @@ public class FrMantenimientoDelivery extends javax.swing.JFrame {
     private javax.swing.JButton btnGrabar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

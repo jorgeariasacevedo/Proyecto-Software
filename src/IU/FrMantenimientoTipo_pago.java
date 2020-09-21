@@ -60,13 +60,16 @@ public class FrMantenimientoTipo_pago extends javax.swing.JFrame {
         txtnum_cuenta = new javax.swing.JTextField();
         btngrabar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("MANTENIMIENTO Y ACTUALIZACIÓN TIPO DE PAGO");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(190, 10, 270, 40);
+        jLabel1.setBounds(170, 10, 290, 40);
 
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -96,7 +99,7 @@ public class FrMantenimientoTipo_pago extends javax.swing.JFrame {
 
         jLabel2.setText("Búsqueda");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 60, 60, 30);
+        jLabel2.setBounds(80, 60, 60, 30);
 
         jLabel3.setText("ID_PAGO");
         getContentPane().add(jLabel3);
@@ -130,6 +133,7 @@ public class FrMantenimientoTipo_pago extends javax.swing.JFrame {
         getContentPane().add(txtnum_cuenta);
         txtnum_cuenta.setBounds(500, 340, 90, 20);
 
+        btngrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btngrabar.setText("GRABAR NUEVO");
         btngrabar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +141,9 @@ public class FrMantenimientoTipo_pago extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btngrabar);
-        btngrabar.setBounds(90, 420, 120, 30);
+        btngrabar.setBounds(90, 410, 150, 40);
 
+        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         btnsalir.setText("SALIR");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +151,15 @@ public class FrMantenimientoTipo_pago extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnsalir);
-        btnsalir.setBounds(470, 420, 80, 30);
+        btnsalir.setBounds(430, 410, 120, 40);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(140, 60, 40, 30);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-04_icon-icons.com_73886.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(510, 10, 80, 80);
 
         setSize(new java.awt.Dimension(652, 525));
         setLocationRelativeTo(null);
@@ -277,11 +290,13 @@ public class FrMantenimientoTipo_pago extends javax.swing.JFrame {
     private javax.swing.JButton btngrabar;
     private javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbltipo;
     private javax.swing.JTextField txtBuscar;

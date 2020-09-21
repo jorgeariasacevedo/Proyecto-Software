@@ -56,10 +56,13 @@ public class SelProducto extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("SELECCIONAR PRODUCTO");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(260, 20, 160, 20);
@@ -70,7 +73,7 @@ public class SelProducto extends javax.swing.JDialog {
             }
         });
         getContentPane().add(txtBuscarProducto);
-        txtBuscarProducto.setBounds(230, 50, 240, 24);
+        txtBuscarProducto.setBounds(230, 50, 240, 20);
 
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,7 +99,15 @@ public class SelProducto extends javax.swing.JDialog {
 
         jLabel3.setText("BUSCAR");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(170, 50, 60, 20);
+        jLabel3.setBounds(130, 50, 60, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Processing_icon-icons.com_54803.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(550, 10, 70, 70);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(190, 40, 40, 30);
 
         setSize(new java.awt.Dimension(693, 368));
         setLocationRelativeTo(null);
@@ -137,6 +148,8 @@ public class SelProducto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

@@ -62,6 +62,8 @@ public class dlgVendedor extends javax.swing.JDialog {
         txtBuscarRepartidor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVendedord = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(500, 300));
@@ -82,7 +84,7 @@ public class dlgVendedor extends javax.swing.JDialog {
             }
         });
         getContentPane().add(txtBuscarRepartidor);
-        txtBuscarRepartidor.setBounds(126, 42, 220, 20);
+        txtBuscarRepartidor.setBounds(130, 40, 220, 20);
 
         tblVendedord.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,6 +103,14 @@ public class dlgVendedor extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 80, 417, 130);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(100, 30, 40, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/10303manofficeworkerlightskintone_110631.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(360, 10, 60, 70);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,7 +160,9 @@ public class dlgVendedor extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblVendedord;
     private javax.swing.JTextField txtBuscarRepartidor;
