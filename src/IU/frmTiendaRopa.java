@@ -39,7 +39,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-
+//aadsad//
 public class frmTiendaRopa extends javax.swing.JFrame {
 private Connection dbCon;
     ClienteDAO cliDao;
