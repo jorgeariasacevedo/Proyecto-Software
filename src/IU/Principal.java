@@ -34,6 +34,8 @@ public class Principal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnVenta = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
 
@@ -43,24 +45,26 @@ public class Principal extends javax.swing.JFrame {
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         jButton7.setText("Salir");
+        jButton7.setPreferredSize(new java.awt.Dimension(167, 73));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton7);
-        jButton7.setBounds(50, 360, 100, 50);
+        jButton7.setBounds(450, 260, 167, 73);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Processing_icon-icons.com_54803.png"))); // NOI18N
         jButton6.setText("Productos");
+        jButton6.setPreferredSize(new java.awt.Dimension(167, 73));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(220, 340, 180, 70);
+        jButton6.setBounds(450, 100, 167, 73);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/10303manofficeworkerlightskintone_110631.png"))); // NOI18N
@@ -71,54 +75,81 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(220, 20, 180, 70);
+        jButton1.setBounds(260, 20, 167, 73);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/food_delivery_meal_order_icon_142268.png"))); // NOI18N
         jButton2.setText("Repartidor");
+        jButton2.setPreferredSize(new java.awt.Dimension(167, 73));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(220, 100, 180, 60);
+        jButton2.setBounds(260, 100, 167, 73);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/613deliverytruck_100957.png"))); // NOI18N
         jButton3.setText("Delivery");
+        jButton3.setPreferredSize(new java.awt.Dimension(167, 73));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(220, 170, 180, 70);
+        jButton3.setBounds(260, 180, 167, 73);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-04_icon-icons.com_73886.png"))); // NOI18N
         jButton4.setText("Tipo de pago");
+        jButton4.setPreferredSize(new java.awt.Dimension(167, 73));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(220, 250, 180, 70);
+        jButton4.setBounds(450, 20, 167, 73);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga (1).png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(10, 90, 220, 190);
 
+        btnVenta.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/shoppaymentorderbuy-23_icon-icons.com_73884.png"))); // NOI18N
+        btnVenta.setText("Ventas");
+        btnVenta.setPreferredSize(new java.awt.Dimension(167, 73));
+        btnVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVenta);
+        btnVenta.setBounds(260, 260, 167, 73);
+
+        btnCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/objetivo.png"))); // NOI18N
+        btnCliente.setText("Cliente");
+        btnCliente.setPreferredSize(new java.awt.Dimension(167, 73));
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCliente);
+        btnCliente.setBounds(450, 180, 167, 73);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/rosa.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, -20, 610, 580);
+        jLabel2.setBounds(0, -20, 660, 580);
 
         jButton5.setText("jButton5");
         getContentPane().add(jButton5);
         jButton5.setBounds(230, 340, 73, 23);
 
-        setSize(new java.awt.Dimension(450, 478));
+        setSize(new java.awt.Dimension(676, 392));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,42 +187,23 @@ frmDelivery x  = new frmDelivery();
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+frmCliente principal  = new frmCliente();
+                principal.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnClienteActionPerformed
+
+    private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
+frmVenta principal  = new frmVenta();
+                principal.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCliente;
+    private javax.swing.JButton btnVenta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
