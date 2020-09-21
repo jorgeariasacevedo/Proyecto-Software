@@ -201,15 +201,15 @@ private Connection dbCon;
         jPanel3.add(jLabel5);
         jLabel5.setBounds(20, 110, 70, 20);
         jPanel3.add(txtdniCli);
-        txtdniCli.setBounds(90, 20, 90, 24);
+        txtdniCli.setBounds(90, 20, 90, 20);
         jPanel3.add(txtnombreCli);
-        txtnombreCli.setBounds(90, 50, 180, 24);
+        txtnombreCli.setBounds(90, 50, 180, 20);
         jPanel3.add(txtdireccionCli);
-        txtdireccionCli.setBounds(90, 80, 220, 24);
+        txtdireccionCli.setBounds(90, 80, 220, 20);
         jPanel3.add(txttelefonoCli);
-        txttelefonoCli.setBounds(90, 110, 90, 24);
+        txttelefonoCli.setBounds(90, 110, 90, 20);
         jPanel3.add(txtcorreoCli);
-        txtcorreoCli.setBounds(90, 140, 130, 24);
+        txtcorreoCli.setBounds(90, 140, 130, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("DATOS DEL CLIENTE");
@@ -262,7 +262,7 @@ private Connection dbCon;
 
         txtDNIVendedor.setEditable(false);
         txtcodigo.add(txtDNIVendedor);
-        txtDNIVendedor.setBounds(120, 30, 80, 24);
+        txtDNIVendedor.setBounds(120, 30, 80, 20);
 
         btnSeleccionarDelivery.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSeleccionarDelivery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/613deliverytruck_100957 (1).png"))); // NOI18N
@@ -297,13 +297,13 @@ private Connection dbCon;
         txtcodigo.add(btnPago);
         btnPago.setBounds(210, 60, 190, 40);
         txtcodigo.add(txtid_pago);
-        txtid_pago.setBounds(120, 70, 80, 24);
+        txtid_pago.setBounds(120, 70, 80, 20);
         txtcodigo.add(txtid_delivery);
-        txtid_delivery.setBounds(120, 110, 80, 24);
+        txtid_delivery.setBounds(120, 110, 80, 20);
 
         txtCodigoRepartidor.setEditable(false);
         txtcodigo.add(txtCodigoRepartidor);
-        txtCodigoRepartidor.setBounds(120, 150, 80, 24);
+        txtCodigoRepartidor.setBounds(120, 150, 80, 20);
 
         jLabel11.setText("DNI vendedor");
         txtcodigo.add(jLabel11);
@@ -381,21 +381,21 @@ private Connection dbCon;
         jPanel17.add(jScrollPane3);
         jScrollPane3.setBounds(10, 200, 310, 150);
         jPanel17.add(txtCodigoProducto);
-        txtCodigoProducto.setBounds(90, 20, 70, 24);
+        txtCodigoProducto.setBounds(90, 20, 70, 20);
 
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel70.setText("Codigo");
         jPanel17.add(jLabel70);
         jLabel70.setBounds(20, 20, 60, 20);
         jPanel17.add(txtPrecio);
-        txtPrecio.setBounds(90, 110, 50, 24);
+        txtPrecio.setBounds(90, 110, 50, 20);
 
         jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel71.setText("Color");
         jPanel17.add(jLabel71);
         jLabel71.setBounds(20, 80, 60, 20);
         jPanel17.add(txtCantidad);
-        txtCantidad.setBounds(90, 140, 50, 24);
+        txtCantidad.setBounds(90, 140, 50, 20);
 
         jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel72.setText("Descripcion");
@@ -418,11 +418,11 @@ private Connection dbCon;
         jPanel17.add(jLabel54);
         jLabel54.setBounds(0, 450, 100, 20);
         jPanel17.add(txtmonto);
-        txtmonto.setBounds(110, 360, 50, 24);
+        txtmonto.setBounds(110, 360, 50, 20);
         jPanel17.add(txtTotal);
-        txtTotal.setBounds(110, 450, 50, 24);
+        txtTotal.setBounds(110, 450, 50, 20);
         jPanel17.add(txtdelivery);
-        txtdelivery.setBounds(110, 420, 50, 24);
+        txtdelivery.setBounds(110, 420, 50, 20);
 
         jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel65.setText("Monto");
@@ -445,16 +445,16 @@ private Connection dbCon;
         jPanel17.add(jLabel14);
         jLabel14.setBounds(70, 390, 30, 20);
         jPanel17.add(txtIGV);
-        txtIGV.setBounds(110, 390, 50, 24);
+        txtIGV.setBounds(110, 390, 50, 20);
         jPanel17.add(txtDescripProducto);
-        txtDescripProducto.setBounds(90, 50, 170, 24);
+        txtDescripProducto.setBounds(90, 50, 170, 20);
 
         jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel73.setText("Cantidad");
         jPanel17.add(jLabel73);
         jLabel73.setBounds(20, 140, 60, 20);
         jPanel17.add(txtColor);
-        txtColor.setBounds(90, 80, 170, 24);
+        txtColor.setBounds(90, 80, 170, 20);
 
         jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel74.setText("Precio");
@@ -471,7 +471,7 @@ private Connection dbCon;
         btnEliminar.setBounds(210, 152, 110, 40);
 
         jPanel1.add(jPanel17);
-        jPanel17.setBounds(430, -10, 330, 510);
+        jPanel17.setBounds(430, 10, 330, 510);
 
         txtcodf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -479,7 +479,7 @@ private Connection dbCon;
             }
         });
         jPanel1.add(txtcodf);
-        txtcodf.setBounds(230, 10, 110, 24);
+        txtcodf.setBounds(230, 10, 110, 20);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
