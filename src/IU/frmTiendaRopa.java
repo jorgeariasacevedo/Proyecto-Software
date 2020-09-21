@@ -163,7 +163,6 @@ private Connection dbCon;
         txtTotal = new javax.swing.JTextField();
         txtdelivery = new javax.swing.JTextField();
         jLabel65 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txtIGV = new javax.swing.JTextField();
         txtDescripProducto = new javax.swing.JTextField();
@@ -172,7 +171,7 @@ private Connection dbCon;
         jLabel74 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         txtcodf = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtboletafactura = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -355,7 +354,7 @@ private Connection dbCon;
             }
         });
         jPanel17.add(btnGuardarPedido);
-        btnGuardarPedido.setBounds(170, 370, 150, 40);
+        btnGuardarPedido.setBounds(170, 390, 150, 50);
 
         btnSeleccionarProducto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSeleccionarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/select_ok_accept_15254 (1).png"))); // NOI18N
@@ -429,17 +428,6 @@ private Connection dbCon;
         jPanel17.add(jLabel65);
         jLabel65.setBounds(60, 360, 40, 20);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952 (1).png"))); // NOI18N
-        jButton1.setText("Generar Reporte");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel17.add(jButton1);
-        jButton1.setBounds(160, 420, 170, 60);
-
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("IGV");
         jPanel17.add(jLabel14);
@@ -481,21 +469,16 @@ private Connection dbCon;
         jPanel1.add(txtcodf);
         txtcodf.setBounds(230, 10, 110, 20);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(20, 10, 190, 20);
+        txtboletafactura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
+        jPanel1.add(txtboletafactura);
+        txtboletafactura.setBounds(20, 10, 190, 20);
 
         jTabbedPane1.addTab("Recepcion del pedido", jPanel1);
 
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(10, 0, 770, 540);
 
-        setSize(new java.awt.Dimension(804, 592));
+        setSize(new java.awt.Dimension(804, 591));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -574,27 +557,6 @@ private Connection dbCon;
         }
   
     }//GEN-LAST:event_btnVendedorActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-            String r = "src/REPORTES/repFactura.jasper";
-          
-            dbBean db = new dbBean();
-           HashMap map= new HashMap();
-           
-            map.put("parameter1",this.txtcodf.getText() );
-            map.put("nombre",this.txtnombreCli.getText() );
-            map.put("direccion",this.txtdireccionCli.getText() );
-            map.put("telefono",this.txttelefonoCli.getText() );
-            map.put("correo",this.txtcorreoCli.getText() );
-            db.connectRep(r,map,true);
-        }catch(SQLException ex){
-            ex.printStackTrace();
-        }catch(JRException ex){
-                ex.printStackTrace();
-         }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtcodfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodfActionPerformed
         // TODO add your handling code here:
@@ -682,6 +644,39 @@ private Connection dbCon;
             dv.setCantidad(cant);
             
             this.detDao.procesaItem(dv, "insert");
+            int response = JOptionPane.showConfirmDialog(this,"¿Quieres generar un comprobante de pago?","Comprobante",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+            if(response==JOptionPane.YES_OPTION){
+             try{
+            String r = "src/REPORTES/repFactura.jasper";
+          
+            dbBean db = new dbBean();
+           HashMap map= new HashMap();
+           
+            map.put("parameter1",this.txtcodf.getText() );
+            map.put("nombre",this.txtnombreCli.getText() );
+            map.put("direccion",this.txtdireccionCli.getText() );
+            map.put("telefono",this.txttelefonoCli.getText() );
+            map.put("correo",this.txtcorreoCli.getText() );
+            map.put("monto",this.txtmonto.getText() );
+            map.put("IGV",this.txtIGV.getText() );
+            map.put("montototal",this.txtTotal.getText() );
+            if(txtboletafactura.getSelectedIndex() == 1){
+              map.put("facturaboleta","BOLETA" );
+            
+            }else{
+            }
+            map.put("facturaboleta","FACTURA" );
+            db.connectRep(r,map,true);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+                ex.printStackTrace();
+         }
+                
+                
+            }else{
+                dispose();
+            }
         }
         
         
@@ -721,8 +716,6 @@ private Connection dbCon;
     private javax.swing.JButton btnSeleccionarProducto;
     private javax.swing.JButton btnSeleccionarRepartidor;
     private javax.swing.JButton btnVendedor;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -759,6 +752,7 @@ private Connection dbCon;
     private javax.swing.JTextField txtIGV;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtTotal;
+    private javax.swing.JComboBox<String> txtboletafactura;
     private javax.swing.JTextField txtcodf;
     private javax.swing.JPanel txtcodigo;
     private javax.swing.JTextField txtcorreoCli;
