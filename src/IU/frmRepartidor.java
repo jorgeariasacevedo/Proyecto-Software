@@ -6,6 +6,7 @@ import BEAN.Repartidor;
 import DAO.RepartidorDAO;
 import UTIL.util;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class frmRepartidor extends javax.swing.JFrame {
@@ -45,6 +46,51 @@ public class frmRepartidor extends javax.swing.JFrame {
         this.txtDireccionRepartidor.setText("");
         this.txtDistritoRepartidor.setText("");
         this.txtSueldoRepartidor.setText("");
+    }
+    private boolean validaGuardar(){
+        boolean sw = false;
+        if(this.txtDNIrepartidor.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Debe registrar su DNI de repartidor");
+        }else{
+           if(this.txtNomRepartidor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar su nombre y apellido del repartidor");
+            }else{
+               if(this.txtTelefonoRepartidor.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Debe registrar el telefono del repartidor");
+                }else{  
+                try{
+                Double.parseDouble(this.txtTelefonoRepartidor.getText());
+                sw = true;
+                }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para el telefono del repartidor");
+                this.txtTelefonoRepartidor.setText("");
+                e.printStackTrace();
+                }
+                }
+                if(this.txtDireccionRepartidor.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Debe registrar la direccion del repartidor");
+                }else{
+                   if(this.txtDistritoRepartidor.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe registrar el distrito del repartidor");
+                    }else{
+                       if(this.txtSueldoRepartidor.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe registrar el sueldo del repartidor");
+                    }else{  
+                    try{
+                    Double.parseDouble(this.txtSueldoRepartidor.getText());
+                    sw = true;
+                    }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para el sueldo del repartidor");
+                    this.txtSueldoRepartidor.setText("");
+                    e.printStackTrace();
+                    }
+                    }
+                       
+                   }
+               }
+           } 
+        }
+        return sw;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -95,13 +141,13 @@ public class frmRepartidor extends javax.swing.JFrame {
         jPanel10.add(jLabel25);
         jLabel25.setBounds(20, 80, 70, 20);
         jPanel10.add(txtDNIrepartidor);
-        txtDNIrepartidor.setBounds(110, 20, 90, 20);
+        txtDNIrepartidor.setBounds(110, 20, 90, 24);
         jPanel10.add(txtNomRepartidor);
-        txtNomRepartidor.setBounds(110, 50, 250, 20);
+        txtNomRepartidor.setBounds(110, 50, 250, 24);
         jPanel10.add(txtTelefonoRepartidor);
-        txtTelefonoRepartidor.setBounds(110, 80, 90, 20);
+        txtTelefonoRepartidor.setBounds(110, 80, 90, 24);
         jPanel10.add(txtDireccionRepartidor);
-        txtDireccionRepartidor.setBounds(450, 20, 250, 20);
+        txtDireccionRepartidor.setBounds(450, 20, 250, 24);
 
         btnRegistrarRepartidor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnRegistrarRepartidor.setText("Registrar repartidor");
@@ -117,13 +163,13 @@ public class frmRepartidor extends javax.swing.JFrame {
         jPanel10.add(jLabel26);
         jLabel26.setBounds(380, 20, 70, 20);
         jPanel10.add(txtDistritoRepartidor);
-        txtDistritoRepartidor.setBounds(450, 50, 160, 20);
+        txtDistritoRepartidor.setBounds(450, 50, 160, 24);
         jPanel10.add(txtSueldoRepartidor);
-        txtSueldoRepartidor.setBounds(450, 80, 90, 20);
+        txtSueldoRepartidor.setBounds(450, 80, 90, 24);
 
         jLabel29.setText("DATOS DEL REPARTIDOR");
         jPanel10.add(jLabel29);
-        jLabel29.setBounds(10, 0, 150, 14);
+        jLabel29.setBounds(10, 0, 150, 16);
 
         jLabel30.setText("DNI repartidor");
         jPanel10.add(jLabel30);
@@ -183,7 +229,7 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtBuscarRepartidor);
-        txtBuscarRepartidor.setBounds(240, 20, 220, 20);
+        txtBuscarRepartidor.setBounds(240, 20, 220, 24);
 
         tblRepartidor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -234,6 +280,7 @@ public class frmRepartidor extends javax.swing.JFrame {
                 proc = "update";
         }
         
+        if(validaGuardar() == true){
         rep.setDniRepartidor(this.txtDNIrepartidor.getText());
         rep.setNombRepartidor(this.txtNomRepartidor.getText());
         rep.setTelefono(Integer.parseInt(this.txtTelefonoRepartidor.getText()));
@@ -242,6 +289,8 @@ public class frmRepartidor extends javax.swing.JFrame {
         rep.setSueldo(Double.parseDouble(this.txtSueldoRepartidor.getText()));
         this.repDao.procesaItem(rep, proc);
         limpia();
+        }
+        
         llenaTblRepartidor(false, "");
     }//GEN-LAST:event_btnRegistrarRepartidorActionPerformed
 

@@ -82,18 +82,18 @@ public class frmProductoRopa extends javax.swing.JFrame {
             if(this.txtTallaRopa.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Debe registrar la talla de la ropa");
             }else{
-            if(this.txtPrecioProducto.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Debe registrar el precio de producto");
-            }else{  
-            try{
-            Double.parseDouble(this.txtPrecioProducto.getText());
-            sw = true;
-            }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para el precio de producto");
-            this.txtPrecioProducto.setText("");
-            e.printStackTrace();
-            }
-            }
+                if(this.txtPrecioProducto.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Debe registrar el precio de producto");
+                }else{  
+                try{
+                Double.parseDouble(this.txtPrecioProducto.getText());
+                sw = true;
+                }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para el precio de producto");
+                this.txtPrecioProducto.setText("");
+                e.printStackTrace();
+                }
+                }
             if(this.txtStock.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Debe registrar el stock de producto");
             }else{  
