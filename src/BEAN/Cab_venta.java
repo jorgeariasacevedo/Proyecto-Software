@@ -1,6 +1,6 @@
 
 package BEAN;
-
+//aa//
 public class Cab_venta {
     private int idVenta;
     private String dniClif;
