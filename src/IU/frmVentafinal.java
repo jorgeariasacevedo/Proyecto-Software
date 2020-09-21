@@ -656,10 +656,7 @@ public class frmVentafinal extends javax.swing.JFrame {
                 b = Double.parseDouble(this.txtmonto.getText());
                 this.txtmonto.setText(Double.toString(Double.parseDouble(this.txtmonto.getText()) + a));
             }
-            if(this.txtboletafactura.getSelectedIndex()== 1){
-            this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText()) * 0.18));
-            }else{this.txtIGV.setText("0");};
-            
+         this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText()) * 0.18));
             if (txtdelivery.getText().isEmpty() == true) {
                 this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
             } else {
@@ -714,8 +711,6 @@ public class frmVentafinal extends javax.swing.JFrame {
             dv.setCantidad(cant);
       this.txtcodf.setText(Integer.toString(idVenta));
             this.detDao.procesaItem(dv, "insert");
-      
-        }
       int response = JOptionPane.showConfirmDialog(this, "¿Quieres generar un comprobante de pago?", "Comprobante", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
                 try {
@@ -751,7 +746,7 @@ public class frmVentafinal extends javax.swing.JFrame {
             } else {
                 dispose();
             }
-
+        }
     }//GEN-LAST:event_btnGuardarPedidoActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

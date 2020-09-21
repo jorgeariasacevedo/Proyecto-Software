@@ -2,10 +2,13 @@ package IU;
 
 import BEAN.Vendedor;
 import DAO.VendedorDAO;
+import UTIL.dbBean;
 import UTIL.util;
+import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
 
 public class frmVendedor extends javax.swing.JFrame {
 
@@ -67,6 +70,8 @@ public class frmVendedor extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnReporteProd = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -110,7 +115,7 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnRegistrarRepartidor);
-        btnRegistrarRepartidor.setBounds(280, 120, 130, 50);
+        btnRegistrarRepartidor.setBounds(390, 100, 120, 40);
 
         jLabel26.setText("Direccion");
         jPanel10.add(jLabel26);
@@ -146,7 +151,7 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnLimpiar);
-        btnLimpiar.setBounds(580, 100, 110, 40);
+        btnLimpiar.setBounds(550, 100, 110, 40);
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tugurio.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
@@ -156,7 +161,27 @@ public class frmVendedor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnEliminar);
-        btnEliminar.setBounds(580, 150, 110, 40);
+        btnEliminar.setBounds(390, 150, 110, 40);
+
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnSalir);
+        btnSalir.setBounds(540, 150, 110, 40);
+
+        btnReporteProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952.png"))); // NOI18N
+        btnReporteProd.setText("Reporte");
+        btnReporteProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteProdActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnReporteProd);
+        btnReporteProd.setBounds(80, 120, 160, 60);
 
         getContentPane().add(jPanel10);
         jPanel10.setBounds(20, 280, 710, 200);
@@ -202,7 +227,7 @@ public class frmVendedor extends javax.swing.JFrame {
         jLabel11.setBounds(130, 10, 40, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(60, 50, 580, 200);
+        jPanel1.setBounds(40, 10, 580, 200);
 
         jLabel22.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel22.setText("Vendedores");
@@ -332,6 +357,22 @@ public class frmVendedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSueldoRepartidorActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnReporteProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteProdActionPerformed
+        try{
+            String r = "src/REPORTES/repVendedor.jasper";
+            dbBean db = new dbBean();
+            db.connectRep(r,null,false);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnReporteProdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -348,6 +389,8 @@ public class frmVendedor extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrarRepartidor;
+    private javax.swing.JButton btnReporteProd;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

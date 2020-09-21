@@ -4,10 +4,13 @@ package IU;
 
 import BEAN.Repartidor;
 import DAO.RepartidorDAO;
+import UTIL.dbBean;
 import UTIL.util;
+import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
 
 public class frmRepartidor extends javax.swing.JFrame {
 
@@ -114,6 +117,7 @@ public class frmRepartidor extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnReporteProd = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -141,13 +145,13 @@ public class frmRepartidor extends javax.swing.JFrame {
         jPanel10.add(jLabel25);
         jLabel25.setBounds(20, 80, 70, 20);
         jPanel10.add(txtDNIrepartidor);
-        txtDNIrepartidor.setBounds(110, 20, 90, 24);
+        txtDNIrepartidor.setBounds(110, 20, 90, 20);
         jPanel10.add(txtNomRepartidor);
-        txtNomRepartidor.setBounds(110, 50, 250, 24);
+        txtNomRepartidor.setBounds(110, 50, 250, 20);
         jPanel10.add(txtTelefonoRepartidor);
-        txtTelefonoRepartidor.setBounds(110, 80, 90, 24);
+        txtTelefonoRepartidor.setBounds(110, 80, 90, 20);
         jPanel10.add(txtDireccionRepartidor);
-        txtDireccionRepartidor.setBounds(450, 20, 250, 24);
+        txtDireccionRepartidor.setBounds(450, 20, 250, 20);
 
         btnRegistrarRepartidor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/anadir (1).png"))); // NOI18N
         btnRegistrarRepartidor.setText("Registrar repartidor");
@@ -157,19 +161,19 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel10.add(btnRegistrarRepartidor);
-        btnRegistrarRepartidor.setBounds(280, 140, 170, 40);
+        btnRegistrarRepartidor.setBounds(350, 150, 170, 40);
 
         jLabel26.setText("Direccion");
         jPanel10.add(jLabel26);
         jLabel26.setBounds(380, 20, 70, 20);
         jPanel10.add(txtDistritoRepartidor);
-        txtDistritoRepartidor.setBounds(450, 50, 160, 24);
+        txtDistritoRepartidor.setBounds(450, 50, 160, 20);
         jPanel10.add(txtSueldoRepartidor);
-        txtSueldoRepartidor.setBounds(450, 80, 90, 24);
+        txtSueldoRepartidor.setBounds(450, 80, 90, 20);
 
         jLabel29.setText("DATOS DEL REPARTIDOR");
         jPanel10.add(jLabel29);
-        jLabel29.setBounds(10, 0, 150, 16);
+        jLabel29.setBounds(10, 0, 150, 14);
 
         jLabel30.setText("DNI repartidor");
         jPanel10.add(jLabel30);
@@ -209,8 +213,18 @@ public class frmRepartidor extends javax.swing.JFrame {
         jPanel10.add(btnSalir);
         btnSalir.setBounds(570, 160, 120, 40);
 
+        btnReporteProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952.png"))); // NOI18N
+        btnReporteProd.setText("Reporte");
+        btnReporteProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteProdActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnReporteProd);
+        btnReporteProd.setBounds(180, 120, 170, 70);
+
         getContentPane().add(jPanel10);
-        jPanel10.setBounds(20, 280, 710, 220);
+        jPanel10.setBounds(30, 280, 710, 220);
 
         jPanel1.setLayout(null);
 
@@ -229,7 +243,7 @@ public class frmRepartidor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtBuscarRepartidor);
-        txtBuscarRepartidor.setBounds(240, 20, 220, 24);
+        txtBuscarRepartidor.setBounds(240, 20, 220, 20);
 
         tblRepartidor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -347,6 +361,18 @@ public class frmRepartidor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnReporteProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteProdActionPerformed
+        try{
+            String r = "src/REPORTES/repRepartidor.jasper";
+            dbBean db = new dbBean();
+            db.connectRep(r,null,false);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnReporteProdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -363,6 +389,7 @@ public class frmRepartidor extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrarRepartidor;
+    private javax.swing.JButton btnReporteProd;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
