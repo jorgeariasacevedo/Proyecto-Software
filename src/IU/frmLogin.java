@@ -79,6 +79,11 @@ public class frmLogin extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (4).png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 80, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
@@ -139,6 +144,10 @@ public class frmLogin extends javax.swing.JFrame {
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
 
