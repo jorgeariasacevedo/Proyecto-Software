@@ -5,6 +5,7 @@ import BEAN.Cliente;
 import DAO.ClienteDAO;
 import UTIL.util;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //aa//
 public class frmCliente extends javax.swing.JFrame {
@@ -14,8 +15,9 @@ public class frmCliente extends javax.swing.JFrame {
     
     
     public frmCliente() {
-        clieDao = new ClienteDAO();
         initComponents();
+        clieDao = new ClienteDAO();
+        
         dtm = (DefaultTableModel)this.tblClieBusca.getModel();
         llenaTblCliente(false, "");        
                 
@@ -205,18 +207,18 @@ public class frmCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void llenaTblCliente(boolean sw, String cad){
-        Vector<Cliente> listEmpl = this.clieDao.ListaItem(sw, cad);
+        Vector<Cliente> listEmpl = this.clieDao.listaCliente(sw, cad);
         dtm.setRowCount(0);
         for(int i=0; i<listEmpl.size();i++){
-            Vector vec = new Vector();
-            vec.addElement(listEmpl.get(i).getDniCli());
-            vec.addElement(listEmpl.get(i).getApellidosCli());
-            vec.addElement(listEmpl.get(i).getNombreCli());
-            vec.addElement(listEmpl.get(i).getDireccionCli());
-            vec.addElement(listEmpl.get(i).getTelefonoCli());
-            vec.addElement(listEmpl.get(i).getCorreoCli());
-            vec.addElement(listEmpl.get(i).getFecha_nac_clie());
-            dtm.addRow(vec);
+            Vector vClie = new Vector();
+            vClie.addElement(listEmpl.get(i).getDniCli());
+            vClie.addElement(listEmpl.get(i).getApellidoCli());
+            vClie.addElement(listEmpl.get(i).getNombreCli());
+            vClie.addElement(listEmpl.get(i).getDireccionCli());
+            vClie.addElement(listEmpl.get(i).getTelefonoCli());
+            vClie.addElement(listEmpl.get(i).getCorreoCli());
+            vClie.addElement(listEmpl.get(i).getFecha_nac_clie());
+            dtm.addRow(vClie);
         }
     }
      private void limpia(){
@@ -243,26 +245,64 @@ public class frmCliente extends javax.swing.JFrame {
 
     private void btnRegistrarClieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClieActionPerformed
         Cliente clie = new Cliente();
-        util u = new util();
+        //util u = new util();
         String proc = "";
-        if(this.btnRegistrarClie.getText().equals("Registrar")){
-            proc = "insert";
-        }else if(this.btnRegistrarClie.getText().equals("Actualizar")){
-            proc = "update";
+        if(valida()== true){
+            if(this.btnRegistrarClie.getText().equals("Registrar")){
+                proc = "insert";
+            }else if(this.btnRegistrarClie.getText().equals("Actualizar")){
+                proc = "update";
+            }
+            clie.setDniCli(this.txtDni.getText());
+            clie.setApellidoCli(this.txtApellidos.getText());
+            clie.setNombreCli(this.txtNombres.getText());
+            clie.setDireccionCli(this.txtDireccion.getText());
+            clie.setTelefonoCli(Integer.parseInt(this.txtTelefono.getText()));
+            clie.setCorreoCli(this.txtCorreo.getText());
+            clie.setFecha_nac_clie(this.txtFechaClie.getText());
+            this.clieDao.procesaCliente(clie, proc);
+            this.llenaTblCliente(false, "");
+            limpia();
         }
-        clie.setDniCli(this.txtDni.getText());
-        clie.setApellidosCli(this.txtApellidos.getText());
-        clie.setNombreCli(this.txtNombres.getText());
-        clie.setDireccionCli(this.txtDireccion.getText());
-        clie.setTelefonoCli(Integer.parseInt(this.txtTelefono.getText()));
-        clie.setCorreoCli(this.txtCorreo.getText());
-      
-        //clie.setFecha_nac_clie(this.txtFechaClie.getText());
-        this.clieDao.procesaItem(clie, proc);
-        limpia();
-        llenaTblCliente(false,"");
+
+     
+
     }//GEN-LAST:event_btnRegistrarClieActionPerformed
 
+    private boolean valida(){
+
+       boolean sw = false;
+       if(this.txtApellidos.getText().isEmpty()){
+           JOptionPane.showMessageDialog(this, "Debe registrar Apellidos");
+       }else{
+           if(this.txtNombres.getText().isEmpty()){
+               JOptionPane.showMessageDialog(this, "Debe registrar Nombres");
+           }else{
+               if(this.txtDireccion.getText().isEmpty()){
+                   JOptionPane.showMessageDialog(this, "Debe registrar Direccion");
+                }else{
+                    if(this.txtTelefono.getText().isEmpty()){
+                       JOptionPane.showMessageDialog(this, "Debe registrar numero de telefono");
+                    }else{
+                        try{
+                            Integer.parseInt(this.txtTelefono.getText());
+                            sw = true;
+                        }catch(NumberFormatException e){
+                            JOptionPane.showMessageDialog(this, "Debe registrar un dato tipo numérico");
+                            this.txtTelefono.setText("");
+                            e.printStackTrace();
+                           
+                        }if(this.txtFechaClie.getText().isEmpty()){
+                               JOptionPane.showMessageDialog(this, "Debe registrar fecha de nacimiento");
+                           }                    
+                    }
+                }
+            }
+        }
+
+       return sw;
+    }
+    
     private void txtBuscarClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarClienteKeyReleased
         if(this.txtBuscarCliente.getText().isEmpty()){
             llenaTblCliente(false,"");
@@ -277,6 +317,7 @@ public class frmCliente extends javax.swing.JFrame {
             i = this.tblClieBusca.getSelectedRow();
             dtm.removeRow(i);
         }
+        limpia();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void tblClieBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClieBuscaMouseClicked
@@ -290,7 +331,7 @@ public class frmCliente extends javax.swing.JFrame {
         this.txtCorreo.setText(dtm.getValueAt(fil, 5).toString());
         this.txtFechaClie.setText(dtm.getValueAt(fil, 6).toString());
         
-        this.btnRegistrarClie.setText("Actualizar producto");
+        this.btnRegistrarClie.setText("Actualizar ");
     }//GEN-LAST:event_tblClieBuscaMouseClicked
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

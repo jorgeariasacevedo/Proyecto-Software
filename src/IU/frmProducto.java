@@ -19,13 +19,13 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-public class frmProductoRopa extends javax.swing.JFrame {
+public class frmProducto extends javax.swing.JFrame {
 
     ProductoDAO proDao;
     DefaultTableModel dtmpro;
     String idPro;
     private Connection dbCon;
-    public frmProductoRopa() {
+    public frmProducto() {
         
         proDao=new ProductoDAO();
         initComponents();
@@ -422,7 +422,7 @@ public class frmProductoRopa extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmProductoRopa().setVisible(true);
+                new frmProducto().setVisible(true);
             }
         });
     }

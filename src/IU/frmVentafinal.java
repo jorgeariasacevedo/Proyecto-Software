@@ -1,4 +1,3 @@
-
 package IU;
 
 import BEAN.Cab_venta;
@@ -40,8 +39,9 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 //aadsad//
-public class frmTiendaRopa extends javax.swing.JFrame {
-private Connection dbCon;
+public class frmVentafinal extends javax.swing.JFrame {
+
+    private Connection dbCon;
     ClienteDAO cliDao;
     ProductoDAO proDao;
     VendedorDAO venDao;
@@ -50,33 +50,34 @@ private Connection dbCon;
     Tipo_pagoDAO tipDao;
     Cab_ventaDAO cabDao;
     Detalle_VentaDAO detDao;
-    
+
     int idCliente;
     int idVenta;
     Cliente clie;
-    
+
     DefaultTableModel dtmpro;
+
     //jujuujujujju
-    public frmTiendaRopa() {
+    public frmVentafinal() {
         initComponents();
         cliDao = new ClienteDAO();
-        proDao=new ProductoDAO();
-        venDao=new VendedorDAO();
-        repDao=new RepartidorDAO();
-        delDao=new DeliveryDAO();
-        tipDao=new Tipo_pagoDAO();
-        cabDao=new Cab_ventaDAO();
-        detDao=new Detalle_VentaDAO();
-        
-        clie=new Cliente();
-        dtmpro = (DefaultTableModel)this.tblMostrarProducto.getModel(); 
-        //llenaTblProducto(false, "");
+        proDao = new ProductoDAO();
+        venDao = new VendedorDAO();
+        repDao = new RepartidorDAO();
+        delDao = new DeliveryDAO();
+        tipDao = new Tipo_pagoDAO();
+        cabDao = new Cab_ventaDAO();
+        detDao = new Detalle_VentaDAO();
+
+        clie = new Cliente();
+        dtmpro = (DefaultTableModel) this.tblMostrarProducto.getModel();
+
     }
-    
-    private void llenaTblProducto(boolean sw, String cad){
+
+    private void llenaTblProducto(boolean sw, String cad) {
         Vector<Producto> listProd = this.proDao.ListaItem(sw, cad);
         dtmpro.setRowCount(0);
-        for(int i= 0;i<listProd.size();i++){
+        for (int i = 0; i < listProd.size(); i++) {
             Vector vProd = new Vector();
             vProd.add(0, listProd.get(i).getIdProducto());
             vProd.add(1, listProd.get(i).getModelo());
@@ -88,27 +89,28 @@ private Connection dbCon;
             dtmpro.addRow(vProd);
         }
     }
-    private boolean validaAgregar(){
+
+    private boolean validaAgregar() {
         boolean sw = false;
-        if(this.txtCodigoProducto.getText().isEmpty()){
-        JOptionPane.showMessageDialog(this, "Debe registrar su producto");
-        }else{
-            if(this.txtCantidad.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Debe registrar la cantidad de productos");
-            }else{
-            try{
-            Integer.parseInt(this.txtCantidad.getText());
-            sw = true;
-            }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para la cantidad de productos");
-            this.txtCantidad.setText("");
-            e.printStackTrace();
-            }
+        if (this.txtCodigoProducto.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe registrar su producto");
+        } else {
+            if (this.txtCantidad.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debe registrar la cantidad de productos");
+            } else {
+                try {
+                    Integer.parseInt(this.txtCantidad.getText());
+                    sw = true;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para la cantidad de productos");
+                    this.txtCantidad.setText("");
+                    e.printStackTrace();
+                }
             }
         }
         return sw;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,14 +123,16 @@ private Connection dbCon;
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtdniCli = new javax.swing.JTextField();
-        txtnombreCli = new javax.swing.JTextField();
-        txtdireccionCli = new javax.swing.JTextField();
-        txttelefonoCli = new javax.swing.JTextField();
-        txtcorreoCli = new javax.swing.JTextField();
+        txtDniCli = new javax.swing.JTextField();
+        txtNombreCli = new javax.swing.JTextField();
+        txtDireccionCli = new javax.swing.JTextField();
+        txtTelefonoCli = new javax.swing.JTextField();
+        txtCorreoCli = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnSeleccionarCliente = new javax.swing.JButton();
         btnRegistrarCliente = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtApellidoClie = new javax.swing.JTextField();
         txtcodigo = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnSeleccionarRepartidor = new javax.swing.JButton();
@@ -182,7 +186,7 @@ private Connection dbCon;
 
         jLabel1.setText("Correo");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(20, 140, 70, 20);
+        jLabel1.setBounds(20, 170, 70, 20);
 
         jLabel2.setText("DNI Cliente");
         jPanel3.add(jLabel2);
@@ -190,25 +194,25 @@ private Connection dbCon;
 
         jLabel3.setText("Nombres");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(20, 50, 70, 20);
+        jLabel3.setBounds(20, 80, 70, 20);
 
         jLabel4.setText("Direccion");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(20, 80, 70, 20);
+        jLabel4.setBounds(20, 110, 70, 20);
 
         jLabel5.setText("Telefono");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(20, 110, 70, 20);
-        jPanel3.add(txtdniCli);
-        txtdniCli.setBounds(90, 20, 90, 20);
-        jPanel3.add(txtnombreCli);
-        txtnombreCli.setBounds(90, 50, 180, 20);
-        jPanel3.add(txtdireccionCli);
-        txtdireccionCli.setBounds(90, 80, 220, 20);
-        jPanel3.add(txttelefonoCli);
-        txttelefonoCli.setBounds(90, 110, 90, 20);
-        jPanel3.add(txtcorreoCli);
-        txtcorreoCli.setBounds(90, 140, 130, 20);
+        jLabel5.setBounds(20, 140, 70, 20);
+        jPanel3.add(txtDniCli);
+        txtDniCli.setBounds(90, 20, 90, 20);
+        jPanel3.add(txtNombreCli);
+        txtNombreCli.setBounds(90, 80, 180, 20);
+        jPanel3.add(txtDireccionCli);
+        txtDireccionCli.setBounds(90, 110, 220, 20);
+        jPanel3.add(txtTelefonoCli);
+        txtTelefonoCli.setBounds(90, 140, 90, 20);
+        jPanel3.add(txtCorreoCli);
+        txtCorreoCli.setBounds(90, 170, 130, 20);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("DATOS DEL CLIENTE");
@@ -235,10 +239,16 @@ private Connection dbCon;
             }
         });
         jPanel3.add(btnRegistrarCliente);
-        btnRegistrarCliente.setBounds(240, 130, 110, 40);
+        btnRegistrarCliente.setBounds(250, 140, 110, 40);
+
+        jLabel6.setText("Apellidos");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(20, 50, 50, 14);
+        jPanel3.add(txtApellidoClie);
+        txtApellidoClie.setBounds(90, 50, 180, 20);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 40, 390, 190);
+        jPanel3.setBounds(20, 40, 390, 200);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
@@ -483,47 +493,47 @@ private Connection dbCon;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
-            frmCliente x  = new frmCliente();
-            x.setVisible(true);
+        frmCliente x = new frmCliente();
+        x.setVisible(true);
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
     private void btnPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoActionPerformed
-        Tipo_pago Tipo =new Tipo_pago();
-        SelTipo_pago dialog = new SelTipo_pago(new javax.swing.JFrame(),true);
+        Tipo_pago Tipo = new Tipo_pago();
+        SelTipo_pago dialog = new SelTipo_pago(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-        Tipo= dialog.getTipo_pago();
-        
-        if (Tipo == null){
+        Tipo = dialog.getTipo_pago();
+
+        if (Tipo == null) {
             this.txtid_pago.setText("");
-           
-        }else{
+
+        } else {
             this.txtid_pago.setText(String.valueOf(Tipo.getId_pago()));
-            
+
         }
     }//GEN-LAST:event_btnPagoActionPerformed
 
     private void btnSeleccionarDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarDeliveryActionPerformed
-        Delivery Deli =new Delivery();
-        SelDelivery dialog = new SelDelivery(new javax.swing.JFrame(),true);
+        Delivery Deli = new Delivery();
+        SelDelivery dialog = new SelDelivery(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-        Deli= dialog.getDeli();
-        
-        if (Deli == null){
+        Deli = dialog.getDeli();
+
+        if (Deli == null) {
             this.txtid_delivery.setText("");
-        }else{
+        } else {
             this.txtid_delivery.setText(String.valueOf(Deli.getId_delivery()));
             this.txtdelivery.setText(String.valueOf(Deli.getPreciocaja()));
         }
     }//GEN-LAST:event_btnSeleccionarDeliveryActionPerformed
 
     private void btnSeleccionarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProductoActionPerformed
-        Producto pro =new Producto();
-        SelProducto dialog = new SelProducto(new javax.swing.JFrame(),true);
+        Producto pro = new Producto();
+        SelProducto dialog = new SelProducto(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-        pro= dialog.getDeli();
-        if (pro == null){
+        pro = dialog.getDeli();
+        if (pro == null) {
             this.txtCodigoProducto.setText("");
-        }else{
+        } else {
             this.txtCodigoProducto.setText(String.valueOf(pro.getIdProducto()));
             this.txtDescripProducto.setText(String.valueOf(pro.getDetalle()));
             this.txtColor.setText(String.valueOf(pro.getColor()));
@@ -532,31 +542,55 @@ private Connection dbCon;
     }//GEN-LAST:event_btnSeleccionarProductoActionPerformed
 
     private void btnSeleccionarRepartidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarRepartidorActionPerformed
-        Repartidor rep =new Repartidor();
-        SelRepartidor dialog = new SelRepartidor(new javax.swing.JFrame(),true);
+        Repartidor rep = new Repartidor();
+        SelRepartidor dialog = new SelRepartidor(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-        rep= dialog.getDeli();
-        
-        if (rep == null){
+        rep = dialog.getDeli();
+
+        if (rep == null) {
             this.txtCodigoRepartidor.setText("");
-        }else{
+        } else {
             this.txtCodigoRepartidor.setText(String.valueOf(rep.getDniRepartidor()));
         }
     }//GEN-LAST:event_btnSeleccionarRepartidorActionPerformed
 
     private void btnVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendedorActionPerformed
         Vendedor ven = new Vendedor();
-        dlgVendedor dialog = new dlgVendedor(new javax.swing.JFrame(), true);
+        SelVendedor dialog = new SelVendedor(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
         ven = dialog.getVend();
 
-        if(ven == null){
+        if (ven == null) {
             this.txtDNIVendedor.setText("");
-        }else{
+        } else {
             this.txtDNIVendedor.setText(String.valueOf(ven.getDniVendedor()));
         }
-  
+
     }//GEN-LAST:event_btnVendedorActionPerformed
+
+// HEAD
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            String r = "src/REPORTES/repFactura.jasper";
+
+            dbBean db = new dbBean();
+            HashMap map = new HashMap();
+
+            map.put("parameter1", this.txtcodf.getText());
+            map.put("nombre", this.txtNombreCli.getText());
+            map.put("direccion", this.txtDireccionCli.getText());
+            map.put("telefono", this.txtTelefonoCli.getText());
+            map.put("correo", this.txtCorreoCli.getText());
+            db.connectRep(r, map, true);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (JRException ex) {
+            ex.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     private void txtcodfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodfActionPerformed
         // TODO add your handling code here:
@@ -567,58 +601,75 @@ private Connection dbCon;
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnSeleccionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarClienteActionPerformed
-        // TODO add your handling code here:
+        Cliente cli = new Cliente();
+        SelCliente dialog = new SelCliente(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+        cli = dialog.getClie();
+        if (cli == null) {
+            this.txtDniCli.setText("");
+            this.txtApellidoClie.setText("");
+            this.txtNombreCli.setText("");
+            this.txtDireccionCli.setText("");
+            this.txtTelefonoCli.setText("");
+            this.txtCorreoCli.setText("");
+        } else {
+            this.txtDniCli.setText(cli.getDniCli());
+            this.txtApellidoClie.setText(cli.getApellidoCli());
+            this.txtNombreCli.setText(cli.getNombreCli());
+            this.txtDireccionCli.setText(cli.getDireccionCli());
+            this.txtTelefonoCli.setText(String.valueOf(cli.getTelefonoCli()));
+            this.txtCorreoCli.setText(cli.getCorreoCli());
+        }
     }//GEN-LAST:event_btnSeleccionarClienteActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         double a;
         double b;
-        
-       
-        Vector vec= new Vector();
-        if(validaAgregar() == true){
-        vec.addElement(this.txtCodigoProducto.getText());
-        vec.addElement(this.txtDescripProducto.getText());
-        vec.addElement(this.txtColor.getText());
-        vec.addElement(this.txtPrecio.getText());
-        vec.addElement(this.txtCantidad.getText());
-        a = Double.parseDouble(this.txtPrecio.getText())*Integer.parseInt(this.txtCantidad.getText());
-        if(txtmonto.getText().isEmpty() == true){
-        this.txtmonto.setText(Double.toString(a));
-        }else{
-        b = Double.parseDouble(this.txtmonto.getText());
-        this.txtmonto.setText(Double.toString(Double.parseDouble(this.txtmonto.getText()) + a));
+
+        Vector vec = new Vector();
+        if (validaAgregar() == true) {
+            vec.addElement(this.txtCodigoProducto.getText());
+            vec.addElement(this.txtDescripProducto.getText());
+            vec.addElement(this.txtColor.getText());
+            vec.addElement(this.txtPrecio.getText());
+            vec.addElement(this.txtCantidad.getText());
+            a = Double.parseDouble(this.txtPrecio.getText()) * Integer.parseInt(this.txtCantidad.getText());
+            if (txtmonto.getText().isEmpty() == true) {
+                this.txtmonto.setText(Double.toString(a));
+            } else {
+                b = Double.parseDouble(this.txtmonto.getText());
+                this.txtmonto.setText(Double.toString(Double.parseDouble(this.txtmonto.getText()) + a));
+            }
+            this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText()) * 0.18));
+            if (txtdelivery.getText().isEmpty() == true) {
+                this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
+            } else {
+                this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtdelivery.getText()) + Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
+            }
+            dtmpro.addRow(vec);
         }
-        this.txtIGV.setText(Double.toString(Double.parseDouble(txtmonto.getText())*0.18));
-         if(txtdelivery.getText().isEmpty() == true){
-        this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
-        }else{
-         this.txtTotal.setText(Double.toString(Double.parseDouble(this.txtdelivery.getText()) + Double.parseDouble(this.txtIGV.getText()) + Double.parseDouble(this.txtmonto.getText())));
-         }
-        dtmpro.addRow(vec);
-        }
-        
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnGuardarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPedidoActionPerformed
-        Cab_venta cv=new Cab_venta();
+        Cab_venta cv = new Cab_venta();
         //det_venta dv=new det_venta();
-        util u=new util();
+
+        util u = new util();
         int cant, idDel, idPag;
         String fech, idCli, idProd, idVen, idRep;
         double prec;
-        
-        //if(this.btnGrabar.getText().equals("Grabar")){
 
+        //if(this.btnGrabar.getText().equals("Grabar")){
         //if(validaGrabar() == true){
-        idVenta=u.idNext("Cab_venta","idVenta");
-        idCli=this.txtdniCli.getText();
-        idDel=Integer.parseInt(this.txtid_delivery.getText());
-        idVen=this.txtDNIVendedor.getText();
-        idRep=this.txtCodigoRepartidor.getText();
-        idPag=Integer.parseInt(this.txtid_pago.getText());
-        fech=u.obtenerFecha();
-        
+        idVenta = u.idNext("Cab_venta", "idVenta");
+        idCli = this.txtDniCli.getText();
+        idDel = Integer.parseInt(this.txtid_delivery.getText());
+        idVen = this.txtDNIVendedor.getText();
+        idRep = this.txtCodigoRepartidor.getText();
+        idPag = Integer.parseInt(this.txtid_pago.getText());
+        fech = u.obtenerFecha();
+
         cv.setIdVenta(idVenta);
         cv.setDniClif(idCli);
         cv.setFechaVenta(fech);
@@ -627,69 +678,69 @@ private Connection dbCon;
         cv.setDniVendedor(idVen);
         cv.setDniRepartidorf(idRep);
         cv.setIdPagof(idPag);
-        
+
         this.cabDao.procesaItem(cv, "insert");
-        
-        for(int i=0;i<this.tblMostrarProducto.getRowCount();i++){
-            Detalle_Venta dv=new Detalle_Venta();
-            
+
+        for (int i = 0; i < this.tblMostrarProducto.getRowCount(); i++) {
+            Detalle_Venta dv = new Detalle_Venta();
+
             //idProd=dtmpro.getValueAt(i, 0).toString();
-            idProd=dtmpro.getValueAt(i, 0).toString();
-            prec=Double.parseDouble(dtmpro.getValueAt(i, 3).toString());
-            cant=Integer.parseInt(dtmpro.getValueAt(i, 4).toString());
-            
+            idProd = dtmpro.getValueAt(i, 0).toString();
+            prec = Double.parseDouble(dtmpro.getValueAt(i, 3).toString());
+            cant = Integer.parseInt(dtmpro.getValueAt(i, 4).toString());
+
             dv.setIdVentaf(idVenta);
             dv.setCodProducto(idProd);
             dv.setPrecio(prec);
             dv.setCantidad(cant);
-            
+      this.txtcodf.setText(Integer.toString(idVenta));
             this.detDao.procesaItem(dv, "insert");
-            int response = JOptionPane.showConfirmDialog(this,"¿Quieres generar un comprobante de pago?","Comprobante",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-            if(response==JOptionPane.YES_OPTION){
-             try{
-            String r = "src/REPORTES/repFactura.jasper";
-          
-            dbBean db = new dbBean();
-           HashMap map= new HashMap();
-           
-            map.put("parameter1",this.txtcodf.getText() );
-            map.put("nombre",this.txtnombreCli.getText() );
-            map.put("direccion",this.txtdireccionCli.getText() );
-            map.put("telefono",this.txttelefonoCli.getText() );
-            map.put("correo",this.txtcorreoCli.getText() );
-            map.put("monto",this.txtmonto.getText() );
-            map.put("IGV",this.txtIGV.getText() );
-            map.put("dni",this.txtdniCli.getText());
-            map.put("montototal",this.txtTotal.getText() );
-            if(txtboletafactura.getSelectedIndex() == 0){
-              map.put("facturaboleta","BOLETA" );
-             
-            
-            }else{
-              map.put("facturaboleta","FACTURA" );
-            }
-       
-            db.connectRep(r,map,true);
-        }catch(SQLException ex){
-            ex.printStackTrace();
-        }catch(JRException ex){
-                ex.printStackTrace();
-         }
-                
-                
-            }else{
+            int response = JOptionPane.showConfirmDialog(this, "¿Quieres generar un comprobante de pago?", "Comprobante", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                try {
+                    String r = "src/REPORTES/repFactura.jasper";
+
+                    dbBean db = new dbBean();
+                    HashMap map = new HashMap();
+
+                    map.put("parameter1", this.txtcodf.getText());
+
+                    map.put("nombre", this.txtNombreCli.getText());
+                    map.put("direccion", this.txtDireccionCli.getText());
+                    map.put("telefono", this.txtTelefonoCli.getText());
+                    map.put("correo", this.txtCorreoCli.getText());
+                    map.put("monto", this.txtmonto.getText());
+                    map.put("IGV", this.txtIGV.getText());
+                    map.put("dni", this.txtDniCli.getText());
+                    map.put("montototal", this.txtTotal.getText());
+                    if (txtboletafactura.getSelectedIndex() == 0) {
+                        map.put("facturaboleta", "BOLETA");
+
+                    } else {
+
+                        map.put("facturaboleta", "FACTURA");
+
+                    }
+
+                    db.connectRep(r, map, true);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (JRException ex) {
+                    ex.printStackTrace();
+                }
+
+            } else {
                 dispose();
             }
         }
-        
-        this.txtcodf.setText(Integer.toString(idVenta));
-        
+
+
     }//GEN-LAST:event_btnGuardarPedidoActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int i;
-        if(this.tblMostrarProducto.getSelectedRow()>=0){
-            i=this.tblMostrarProducto.getSelectedRow();
+        if (this.tblMostrarProducto.getSelectedRow() >= 0) {
+            i = this.tblMostrarProducto.getSelectedRow();
             dtmpro.removeRow(i);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -702,7 +753,7 @@ private Connection dbCon;
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmTiendaRopa().setVisible(true);
+                new frmVentafinal().setVisible(true);
             }
         });
     }
@@ -730,6 +781,7 @@ private Connection dbCon;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
@@ -746,27 +798,28 @@ private Connection dbCon;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblMostrarProducto;
+    private javax.swing.JTextField txtApellidoClie;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextField txtCodigoRepartidor;
     private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtCorreoCli;
     private javax.swing.JTextField txtDNIVendedor;
     private javax.swing.JTextField txtDescripProducto;
+    private javax.swing.JTextField txtDireccionCli;
+    private javax.swing.JTextField txtDniCli;
     private javax.swing.JTextField txtIGV;
+    private javax.swing.JTextField txtNombreCli;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtTelefonoCli;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JComboBox<String> txtboletafactura;
     private javax.swing.JTextField txtcodf;
     private javax.swing.JPanel txtcodigo;
-    private javax.swing.JTextField txtcorreoCli;
     private javax.swing.JTextField txtdelivery;
-    private javax.swing.JTextField txtdireccionCli;
-    private javax.swing.JTextField txtdniCli;
     private javax.swing.JTextField txtid_delivery;
     private javax.swing.JTextField txtid_pago;
     private javax.swing.JTextField txtmonto;
-    private javax.swing.JTextField txtnombreCli;
-    private javax.swing.JTextField txttelefonoCli;
     // End of variables declaration//GEN-END:variables
 
 }

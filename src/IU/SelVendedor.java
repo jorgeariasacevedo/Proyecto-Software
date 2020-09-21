@@ -12,14 +12,14 @@ import DAO.VendedorDAO;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import IU.frmVendedor;
-import IU.frmTiendaRopa;
+import IU.frmVentafinal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 /**
  *
  * @author Jorge
  */
-public class dlgVendedor extends javax.swing.JDialog {
+public class SelVendedor extends javax.swing.JDialog {
     VendedorDAO VDao;
     DefaultTableModel dtm;
     Vendedor vend;
@@ -27,7 +27,7 @@ public class dlgVendedor extends javax.swing.JDialog {
     
 
     /** Creates new form dlgVendedor */
-    public dlgVendedor(java.awt.Frame parent, boolean modal) {
+    public SelVendedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         VDao = new VendedorDAO();        
         initComponents();

@@ -5,7 +5,6 @@
  */
 package IU;
 
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -84,7 +83,7 @@ Principal x  = new Principal();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  frmTiendaRopa x  = new frmTiendaRopa();
+  frmVentafinal x  = new frmVentafinal();
                 x.setVisible(true);
                  dispose();       // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -116,6 +115,8 @@ Principal x  = new Principal();
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -130,6 +131,4 @@ Principal x  = new Principal();
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-
-  
 }
