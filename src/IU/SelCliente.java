@@ -50,17 +50,21 @@ public class SelCliente extends javax.swing.JDialog {
         txtBuscClie = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblClieBusca = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("SELECCIONAR CLIENTES");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(240, 30, 140, 30);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Buscar");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(110, 70, 32, 14);
+        jLabel2.setBounds(130, 70, 40, 20);
 
         txtBuscClie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +96,14 @@ public class SelCliente extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(30, 110, 580, 130);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(180, 70, 30, 30);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/objetivo.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(510, 10, 80, 80);
 
         setSize(new java.awt.Dimension(653, 325));
         setLocationRelativeTo(null);
@@ -131,6 +143,8 @@ public class SelCliente extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblClieBusca;
     private javax.swing.JTextField txtBuscClie;

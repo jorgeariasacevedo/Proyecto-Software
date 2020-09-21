@@ -176,12 +176,17 @@ public class frmVentafinal extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         txtcodf = new javax.swing.JTextField();
         txtboletafactura = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jTabbedPane1.setBackground(new java.awt.Color(255, 204, 204));
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
+        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
         jPanel3.setLayout(null);
 
         jLabel1.setText("Correo");
@@ -248,10 +253,11 @@ public class frmVentafinal extends javax.swing.JFrame {
         txtApellidoClie.setBounds(90, 50, 180, 20);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 40, 390, 200);
+        jPanel3.setBounds(0, 40, 410, 200);
         jPanel3.getAccessibleContext().setAccessibleName("CLIENTE");
         jPanel3.getAccessibleContext().setAccessibleDescription("");
 
+        txtcodigo.setBackground(new java.awt.Color(255, 204, 204));
         txtcodigo.setLayout(null);
 
         jLabel9.setText("DNI repartidor");
@@ -341,8 +347,9 @@ public class frmVentafinal extends javax.swing.JFrame {
         btnSalir.setBounds(40, 190, 90, 50);
 
         jPanel1.add(txtcodigo);
-        txtcodigo.setBounds(10, 240, 400, 260);
+        txtcodigo.setBounds(0, 240, 410, 260);
 
+        jPanel17.setBackground(new java.awt.Color(255, 204, 204));
         jPanel17.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -482,6 +489,10 @@ public class frmVentafinal extends javax.swing.JFrame {
         txtboletafactura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número de boleta:", "Número de Factura:" }));
         jPanel1.add(txtboletafactura);
         txtboletafactura.setBounds(20, 10, 190, 20);
+
+        jLabel16.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(0, 0, 390, 30);
 
         jTabbedPane1.addTab("Recepcion del pedido", jPanel1);
 
@@ -776,6 +787,7 @@ public class frmVentafinal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

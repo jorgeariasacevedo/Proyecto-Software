@@ -77,17 +77,21 @@ public class frmVenta extends javax.swing.JFrame {
         txtIdPago = new javax.swing.JTextField();
         btnActualizar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("MANTENIMIENTO Y BUSQUEDA DE VENTAS");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(250, 20, 230, 14);
+        jLabel1.setBounds(250, 14, 240, 20);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Búsqueda de venta");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 50, 100, 14);
+        jLabel2.setBounds(60, 50, 110, 20);
 
         txtBuscarVenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -95,7 +99,7 @@ public class frmVenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtBuscarVenta);
-        txtBuscarVenta.setBounds(190, 50, 240, 20);
+        txtBuscarVenta.setBounds(220, 40, 300, 30);
 
         tblVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,6 +179,8 @@ public class frmVenta extends javax.swing.JFrame {
         getContentPane().add(txtIdPago);
         txtIdPago.setBounds(530, 380, 110, 20);
 
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/select_ok_accept_15254 (1).png"))); // NOI18N
         btnActualizar.setText("ACTUALIZAR");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,8 +188,10 @@ public class frmVenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnActualizar);
-        btnActualizar.setBounds(180, 430, 130, 30);
+        btnActualizar.setBounds(160, 430, 150, 40);
 
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +199,15 @@ public class frmVenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(430, 430, 100, 30);
+        btnSalir.setBounds(400, 430, 130, 40);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(180, 40, 40, 30);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/objetivo.png"))); // NOI18N
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(600, 10, 70, 70);
 
         setSize(new java.awt.Dimension(749, 524));
         setLocationRelativeTo(null);
@@ -293,6 +309,8 @@ public class frmVenta extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
