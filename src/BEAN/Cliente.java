@@ -10,7 +10,7 @@ public class Cliente {
     private int telefonoCli;
     private String correoCli;
     private Date fecha_nac_clie;
-
+//gfdgdf//
     public Cliente() {
     }
 
