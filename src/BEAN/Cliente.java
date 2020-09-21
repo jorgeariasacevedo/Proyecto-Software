@@ -1,7 +1,7 @@
 package BEAN;
 
 import java.sql.Date;
-
+//dsa//
 public class Cliente {
     private String dniCli;
     private String apellidosCli;
