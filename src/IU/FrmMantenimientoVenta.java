@@ -25,13 +25,13 @@ public class FrmMantenimientoVenta extends javax.swing.JFrame {
         for(int i=0; i<listVenta.size(); i++){
             Vector vVenta = new Vector();
             vVenta.add(0, listVenta.get(i).getIdVenta());
-            vVenta.add(0, listVenta.get(i).getIdVenta());
-            vVenta.add(0, listVenta.get(i).getIdVenta());
-            vVenta.add(0, listVenta.get(i).getIdVenta());
-            vVenta.add(0, listVenta.get(i).getIdVenta());
-            vVenta.add(0, listVenta.get(i).getIdVenta());
-            vVenta.add(0, listVenta.get(i).getIdVenta());
-            vVenta.add(0, listVenta.get(i).getIdVenta());
+            vVenta.add(1, listVenta.get(i).getDniClif());
+            vVenta.add(2, listVenta.get(i).getFechaVenta());
+            vVenta.add(3, listVenta.get(i).getEstado());
+            vVenta.add(4, listVenta.get(i).getIdDeliveryf());
+            vVenta.add(5, listVenta.get(i).getDniVendedor());
+            vVenta.add(6, listVenta.get(i).getDniRepartidorf());
+            vVenta.add(7, listVenta.get(i).getIdPagof());
             
             dtmVenta.addRow(vVenta);
         }

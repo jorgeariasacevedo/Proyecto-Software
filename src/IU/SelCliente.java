@@ -16,6 +16,7 @@ public class SelCliente extends javax.swing.JDialog {
         clieDao = new ClienteDAO();
         clie = new Cliente();
         dtm = (DefaultTableModel)this.tblClieBusca.getModel();
+        this.llenaTblCliente(false, "");
         
     }
     
