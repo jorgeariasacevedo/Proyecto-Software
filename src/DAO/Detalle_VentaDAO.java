@@ -59,7 +59,7 @@ public class Detalle_VentaDAO {
        dbBean con=new dbBean();
        System.out.println("ENTRE SUAVE");
        if(proc.equals("insert")){
-            sql="INSERT INTO Detalle_Venta VALUES ("+ dv.getIdVentaf()+", "+ dv.getCodProducto()+", "+ dv.getPrecio()+", "+ dv.getCantidad() +")";
+            sql="INSERT INTO Detalle_Venta VALUES ('"+ dv.getIdVentaf()+"', '"+ dv.getCodProducto()+"', '"+ dv.getPrecio()+"', '"+ dv.getCantidad() +"')";
             System.out.println("EVallll: "+sql);
        }
        //if(proc.equals("update")){

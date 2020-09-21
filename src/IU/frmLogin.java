@@ -18,9 +18,9 @@ public class frmLogin extends javax.swing.JFrame {
         Dimension dim = toolkit.getScreenSize();
         wd = dim.width;
         hd = dim.height;
-        this.setSize(400, 400);
-        slx = (wd/2) - (200);
-        sly = (hd/2) -(250);
+        this.setSize(800, 500);
+        slx = (wd/2) - (400);
+        sly = (hd/2) -(300);
         this.setLocation(slx, sly);
         this.setResizable(false);
     }
