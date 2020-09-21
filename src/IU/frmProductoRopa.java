@@ -65,11 +65,26 @@ public class frmProductoRopa extends javax.swing.JFrame {
     private boolean validaGuardar(){
         boolean sw = false;
         if(this.txtIdProducto.getText().isEmpty()){
-        JOptionPane.showMessageDialog(this, "Debe registrar su producto");
+        JOptionPane.showMessageDialog(this, "Debe registrar su codigo de producto");
         }else{
+            if(this.txtModelo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar el modelo de ropa");
+            }else{
+            if(this.txtTipoRopa.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar el tipo de ropa");
+            }else{
+            if(this.txtDetalleRopa.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar el detalle de la ropa");
+            }else{
+            if(this.txtColorRopa.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar el color de la ropa");
+            }else{
+            if(this.txtTallaRopa.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar la talla de la ropa");
+            }else{
             if(this.txtPrecioProducto.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Debe registrar el precio de producto");
-            }else{
+            }else{  
             try{
             Double.parseDouble(this.txtPrecioProducto.getText());
             sw = true;
@@ -77,6 +92,24 @@ public class frmProductoRopa extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para el precio de producto");
             this.txtPrecioProducto.setText("");
             e.printStackTrace();
+            }
+            }
+            if(this.txtStock.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe registrar el stock de producto");
+            }else{  
+            try{
+            Integer.parseInt(this.txtStock.getText());
+            sw = true;
+            }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Debe registrar un datos numerico para el stock de producto");
+            this.txtStock.setText("");
+            e.printStackTrace();
+            }
+            }
+            
+            }
+            }  
+            }
             }
             }
         }
