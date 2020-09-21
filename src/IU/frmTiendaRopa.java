@@ -679,7 +679,7 @@ private Connection dbCon;
             }
         }
         
-        
+        this.txtcodf.setText(Integer.toString(idVenta));
         
     }//GEN-LAST:event_btnGuardarPedidoActionPerformed
 
