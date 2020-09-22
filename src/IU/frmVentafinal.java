@@ -311,8 +311,12 @@ public class frmVentafinal extends javax.swing.JFrame {
         });
         txtcodigo.add(btnPago);
         btnPago.setBounds(210, 60, 190, 40);
+
+        txtid_pago.setEditable(false);
         txtcodigo.add(txtid_pago);
         txtid_pago.setBounds(120, 70, 80, 20);
+
+        txtid_delivery.setEditable(false);
         txtcodigo.add(txtid_delivery);
         txtid_delivery.setBounds(120, 110, 80, 20);
 
@@ -734,7 +738,7 @@ public class frmVentafinal extends javax.swing.JFrame {
 
                 map.put("parameter1", this.txtcodf.getText());
 
-                map.put("nombre", this.txtNombreCli.getText());
+                map.put("nombre", this.txtNombreCli.getText()+" "+this.txtApellidoClie.getText());
                 map.put("direccion", this.txtDireccionCli.getText());
                 map.put("telefono", this.txtTelefonoCli.getText());
                 map.put("correo", this.txtCorreoCli.getText());

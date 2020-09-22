@@ -50,7 +50,7 @@ public class VendedorDAO {
             sql="UPDATE Vendedor set nombVendedor = '"+ c.getNombVendedor() +"', telefono = '"+ c.getTelefono() +"', direccion = '"+ c.getDireccion() +"', distrito = '"+ c.getDistrito() +"', sueldo = '"+ c.getSueldo() +"' where dniVendedor = '"+ c.getDniVendedor() +"'";
        }
        if(proc.equals("delete")){
-            sql="delete Vendedor where dniVendedor = '"+ c.getDniVendedor() +"'";
+            sql="delete from Vendedor where dniVendedor = '"+ c.getDniVendedor() +"'";
        }
        System.out.println("Observando el estado de la sentencia sql: "+sql);
 

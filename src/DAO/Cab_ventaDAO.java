@@ -14,7 +14,7 @@ public class Cab_ventaDAO {
         dbBean con = new dbBean();
         String sql = "Select * from Cab_venta";
         if(sw == true){
-            sql = sql + " WHERE (dniClif = '"+ str +"')";
+            sql = sql + " WHERE (idVenta LIKE '" + str + "%') OR (fechaVenta LIKE '" + str + "%') OR (estado LIKE '" + str + "%')";
         }
         System.out.println(sql);
         try{

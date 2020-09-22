@@ -102,6 +102,7 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 270, 30));
         txtUser.getAccessibleContext().setAccessibleName("");
 
+        txtPw.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txtPw, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 270, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nombre.png"))); // NOI18N

@@ -53,7 +53,7 @@ public class ProductoDAO {
             sql="UPDATE Producto set modelo = '"+ c.getModelo() +"', tipo = '"+ c.getTipo() +"', detalle = '"+ c.getDetalle() +"', color = '"+ c.getColor() +"', talla = '"+ c.getTalla() +"', preciounitario = '"+ c.getPreciounitario() +"', stock = '"+ c.getStock() +"' where idProducto = '"+ c.getIdProducto() +"'";
        }
        if(proc.equals("delete")){
-            sql="delete Producto where idProducto = '"+ c.getIdProducto() +"'";
+            sql="delete from Producto where idProducto = '"+ c.getIdProducto() +"'";
        }
        System.out.println("Observando el estado de la sentencia sql: "+sql);
 

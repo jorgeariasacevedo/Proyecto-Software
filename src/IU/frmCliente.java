@@ -1,12 +1,15 @@
 
 package IU;
-
+//a//
 import BEAN.Cliente;
 import DAO.ClienteDAO;
+import UTIL.dbBean;
 import UTIL.util;
+import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
 //aa//
 public class frmCliente extends javax.swing.JFrame {
 
@@ -51,10 +54,10 @@ public class frmCliente extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtFechaClie = new javax.swing.JTextField();
         btnRegistrarClie = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        btnReporteClie = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -165,17 +168,7 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRegistrarClie);
-        btnRegistrarClie.setBounds(310, 420, 120, 40);
-
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tugurio.png"))); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(440, 420, 100, 40);
+        btnRegistrarClie.setBounds(320, 420, 120, 40);
 
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/escoba.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
@@ -185,7 +178,7 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(310, 460, 120, 40);
+        btnLimpiar.setBounds(310, 470, 120, 40);
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-symbol-1_icon-icons.com_70162.png"))); // NOI18N
         btnSalir.setText("Salir");
@@ -195,12 +188,22 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(440, 460, 100, 40);
+        btnSalir.setBounds(460, 470, 100, 40);
 
         jLabel12.setBackground(new java.awt.Color(153, 153, 255));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/objetivo.png"))); // NOI18N
         getContentPane().add(jLabel12);
         jLabel12.setBounds(530, 10, 70, 70);
+
+        btnReporteClie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder-documents01-1622837_121952.png"))); // NOI18N
+        btnReporteClie.setText("Reporte");
+        btnReporteClie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteClieActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReporteClie);
+        btnReporteClie.setBounds(460, 400, 150, 60);
 
         setSize(new java.awt.Dimension(648, 578));
         setLocationRelativeTo(null);
@@ -313,15 +316,6 @@ public class frmCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtBuscarClienteKeyReleased
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int i;
-        if(this.tblClieBusca.getSelectedRow()>0){
-            i = this.tblClieBusca.getSelectedRow();
-            dtm.removeRow(i);
-        }
-        limpia();
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void tblClieBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClieBuscaMouseClicked
         int fil;
         fil = this.tblClieBusca.getSelectedRow();
@@ -340,48 +334,34 @@ public class frmCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnReporteClieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteClieActionPerformed
+        try{
+            String r = "src/REPORTES/repCliente.jasper";
+            dbBean db = new dbBean();
+            db.connectRep(r,null,false);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }catch(JRException ex){
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnReporteClieActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+   /* public static void main(String args[]) {
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmCliente().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrarClie;
+    private javax.swing.JButton btnReporteClie;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -52,7 +52,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton7);
-        jButton7.setBounds(450, 260, 167, 73);
+        jButton7.setBounds(450, 260, 190, 73);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Processing_icon-icons.com_54803.png"))); // NOI18N
@@ -64,7 +64,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(450, 100, 167, 73);
+        jButton6.setBounds(450, 100, 190, 73);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/10303manofficeworkerlightskintone_110631.png"))); // NOI18N
@@ -111,7 +111,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(450, 20, 167, 73);
+        jButton4.setBounds(450, 20, 190, 73);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga (1).png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -139,17 +139,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCliente);
-        btnCliente.setBounds(450, 180, 167, 73);
+        btnCliente.setBounds(450, 180, 190, 73);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/rosa.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, -20, 660, 580);
+        jLabel2.setBounds(0, -20, 690, 580);
 
         jButton5.setText("jButton5");
         getContentPane().add(jButton5);
         jButton5.setBounds(230, 340, 73, 23);
 
-        setSize(new java.awt.Dimension(676, 392));
+        setSize(new java.awt.Dimension(695, 392));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
